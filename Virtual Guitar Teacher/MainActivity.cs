@@ -8,7 +8,7 @@ using Android.OS;
 
 namespace Virtual_Guitar_Teacher
 {
-    [Activity(Label = "Virtual_Guitar_Teacher", MainLauncher = true, Icon = "@drawable/icon")]
+    [Activity(Label = "Virtual Guitar Teacher", MainLauncher = true, Icon = "@drawable/icon")]
     public class MainActivity : Activity
     {
         int count = 1;
@@ -19,7 +19,7 @@ namespace Virtual_Guitar_Teacher
 
             // Set our view from the "main" layout resource
             SetContentView(Resource.Layout.Main);
-
+            
             // Get our button from the layout resource,
             // and attach an event to it
             Button button = FindViewById<Button>(Resource.Id.MyButton);
