@@ -10,17 +10,38 @@ package virtual_guitar_teacher.virtual_guitar_teacher;
 public final class R {
     public static final class attr {
     }
+    public static final class color {
+        public static final int theme_devicedefault_background=0x7f060000;
+    }
     public static final class drawable {
-        public static final int icon=0x7f020000;
+        public static final int ic_menu_guitar=0x7f020000;
+        public static final int icon=0x7f020001;
+        public static final int icon_512x512=0x7f020002;
+        public static final int monoandroidsplash=0x7f020003;
+        public static final int orange_headphones_android_bg=0x7f020004;
     }
     public static final class id {
-        public static final int MyButton=0x7f050000;
+        public static final int closestNote=0x7f080003;
+        public static final int fragment_placeholder=0x7f080000;
+        public static final int frequencyIndicator=0x7f080002;
+        public static final int img_splash_screen=0x7f080001;
+        public static final int menu_guitar=0x7f080004;
     }
     public static final class layout {
         public static final int main=0x7f030000;
+        public static final int splash=0x7f030001;
+        public static final int tuner=0x7f030002;
+    }
+    public static final class menu {
+        public static final int actionitems=0x7f070000;
     }
     public static final class string {
-        public static final int ApplicationName=0x7f040001;
-        public static final int Hello=0x7f040000;
+        public static final int ApplicationName=0x7f040000;
+        public static final int sharePicture=0x7f040001;
+    }
+    public static final class style {
+        public static final int Mono_Android_Theme_Splash=0x7f050001;
+        public static final int Theme_Custom=0x7f050002;
+        public static final int Theme_Splash=0x7f050000;
     }
 }
