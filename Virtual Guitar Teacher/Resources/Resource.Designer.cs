@@ -41,11 +41,39 @@ namespace Virtual_Guitar_Teacher
 			}
 		}
 		
+		public partial class Color
+		{
+			
+			// aapt resource value: 0x7f060000
+			public const int theme_devicedefault_background = 2131099648;
+			
+			static Color()
+			{
+				global::Android.Runtime.ResourceIdManager.UpdateIdValues();
+			}
+			
+			private Color()
+			{
+			}
+		}
+		
 		public partial class Drawable
 		{
 			
 			// aapt resource value: 0x7f020000
-			public const int Icon = 2130837504;
+			public const int ic_menu_guitar = 2130837504;
+			
+			// aapt resource value: 0x7f020001
+			public const int Icon = 2130837505;
+			
+			// aapt resource value: 0x7f020002
+			public const int Icon_512x512 = 2130837506;
+			
+			// aapt resource value: 0x7f020003
+			public const int monoandroidsplash = 2130837507;
+			
+			// aapt resource value: 0x7f020004
+			public const int orange_headphones_android_bg = 2130837508;
 			
 			static Drawable()
 			{
@@ -60,8 +88,20 @@ namespace Virtual_Guitar_Teacher
 		public partial class Id
 		{
 			
-			// aapt resource value: 0x7f050000
-			public const int MyButton = 2131034112;
+			// aapt resource value: 0x7f080003
+			public const int closestNote = 2131230723;
+			
+			// aapt resource value: 0x7f080000
+			public const int fragment_placeholder = 2131230720;
+			
+			// aapt resource value: 0x7f080002
+			public const int frequencyIndicator = 2131230722;
+			
+			// aapt resource value: 0x7f080001
+			public const int img_splash_screen = 2131230721;
+			
+			// aapt resource value: 0x7f080004
+			public const int menu_guitar = 2131230724;
 			
 			static Id()
 			{
@@ -79,6 +119,12 @@ namespace Virtual_Guitar_Teacher
 			// aapt resource value: 0x7f030000
 			public const int Main = 2130903040;
 			
+			// aapt resource value: 0x7f030001
+			public const int Splash = 2130903041;
+			
+			// aapt resource value: 0x7f030002
+			public const int Tuner = 2130903042;
+			
 			static Layout()
 			{
 				global::Android.Runtime.ResourceIdManager.UpdateIdValues();
@@ -89,14 +135,30 @@ namespace Virtual_Guitar_Teacher
 			}
 		}
 		
+		public partial class Menu
+		{
+			
+			// aapt resource value: 0x7f070000
+			public const int ActionItems = 2131165184;
+			
+			static Menu()
+			{
+				global::Android.Runtime.ResourceIdManager.UpdateIdValues();
+			}
+			
+			private Menu()
+			{
+			}
+		}
+		
 		public partial class String
 		{
 			
-			// aapt resource value: 0x7f040001
-			public const int ApplicationName = 2130968577;
-			
 			// aapt resource value: 0x7f040000
-			public const int Hello = 2130968576;
+			public const int ApplicationName = 2130968576;
+			
+			// aapt resource value: 0x7f040001
+			public const int sharePicture = 2130968577;
 			
 			static String()
 			{
@@ -104,6 +166,28 @@ namespace Virtual_Guitar_Teacher
 			}
 			
 			private String()
+			{
+			}
+		}
+		
+		public partial class Style
+		{
+			
+			// aapt resource value: 0x7f050001
+			public const int Mono_Android_Theme_Splash = 2131034113;
+			
+			// aapt resource value: 0x7f050002
+			public const int Theme_Custom = 2131034114;
+			
+			// aapt resource value: 0x7f050000
+			public const int Theme_Splash = 2131034112;
+			
+			static Style()
+			{
+				global::Android.Runtime.ResourceIdManager.UpdateIdValues();
+			}
+			
+			private Style()
 			{
 			}
 		}
