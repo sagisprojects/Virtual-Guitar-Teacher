@@ -70,10 +70,7 @@ namespace Virtual_Guitar_Teacher
 			public const int Icon_512x512 = 2130837506;
 			
 			// aapt resource value: 0x7f020003
-			public const int monoandroidsplash = 2130837507;
-			
-			// aapt resource value: 0x7f020004
-			public const int orange_headphones_android_bg = 2130837508;
+			public const int orange_headphones_android_bg = 2130837507;
 			
 			static Drawable()
 			{
@@ -88,6 +85,9 @@ namespace Virtual_Guitar_Teacher
 		public partial class Id
 		{
 			
+			// aapt resource value: 0x7f080004
+			public const int TuneBar = 2131230724;
+			
 			// aapt resource value: 0x7f080003
 			public const int closestNote = 2131230723;
 			
@@ -100,8 +100,8 @@ namespace Virtual_Guitar_Teacher
 			// aapt resource value: 0x7f080001
 			public const int img_splash_screen = 2131230721;
 			
-			// aapt resource value: 0x7f080004
-			public const int menu_guitar = 2131230724;
+			// aapt resource value: 0x7f080005
+			public const int menu_guitar = 2131230725;
 			
 			static Id()
 			{
@@ -174,10 +174,7 @@ namespace Virtual_Guitar_Teacher
 		{
 			
 			// aapt resource value: 0x7f050001
-			public const int Mono_Android_Theme_Splash = 2131034113;
-			
-			// aapt resource value: 0x7f050002
-			public const int Theme_Custom = 2131034114;
+			public const int Theme_Custom = 2131034113;
 			
 			// aapt resource value: 0x7f050000
 			public const int Theme_Splash = 2131034112;
