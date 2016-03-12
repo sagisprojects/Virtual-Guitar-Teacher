@@ -1,13 +1,48 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
     android:orientation="vertical"
-    tools:context=".WoodenSideProject">
-    <LinearLayout
-        android:id="@+id/fragment_placeholder"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:orientation="vertical" />
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent">
+    <TableLayout
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:stretchColumns="*"
+        android:shrinkColumns="*">
+        <TableRow
+            android:layout_weight="1"
+            android:gravity="center">
+            <ImageButton
+                android:id="@+id/btnTutor"
+                android:text="Tutorial"
+                android:layout_width="fill_parent"
+                android:layout_height="fill_parent"
+                android:src="@drawable/tutorial"
+                android:scaleType="fitCenter" />
+            <ImageButton
+                android:id="@+id/btnPlayer"
+                android:text="Play"
+                android:layout_width="fill_parent"
+                android:layout_height="fill_parent"
+                android:src="@drawable/play"
+                android:scaleType="fitCenter" />
+        </TableRow>
+        <TableRow
+            android:layout_weight="1"
+            android:gravity="center">
+            <ImageButton
+                android:id="@+id/btnTuner"
+                android:text="Tuner"
+                android:layout_width="fill_parent"
+                android:layout_height="fill_parent"
+                android:src="@drawable/tune"
+                android:scaleType="fitCenter" />
+            <ImageButton
+                android:id="@+id/btnRecorder"
+                android:text="Recorder"
+                android:layout_width="fill_parent"
+                android:layout_height="fill_parent"
+                android:src="@drawable/vinyl"
+                android:scaleType="fitCenter" />
+        </TableRow>
+    </TableLayout>
 </LinearLayout>
