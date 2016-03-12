@@ -14,16 +14,16 @@
         android:layout_width="match_parent"
         android:layout_height="200dp"
         android:gravity="center|top"
-        android:text="D#"
+        android:text="E"
         android:alpha="0.85"
         android:textSize="70pt"
         android:textStyle="normal"
         android:textColor="@android:color/holo_green_light" />
     <SeekBar
+        android:id="@+id/TuneBar"
         android:layout_width="match_parent"
         android:layout_height="35.7dp"
-        android:id="@+id/TuneBar"
-        android:max="200"
-        android:progress="100"
+        android:max="256"
+        android:progress="128"
         android:clickable="false" />
 </LinearLayout>

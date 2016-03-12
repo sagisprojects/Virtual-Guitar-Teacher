@@ -1,6 +1,10 @@
 <resources>
   <style name="Theme.Splash" parent="android:Theme">
-    <item name="android:windowBackground">@drawable/orange_headphones_android_bg</item>
+    <item name="android:windowBackground">@drawable/loading_screen</item>
+    <item name="android:windowNoTitle">true</item>
+  </style>
+  <style name="Theme.Default" parent="android:Theme">
+    <item name="android:windowBackground">@drawable/parquet_texture</item>
     <item name="android:windowNoTitle">true</item>
   </style>
 </resources>

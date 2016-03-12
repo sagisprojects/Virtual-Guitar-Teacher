@@ -7,18 +7,24 @@ using Android.Content;
 using Android.OS;
 using Android.Runtime;
 using Android.Views;
-using Android.Widget;
+using Virtual_Guitar_Teacher.Controller;
+using Virtual_Guitar_Teacher.Controller.Libraries;
 
-namespace Virtual_Guitar_Teacher
+namespace Virtual_Guitar_Teacher.Controller
 {
     class Tutor : NotesPlayer
     {
         //Intialization
+        public Tutor()
+        {
+           // Note[,] guitarNeck = new int[6,15];
+            
+        }
 
         //base.SendNote
 
         //base.CompareNotes
 
-        //base.FFT
+        //FFT
     }
 }
