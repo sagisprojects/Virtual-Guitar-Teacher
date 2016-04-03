@@ -1,7 +1,7 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android" package="Virtual_Guitar_Teacher.Virtual_Guitar_Teacher" android:versionName="1.0" android:installLocation="preferExternal" android:versionCode="1">
 	<uses-sdk />
-	<application android:label="Virtual Guitar Teacher" android:icon="@drawable/Icon_512x512"></application>
+	<application android:label="Virtual Guitar Teacher" android:icon="@drawable/Icon"></application>
 	<uses-permission android:name="android.permission.RECORD_AUDIO" />
 	<uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
 	<uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />

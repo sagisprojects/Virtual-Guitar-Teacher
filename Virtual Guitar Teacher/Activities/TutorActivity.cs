@@ -6,17 +6,18 @@ using System.Text;
 using Android.App;
 using Android.Content;
 using Android.OS;
-using Android.Runtime;
+using Android.Util;
 using Android.Views;
 using Android.Widget;
 using Android.Graphics;
 using System.Threading;
 using Virtual_Guitar_Teacher.Controller;
 using Virtual_Guitar_Teacher.Controller.Libraries;
+using Android.Graphics.Drawables;
 
 namespace Virtual_Guitar_Teacher.Activities
 {
-    [Activity(Label = "TutorActivity")]
+    [Activity(Label = "TutorActivity", Theme = "@style/Theme.Light")]
     public class TutorActivity : BasicActivityInitialization
     {
         Tutor tutor;
@@ -25,34 +26,29 @@ namespace Virtual_Guitar_Teacher.Activities
         {
             base.OnCreate(savedInstanceState);
 
-            tutor = new Tutor();
+            tutor = new Tutor(this);
 
             //Set appropriate layout.
             SetContentView(Resource.Layout.Tutor);
 
             //Initialize activity and get the microphone listener thread.
-            Thread micThread = base.CreateMicrophoneRecorder();
+            Thread micThread = CreateMicrophoneRecorder();
 
-            //Start the microphone listening thread. 
+            OnMicrophoneFinishedSampling += TutorActivity_OnMicrophoneFinishedSampling;
+
+            //Start the microphone listening thread.
             //micThread.Start();
 
-            AnimateGuitarIntro();
-        }
-
-        private void AnimateGuitarIntro()
-        {
             ImageView guitarBG = FindViewById<ImageView>(Resource.Id.guitarBG);
-            int initialScrollX = guitarBG.ScrollX;
-            int targetScrollX = 470; //dp
+            //guitarBG.SetImageResource(Resource.Drawable.Neck_Acustic_01);
 
-            for (int x = initialScrollX; x > targetScrollX; x--)
-            {
-                guitarBG.ScrollX = x;
-                Thread.Sleep(10);
-            }
+            tutor.AnimateGuitarIntro(guitarBG);
+
+            Log.Info("TutorActivity","OnCreate");
+            tutor.StartTutoring();
         }
 
-        protected override void OnMicrophoneFinishedSampling(object sender, FinishedSampalingEventArgs e)
+        private void TutorActivity_OnMicrophoneFinishedSampling(object sender, FinishedSampalingEventArgs e)
         {
             throw new NotImplementedException();
         }

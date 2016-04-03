@@ -67,31 +67,25 @@
   <ItemGroup>
     <Reference Include="Mono.Android" />
     <Reference Include="mscorlib" />
-    <Reference Include="NineOldAndroids, Version=2.4.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\NineOldAndroids.2.4.0\lib\MonoAndroid23\NineOldAndroids.dll</HintPath>
-      <Private>True</Private>
-    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Numerics" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Xml" />
-    <Reference Include="Xamarin.Android.Support.v13, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\Xamarin.Android.Support.v13.21.0.3.0\lib\MonoAndroid32\Xamarin.Android.Support.v13.dll</HintPath>
-      <Private>True</Private>
-    </Reference>
-    <Reference Include="Xamarin.Android.Support.v4, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\Xamarin.Android.Support.v4.21.0.3.0\lib\MonoAndroid10\Xamarin.Android.Support.v4.dll</HintPath>
-      <Private>True</Private>
-    </Reference>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Activities\BasicActivityInitialization.cs" />
     <Compile Include="Activities\PlayerActivity.cs" />
     <Compile Include="Activities\RecorderActivity.cs" />
-    <Compile Include="Controller\Libraries\FFT.cs" />
-    <Compile Include="Controller\Libraries\Frequencies.cs" />
+    <Compile Include="Controller\Libraries\CT_FFT.cs" />
+    <Compile Include="Controller\Libraries\ExtensionMethods.cs" />
+    <Compile Include="Controller\Libraries\Generic.cs" />
+    <Compile Include="Controller\Libraries\IPC_FFT.cs" />
+    <Compile Include="Controller\Libraries\Notes.cs" />
     <Compile Include="Controller\Libraries\Logger.cs" />
+    <Compile Include="Controller\Libraries\NoteRepresentation.cs" />
     <Compile Include="Controller\Libraries\NotesPlayer.cs" />
+    <Compile Include="Controller\Libraries\WindowFunction.cs" />
     <Compile Include="Controller\Player.cs" />
     <Compile Include="Controller\Recorder.cs" />
     <Compile Include="Controller\Libraries\MicrophoneManager.cs" />
@@ -113,8 +107,8 @@
     <AndroidResource Include="Resources\layout\Main.axml" />
   </ItemGroup>
   <ItemGroup>
-    <AndroidResource Include="Resources\layout\Player.xml" />
-    <AndroidResource Include="Resources\layout\Recorder.xml" />
+    <AndroidResource Include="Resources\layout\Player.axml" />
+    <AndroidResource Include="Resources\layout\Recorder.axml" />
     <AndroidResource Include="Resources\layout\Tuner.axml" />
     <AndroidResource Include="Resources\layout\Tutor.axml">
       <SubType>AndroidResource</SubType>
@@ -136,20 +130,6 @@
     <AndroidResource Include="Resources\drawable\Icon_512x512.png" />
   </ItemGroup>
   <ItemGroup>
-    <XamarinComponentReference Include="NineOldAndroids">
-      <Visible>False</Visible>
-      <Version>2.4.0</Version>
-    </XamarinComponentReference>
-    <XamarinComponentReference Include="xamandroidsupportv13-18">
-      <Visible>False</Visible>
-      <Version>21.0.3.0</Version>
-    </XamarinComponentReference>
-    <XamarinComponentReference Include="xamandroidsupportv4-18">
-      <Visible>False</Visible>
-      <Version>21.0.3.0</Version>
-    </XamarinComponentReference>
-  </ItemGroup>
-  <ItemGroup>
     <None Include="LICENSE.md" />
   </ItemGroup>
   <ItemGroup>
@@ -157,11 +137,52 @@
     <AndroidResource Include="Resources\drawable\tutorial.png" />
     <AndroidResource Include="Resources\drawable\vinyl.png" />
     <AndroidResource Include="Resources\drawable\play.png" />
-    <AndroidResource Include="Resources\drawable\parquet_texture.jpg" />
     <AndroidResource Include="Resources\drawable\loading_screen.png" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Resources\menu\" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\drawable\parquet_texture_dark.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\drawable\parquet_texture_light.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\drawable\bg_musical.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\drawable\Neck_Acustic_01.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\drawable\ball_red.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\drawable\ball_blue.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\drawable\ball_green.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\drawable\ball_orange.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\drawable\ball_purple.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\drawable\bg_play_01.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\drawable\bg_record_01.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\drawable\bg_tune_01.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\drawable\recorder_cell_bg.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\drawable\recorder_cell_bg_pressed.png" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\Android\Xamarin.Android.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

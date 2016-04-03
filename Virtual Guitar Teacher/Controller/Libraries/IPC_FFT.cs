@@ -47,8 +47,9 @@ namespace Virtual_Guitar_Teacher.Controller.Libraries
         /**
          *
          */
-        public FFT()
+        public FFT(uint logN)
         {
+			init(logN);
         }
 
         /**

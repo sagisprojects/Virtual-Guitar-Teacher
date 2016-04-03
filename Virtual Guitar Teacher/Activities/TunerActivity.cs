@@ -30,19 +30,25 @@ namespace Virtual_Guitar_Teacher.Activities
             SetContentView(Resource.Layout.Tuner);
 
             //Initialize activity and get the microphone listener thread.
-            Thread micThread = base.CreateMicrophoneRecorder();
+            Thread micThread = CreateMicrophoneRecorder();
 
-            //Sign up for finished sampling event.
-            //base.micManager.FinishedSampling += MicManager_FinishedSampling;
+            OnMicrophoneFinishedSampling += TunerActivity_OnMicrophoneFinishedSampling;     
 
             //Start the microphone listening thread. 
             micThread.Start();
         }
 
-        protected override void OnMicrophoneFinishedSampling(object sender, FinishedSampalingEventArgs e)
+        private void TunerActivity_OnMicrophoneFinishedSampling(object sender, FinishedSampalingEventArgs e)
         {
-            SeekBar sb = FindViewById<SeekBar>(Resource.Id.TuneBar);
-            sb.Progress = (int)e.SoundSample;//.Max();
+            SeekBar tuneBar = FindViewById<SeekBar>(Resource.Id.tuneBar);
+            tuneBar.Progress = (int)e.Frequency.CyclesPerSecond;
+
+            RunOnUiThread(new Action(() => 
+            {
+                TextView closestNote = FindViewById<TextView>(Resource.Id.closestNote);
+                closestNote.Text = e.Frequency.CyclesPerSecond + " Hz";
+            }
+            ));
             //tuner.NoteFrequencyFilter(e.SoundSample);
         }
     }

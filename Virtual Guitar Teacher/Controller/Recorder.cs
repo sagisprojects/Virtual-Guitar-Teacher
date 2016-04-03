@@ -15,5 +15,7 @@ namespace Virtual_Guitar_Teacher.Controller
     class Recorder
     {
         //Record input from microphone.
+
+        //Record a sequence from screen to file.
     }
 }

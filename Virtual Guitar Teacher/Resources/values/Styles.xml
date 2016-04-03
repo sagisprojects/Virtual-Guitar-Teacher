@@ -2,9 +2,43 @@
   <style name="Theme.Splash" parent="android:Theme">
     <item name="android:windowBackground">@drawable/loading_screen</item>
     <item name="android:windowNoTitle">true</item>
+    <item name="android:windowFullscreen">true</item>
+    <item name="android:screenOrientation">landscape</item>
   </style>
-  <style name="Theme.Default" parent="android:Theme">
-    <item name="android:windowBackground">@drawable/parquet_texture</item>
+  <style name="Theme.Light" parent="android:Theme">
+    <item name="android:windowBackground">@drawable/parquet_texture_light</item>
     <item name="android:windowNoTitle">true</item>
+    <item name="android:windowFullscreen">true</item>
+    <item name="android:screenOrientation">landscape</item>
+  </style>
+  <style name="Theme.Dark" parent="android:Theme">
+    <item name="android:windowBackground">@drawable/parquet_texture_dark</item>
+    <item name="android:windowNoTitle">true</item>
+    <item name="android:windowFullscreen">true</item>
+    <item name="android:screenOrientation">landscape</item>
+  </style>
+  <style name="Theme.Musical" parent="android:Theme">
+    <item name="android:windowBackground">@drawable/bg_musical</item>
+    <item name="android:windowNoTitle">true</item>
+    <item name="android:windowFullscreen">true</item>
+    <item name="android:screenOrientation">landscape</item>
+  </style>
+  <style name="Theme.Tune" parent="android:Theme">
+    <item name="android:windowBackground">@drawable/bg_tune_01</item>
+    <item name="android:windowNoTitle">true</item>
+    <item name="android:windowFullscreen">true</item>
+    <item name="android:screenOrientation">landscape</item>
+  </style>
+  <style name="Theme.Record" parent="android:Theme">
+    <item name="android:windowBackground">@drawable/bg_record_01</item>
+    <item name="android:windowNoTitle">true</item>
+    <item name="android:windowFullscreen">true</item>
+    <item name="android:screenOrientation">landscape</item>
+  </style>
+    <style name="Theme.Play" parent="android:Theme">
+    <item name="android:windowBackground">@drawable/bg_play_01</item>
+    <item name="android:windowNoTitle">true</item>
+    <item name="android:windowFullscreen">true</item>
+    <item name="android:screenOrientation">landscape</item>
   </style>
 </resources>

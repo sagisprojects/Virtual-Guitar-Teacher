@@ -14,10 +14,18 @@ using Virtual_Guitar_Teacher.Controller.Libraries;
 
 namespace Virtual_Guitar_Teacher.Activities
 {
+    /// <summary>
+    /// Sets default settings for the activity,
+    /// and hndles the creation of the microphone listener thread.
+    /// </summary>
     public class BasicActivityInitialization : Activity
     {
         protected volatile bool shouldListen = true;
         private MicrophoneManager micManager;
+        /// <summary>
+        /// Fires once a sample of the microphone input is ready for use.
+        /// </summary>
+        protected event FinishedSamplingEventHandler OnMicrophoneFinishedSampling;
 
         /// <summary>
         /// Initializes application's window basic flags, orientation, and hides the title bar.
@@ -40,14 +48,13 @@ namespace Virtual_Guitar_Teacher.Activities
 
         /// <summary>
         /// Initializes a new thread to be used for constantly listening to the microphone input.
-        /// User must override OnMicrophoneFinishedSampling for event firing implementation.
         /// </summary>
         /// <returns>The thread which the microphone listener is running on.</returns>
         protected Thread CreateMicrophoneRecorder()
         {
             //Microphone initialization;
             micManager = new MicrophoneManager();
-            micManager.FinishedSampling += OnMicrophoneFinishedSampling;
+            micManager.FinishedSampling += OnMicrophoneFinishedSamplingEvent;
 
             //Crate new thread for constantly listening to the microphone input.
             Thread thread = new Thread(new ThreadStart(() => {
@@ -63,21 +70,27 @@ namespace Virtual_Guitar_Teacher.Activities
             return thread;
         }
 
-        protected virtual void OnMicrophoneFinishedSampling(object sender, FinishedSampalingEventArgs e)
+        private void OnMicrophoneFinishedSamplingEvent(object sender, FinishedSampalingEventArgs e)
         {
-            throw new NotImplementedException();
+            OnMicrophoneFinishedSampling(sender, e);
         }
 
+        /// <summary>
+        /// Order the microphone listener thread to stop listening, and exit naturally,
+        /// upon a back button press.
+        /// </summary>
         public override void OnBackPressed()
         {
-            //Order the microphone listener thread to stop listening, and exit naturally.
             shouldListen = false;
             base.OnBackPressed();
         }
 
+        /// <summary>
+        /// Order the microphone listener thread to stop listening, and exit naturally,
+        /// once the object is no longer needed by the application.
+        /// </summary>
         protected override void OnDestroy()
         {
-            //Order the microphone listener thread to stop listening, and exit naturally.
             shouldListen = false;
             base.OnDestroy();
         }

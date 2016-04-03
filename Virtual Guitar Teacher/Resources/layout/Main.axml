@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:orientation="vertical"
+    android:orientation="horizontal"
     android:layout_width="fill_parent"
     android:layout_height="fill_parent">
     <TableLayout
@@ -17,14 +17,18 @@
                 android:layout_width="fill_parent"
                 android:layout_height="fill_parent"
                 android:src="@drawable/tutorial"
-                android:scaleType="fitCenter" />
+                android:scaleType="fitCenter"
+                android:background="#80000000"
+                android:padding="10dp" />
             <ImageButton
                 android:id="@+id/btnPlayer"
                 android:text="Play"
                 android:layout_width="fill_parent"
                 android:layout_height="fill_parent"
                 android:src="@drawable/play"
-                android:scaleType="fitCenter" />
+                android:scaleType="fitCenter"
+                android:background="#80000000"
+                android:padding="10dp" />
         </TableRow>
         <TableRow
             android:layout_weight="1"
@@ -35,14 +39,18 @@
                 android:layout_width="fill_parent"
                 android:layout_height="fill_parent"
                 android:src="@drawable/tune"
-                android:scaleType="fitCenter" />
+                android:scaleType="fitCenter"
+                android:background="#80000000"
+                android:padding="10dp" />
             <ImageButton
                 android:id="@+id/btnRecorder"
                 android:text="Recorder"
                 android:layout_width="fill_parent"
                 android:layout_height="fill_parent"
                 android:src="@drawable/vinyl"
-                android:scaleType="fitCenter" />
+                android:scaleType="fitCenter"
+                android:background="#80000000"
+                android:padding="10dp" />
         </TableRow>
     </TableLayout>
 </LinearLayout>

@@ -23,7 +23,7 @@ namespace Virtual_Guitar_Teacher.Activities
             //Set appropriate layout.
             SetContentView(Resource.Layout.Player);
 
-            Player play = new Player();
+            Player play = new Player(this);
         }
     }
 }

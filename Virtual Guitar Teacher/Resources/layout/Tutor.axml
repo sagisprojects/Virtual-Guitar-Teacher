@@ -1,16 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:orientation="vertical"
+    android:orientation="horizontal"
     android:layout_width="fill_parent"
     android:layout_height="fill_parent"
-    android:minWidth="25px"
-    android:minHeight="25px">
+    style="@style/Theme.Light">
     <ImageView
-        android:layout_width="fill_parent"
-        android:layout_height="fill_parent"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
         android:id="@+id/guitarBG"
-        android:scaleType="center"
-        android:scrollX="900dp"
-        android:scaleY="1.5"
-        android:src="@drawable/vinyl" />
+        android:scaleType="fitCenter"
+        android:src="@drawable/neck_acustic_01" />
 </LinearLayout>

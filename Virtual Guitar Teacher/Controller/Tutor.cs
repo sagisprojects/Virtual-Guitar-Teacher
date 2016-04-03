@@ -9,16 +9,28 @@ using Android.Runtime;
 using Android.Views;
 using Virtual_Guitar_Teacher.Controller;
 using Virtual_Guitar_Teacher.Controller.Libraries;
+using Android.Util;
 
 namespace Virtual_Guitar_Teacher.Controller
 {
     class Tutor : NotesPlayer
     {
+        //private Context _context;
+        private Activity _activity;
+
         //Intialization
-        public Tutor()
+        public Tutor(Activity activity)
+            : base(activity)
         {
-           // Note[,] guitarNeck = new int[6,15];
-            
+            _activity = activity;
+        }
+
+        public void StartTutoring()
+        {
+            NoteRepresentation noteRep = new NoteRepresentation(_activity, 
+                BallColor.Blue, GuitarString.G, new Note(NotesNames.G3));
+            Log.Info("Tutor", "StartTutoring");
+            noteRep.AnimateNote();
         }
 
         //base.SendNote

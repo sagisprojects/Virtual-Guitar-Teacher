@@ -1,8 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:orientation="vertical"
+    android:orientation="horizontal"
     android:layout_width="fill_parent"
-    android:layout_height="fill_parent">
+    android:layout_height="fill_parent"
+    style="@style/Theme.Tune">
     <SeekBar
         android:id="@+id/frequencyIndicator"
         android:layout_width="match_parent"
@@ -20,10 +21,9 @@
         android:textStyle="normal"
         android:textColor="@android:color/holo_green_light" />
     <SeekBar
-        android:id="@+id/TuneBar"
+        android:id="@+id/tuneBar"
         android:layout_width="match_parent"
         android:layout_height="35.7dp"
-        android:max="256"
-        android:progress="128"
+        android:max="44100"
         android:clickable="false" />
 </LinearLayout>

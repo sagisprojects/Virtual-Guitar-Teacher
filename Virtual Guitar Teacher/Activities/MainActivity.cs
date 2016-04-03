@@ -1,14 +1,8 @@
-﻿using System;
-using System.Threading;
-using Android.App;
+﻿using Android.App;
 using Android.Content;
-using Android.Runtime;
-using Android.Views;
 using Android.Widget;
 using Android.OS;
-using ViewPager = Android.Support.V4.View.ViewPager;
-using Virtual_Guitar_Teacher.Controller;
-using System.Linq;
+using Android.Views;
 
 namespace Virtual_Guitar_Teacher.Activities
 {
@@ -29,35 +23,36 @@ namespace Virtual_Guitar_Teacher.Activities
         protected override void OnCreate(Bundle savedInstanceState)
         {
             base.OnCreate(savedInstanceState);
-
+            //Set to default theme.
+            SetTheme(Resource.Style.Theme_Dark);
+            //Set the view to the "main" layout resource.
+            SetContentView(Resource.Layout.Main);
+            
             //Start the appropriate activity for each of the buttons on click event. 
-            Button btnTuner = FindViewById<Button>(Resource.Id.btnTuner);
+            ImageButton btnTuner = FindViewById<ImageButton>(Resource.Id.btnTuner);
             btnTuner.Click += delegate 
             {
                 StartActivity(typeof(TunerActivity));
             };
 
-            Button btnTutor = FindViewById<Button>(Resource.Id.btnTutor);
+            ImageButton btnTutor = FindViewById<ImageButton>(Resource.Id.btnTutor);
             btnTutor.Click += delegate
             {
                 StartActivity(typeof(TutorActivity));
             };
 
-            Button btnPlayer = FindViewById<Button>(Resource.Id.btnPlayer);
+            ImageButton btnPlayer = FindViewById<ImageButton>(Resource.Id.btnPlayer);
             btnPlayer.Click += delegate
             {
                 StartActivity(typeof(PlayerActivity));
             };
 
-            Button btnRecorder = FindViewById<Button>(Resource.Id.btnRecorder);
+            ImageButton btnRecorder = FindViewById<ImageButton>(Resource.Id.btnRecorder);
             btnRecorder.Click += delegate
             {
                 StartActivity(typeof(RecorderActivity));
             };
 
-            //Set to default theme and the view to the "main" layout resource.
-            SetTheme(Resource.Style.Theme_Default);
-            SetContentView(Resource.Layout.Main);
 
             //Display a Toast Message on Clicking the btn_Hello  
             //Toast.MakeText(this, "Hello World", ToastLength.Short).Show();

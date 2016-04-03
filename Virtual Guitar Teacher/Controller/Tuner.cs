@@ -61,34 +61,33 @@ namespace Virtual_Guitar_Teacher.Controller
         {
             float[] twoClosestOpenNotes = new float[2];  //Create a 2 units array of type NoteFrequencies.
             float[] differences = new float[6];          //Creat an array of differences between the playedFrequency to each of the open notes.
-            //Notes notes = new Notes();
 
-            if (playedFrequency <= OpenStrings.E2)//notes["E2"].Hertz.CyclePerSecond)
+            if (playedFrequency <= OpenStrings.E2)
             {
                 twoClosestOpenNotes[0] = OpenStrings.E2;
                 twoClosestOpenNotes[1] = 0;
             }
-            else if (playedFrequency <= OpenStrings.A2 && playedFrequency > OpenStrings.E2)
+            else if (playedFrequency > OpenStrings.E2 && playedFrequency <= OpenStrings.A2)
             {
                 twoClosestOpenNotes[0] = OpenStrings.E2;
                 twoClosestOpenNotes[1] = OpenStrings.A2;
             }
-            else if (playedFrequency <= OpenStrings.D3 && playedFrequency > OpenStrings.A2)
+            else if (playedFrequency > OpenStrings.A2 && playedFrequency <= OpenStrings.D3)
             {
                 twoClosestOpenNotes[0] = OpenStrings.A2;
                 twoClosestOpenNotes[1] = OpenStrings.D3;
             }
-            else if (playedFrequency <= OpenStrings.G3 && playedFrequency > OpenStrings.D3)
+            else if (playedFrequency > OpenStrings.D3 && playedFrequency <= OpenStrings.G3)
             {
                 twoClosestOpenNotes[0] = OpenStrings.D3;
                 twoClosestOpenNotes[1] = OpenStrings.G3;
             }
-            else if (playedFrequency <= OpenStrings.B3 && playedFrequency > OpenStrings.D3)
+            else if (playedFrequency > OpenStrings.G3 && playedFrequency <= OpenStrings.B3)
             {
-                twoClosestOpenNotes[0] = OpenStrings.D3;
+                twoClosestOpenNotes[0] = OpenStrings.G3;
                 twoClosestOpenNotes[1] = OpenStrings.B3;
             }
-            else if (playedFrequency <= OpenStrings.E4 && playedFrequency > OpenStrings.B3)
+            else if (playedFrequency > OpenStrings.B3 && playedFrequency <= OpenStrings.E4)
             {
                 twoClosestOpenNotes[0] = OpenStrings.B3;
                 twoClosestOpenNotes[1] = OpenStrings.E4;
