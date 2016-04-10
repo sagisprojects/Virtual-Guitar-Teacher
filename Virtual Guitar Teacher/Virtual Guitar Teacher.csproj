@@ -98,6 +98,7 @@
     <Compile Include="Activities\TutorActivity.cs" />
   </ItemGroup>
   <ItemGroup>
+    <AndroidAsset Include="Assets\TestSong.vgts" />
     <None Include="ProjectDiagram.cd" />
     <None Include="packages.config" />
     <None Include="Resources\AboutResources.txt" />
@@ -183,6 +184,9 @@
   </ItemGroup>
   <ItemGroup>
     <AndroidResource Include="Resources\drawable\recorder_cell_bg_pressed.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\drawable\BorderedSquare.xml" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\Android\Xamarin.Android.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

@@ -6,12 +6,12 @@ namespace Virtual_Guitar_Teacher.Controller
 {
     class Player : NotesPlayer
     {
-        private Activity _activity;
+        //private Activity _activity;
 
         public Player(Activity activity)
             : base(activity)
         {
-            _activity = activity;
+            //_activity = activity;
             OnNoteArraival += Player_OnNoteArraival;
         }
 

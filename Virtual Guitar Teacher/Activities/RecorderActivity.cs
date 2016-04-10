@@ -30,6 +30,8 @@ namespace Virtual_Guitar_Teacher.Activities
             gridLayout.Touch += GridLayout_Touch;
             View view = gridLayout.GetChildAt(5);
 
+            this.AddContentView(view, null);
+
             Log.Info("", view.LayoutParameters.Height.ToString());
             Log.Info("", view.LayoutParameters.Width.ToString());
             Log.Info("", view.GetX().ToString());

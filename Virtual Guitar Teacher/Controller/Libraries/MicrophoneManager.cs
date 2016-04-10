@@ -19,6 +19,7 @@ namespace Virtual_Guitar_Teacher.Controller.Libraries
         public event FinishedSamplingEventHandler FinishedSampling;
 
         private string _defaultRecordingFilePath = @"\VGT\Documents\Recordings\"; //This should be in strings.xml, not here.
+            ///new Android.Content.Res.Resources(null, null, null).GetString(Resource.String.SongsFolderPath);
 
         private const ChannelIn RECORDER_CHANNELS = ChannelIn.Mono;
         private const Encoding RECORDER_AUDIO_ENCODING = Encoding.Pcm16bit;
@@ -98,11 +99,11 @@ namespace Virtual_Guitar_Teacher.Controller.Libraries
             });
 
         }
-
+        
         public void Dispose()
         {
             _recorder.Stop();
-            ((IDisposable)_recorder).Dispose();
+            _recorder.Dispose();
             GC.SuppressFinalize(this);
         }
     }

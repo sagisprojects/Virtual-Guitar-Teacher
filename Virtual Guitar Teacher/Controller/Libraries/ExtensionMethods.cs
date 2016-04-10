@@ -18,17 +18,15 @@ namespace Virtual_Guitar_Teacher.Controller.Libraries
     {
         public static ViewPropertyAnimator ScrollX(this ViewPropertyAnimator vpa, ImageView imgView, params int[] values)
         {
-            //Object viewObj = view; //new Object(vpa.Handle, JniHandleOwnership.TransferGlobalRef);
             ObjectAnimator objAnim = ObjectAnimator.OfInt(imgView, "ScrollX", values);
-            objAnim.SetDuration(vpa.Duration / 2);
+            objAnim.SetDuration(vpa.Duration / 2); //Divide by 2 so it will take less time.
             objAnim.StartDelay = vpa.StartDelay;
             objAnim.Start();
             return vpa;
         }
+
         public static ViewPropertyAnimator ScrollY(this ViewPropertyAnimator vpa, ImageView imgView, params int[] values)
         {
-            //ImageView viewObj = (ImageView)(Object)vpa.Class;
-            //(ImageView)new Object(vpa.Handle, JniHandleOwnership.TransferGlobalRef);
             ObjectAnimator objAnim = ObjectAnimator.OfInt(imgView, "ScrollY", values);
             objAnim.SetDuration(vpa.Duration);
             objAnim.StartDelay = vpa.StartDelay;
