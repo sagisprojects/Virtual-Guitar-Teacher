@@ -33,6 +33,27 @@ namespace Virtual_Guitar_Teacher.Controller.Libraries
         //public TextView UndelyingViewObject{ get { return _noteCircle; } }
         public Note Note { get { return _note; } }
 
+		//OnNoteArraival - once the note arrives to it's destination line.
+		public event EventHandler<OnNoteArraivalArgs> OnNoteArraival;
+		//OnNoteGone - once the note representation is no longer in view.
+		public event EventHandler<EventArgs> OnNoteGone;
+
+		// Special EventArgs class to hold info about...
+		public class OnNoteArraivalArgs : EventArgs
+		{
+			private Hz _frequency;
+
+			public OnNoteArraivalArgs(Hz frequency)
+			{
+				_frequency = frequency;
+			}
+
+			public Hz Frequency
+			{
+				get { return _frequency; }
+			}
+		}
+
         /// <summary>
         /// Constructs a new representation as a visual ball with a number of string in its center.
         /// </summary>
@@ -45,9 +66,9 @@ namespace Virtual_Guitar_Teacher.Controller.Libraries
             _note = note;
 
             //The color of the ball.
-            BallColor ballColor = (BallColor)note.Position.Fret;
+			BallColor ballColor = (BallColor)note.Position.String; //note.Position.Fret;
             //Which string the number on the ball should represent.
-            GuitarString stringNum = note.Position.String;
+            //GuitarString stringNum = note.Position.String;
 
             _noteCircle = new TextView(_currentActivity);
 
@@ -78,7 +99,7 @@ namespace Virtual_Guitar_Teacher.Controller.Libraries
             //Center text.
             _noteCircle.Gravity = GravityFlags.Center;
             //Set text.
-            _noteCircle.SetText(((int)stringNum).ToString(), TextView.BufferType.Normal);
+            //_noteCircle.SetText(((int)stringNum).ToString(), TextView.BufferType.Normal);
             //Refresh view.
             _noteCircle.RequestLayout();
             
@@ -100,10 +121,10 @@ namespace Virtual_Guitar_Teacher.Controller.Libraries
             //TODO: Add string positions as well.
 
             //Set initial location.
-            _noteCircle.SetX(fretMetrics.GetHorizontalCenter());
+			_noteCircle.SetX(fretMetrics.GetHorizontalCenter() - _noteCircle.Width / 2);
             _noteCircle.SetY(screenDimensions.HeightPixels);
 
-            int Y_dest = fretMetrics.GetVerticalCenter();
+			int Y_dest = fretMetrics.GetVerticalCenter() - _noteCircle.Height / 2;
 
             ObjectAnimator objAnim = ObjectAnimator.OfFloat(_noteCircle, "Y", Y_dest);
             objAnim.SetDuration((long)_note.Duration);
@@ -116,11 +137,12 @@ namespace Virtual_Guitar_Teacher.Controller.Libraries
                 objAnimFadeOut.Start();
 
                 //Start capturing of note's sound input.
+				OnNoteArraival(this, new OnNoteArraivalArgs(_note.Hertz));
 
                 objAnimFadeOut.AnimationEnd += (object sender2, EventArgs e2) =>
                 {
                     //Note's sound input window closes.
-
+					OnNoteGone(this, new EventArgs());
                 };
             };
 
@@ -152,7 +174,7 @@ namespace Virtual_Guitar_Teacher.Controller.Libraries
         /// </summary>
         /// <param name="fretNum">The number of the requested fret.</param>
         /// <returns>Returns the metrics of the requested fret.</returns>
-        FretMetrics GetFretMetrics(GuitarFret fretNum)
+        private FretMetrics GetFretMetrics(GuitarFret fretNum)
         {
             //Initialize a dummy fret.
             View fret = new View(_currentActivity);
@@ -190,13 +212,13 @@ namespace Virtual_Guitar_Teacher.Controller.Libraries
             //Summerize X, Y, Width, and Height.
             FretMetrics metrics = new FretMetrics(
                 (int)fret.GetX(), //coordinates[0],
-                (int)fret.GetY(), //coordinates[1],
+				(int)((TableRow)fret.Parent).GetY(), //coordinates[1],
                 fret.MeasuredWidth,
                 fret.MeasuredHeight);
 
             Log.Info("", fret.Tag.ToString());
             Log.Info(fret.GetX().ToString(), fret.GetY().ToString());
-            Log.Info(fret.MeasuredWidth.ToString(), fret.MeasuredHeight.ToString());
+            Log.Info(coordinates[0].ToString(), coordinates[1].ToString());
             Log.Info(fret.Width.ToString(), fret.Height.ToString());
             Log.Info("Left", fret.Left.ToString());
             Log.Info("Right", fret.Right.ToString());
@@ -206,70 +228,17 @@ namespace Virtual_Guitar_Teacher.Controller.Libraries
             return metrics;
         }
 
+		public void ChangeToSmileyFace(bool isHappy)
+		{
+			if (isHappy)
+				_noteCircle.SetBackgroundResource(Resource.Drawable.smiley_happy);
+			else
+				_noteCircle.SetBackgroundResource(Resource.Drawable.smiley_sad);
+		}
+
         public void Dispose()
         {
             _noteCircle.Dispose();
-        }
-
-        //Not in use.
-        private void AnimateNote(long duration, long delay)
-        {
-            DisplayMetrics dimensions = Generic.GetScreenDimentions(_currentActivity);
-
-            //Set initial location.
-            _noteCircle.SetX(dimensions.WidthPixels - _noteCircle.Width / 2 - 150);
-            _noteCircle.SetY(dimensions.HeightPixels);           
-
-            int Y_dest = dimensions.HeightPixels / 2;
-            //_note.Position.Fret
-            _noteCircle.Animate()
-                .SetDuration(duration)
-                .SetStartDelay(delay)
-                .Y(Y_dest)
-                .Start();
-
-
-
-            //AnimationSet animationSet = new AnimationSet(true);
-
-            /*ObjectAnimator noteAnim = ObjectAnimator.OfInt(_noteCircle, "Y", Y_dest);
-            //animationSet.AddAnimation(noteAnim);
-            List<ObjectAnimator> animations = new List<ObjectAnimator>();
-            animations.Add(noteAnim);
-            animatorSet.PlaySequentially((IList<Animator>)animations);*/
-
-        }
-
-
-        //Not in use.
-        private class NoteAnimation : Animation
-        {
-            /*Duration
-            FillAfter
-                Initialize
-            IsInitialized
-            AnimationEnd
-            AnimationRepeat
-            AnimationStart
-
-            Cancel
-            Reset
-
-            StartNow
-            ApplyTransformation*/
-
-            private ViewPropertyAnimator _viewPropertyAnimator;
-
-            public NoteAnimation(ViewPropertyAnimator vpa)
-            {
-                _viewPropertyAnimator = vpa;
-            }
-
-            public override void StartNow()
-            {
-                base.StartNow();
-                _viewPropertyAnimator.Start();
-            }
         }
     }
 }

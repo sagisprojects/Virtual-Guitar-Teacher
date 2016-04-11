@@ -25,24 +25,10 @@ namespace Virtual_Guitar_Teacher.Controller.Libraries
         //protected Context _context;
         protected Activity _activity;
 
+		public Hz CurrentlyPlayedFrequency { get; set; }
+
         //Events:
         public event EventHandler<EventArgs> OnIntroAnimationFinished;
-        //OnNoteArraival - once the note arrives to it's destination line.
-        public event EventHandler<OnNoteArraivalArgs> OnNoteArraival;
-        // Special EventArgs class to hold info about...
-        public class OnNoteArraivalArgs : EventArgs
-        {
-            private double newArea;
-
-            public OnNoteArraivalArgs(double d)
-            {
-                newArea = d;
-            }
-            public double NewArea
-            {
-                get { return newArea; }
-            }
-        }
 
         public NotesPlayer(Activity activity)
         {
@@ -77,16 +63,16 @@ namespace Virtual_Guitar_Teacher.Controller.Libraries
         {
             int target_ScrollX = 230;
             int target_ScrollY = -5;
-            float target_ScaleX = 5;
-            float target_ScaleY = 5;
-            int target_ScrollX_2nd = 135;
+            float target_ScaleX = 4.5f; //5;
+            float target_ScaleY = 4.5f; //5;
+            int target_ScrollX_2nd = 150; //135;
 
             int msDuration = 4000;
-            int initialDelay = 1000;
+			int msDelay = 1000;
 
             guitarImage.Animate()
                 .SetDuration(msDuration)
-                .SetStartDelay(initialDelay)
+                .SetStartDelay(msDelay)
                 .ScrollX(guitarImage, target_ScrollX)
                 .ScrollY(guitarImage, target_ScrollY)
                 .ScaleX(target_ScaleX)
@@ -95,7 +81,7 @@ namespace Virtual_Guitar_Teacher.Controller.Libraries
                 {
                     guitarImage.Animate()
                         .SetDuration(msDuration)
-                        .SetStartDelay(initialDelay)
+                        .SetStartDelay(msDelay)
                         .ScrollX(guitarImage, target_ScrollX_2nd)
                         .WithEndAction(new Runnable(() => {
                             OnIntroAnimationFinished(this, new EventArgs());
@@ -103,26 +89,7 @@ namespace Virtual_Guitar_Teacher.Controller.Libraries
                         .Start();
                 }))
                 .Start();
-
-            /*guitarImage.Animate()
-                .SetDuration(msDuration)
-                .SetStartDelay(initialDelay * 2 + msDuration)
-                .ScrollX(guitarImage, target_ScrollX_2nd);*/
         }
-
-        // <summary>
-        // Represents a sequence of notes.
-        // </summary>
-
-        //Name  Delay Duration
-        //G3    0.5    1
-        //A2    0.5    1
-        //C3    0.5    1
-        //E4    2.0    1
-        //F4    0.5    1
-        //E3    0.5    1
-        //C3    0.5    1
-
         
         /// <summary>
         /// Reads a sequence from a *.vgts file.
@@ -181,7 +148,7 @@ namespace Virtual_Guitar_Teacher.Controller.Libraries
         /// </summary>
         /// <param name="previousNote">The note from which to measure.</param>
         /// <param name="currentNote">The note which its position needs to be calculated.</param>
-        /// <returns></returns>
+        /// <returns>Returns a position of the currentNote which is relativly closest from previousNote.</returns>
         private Position CalculateClosestPositionFromPreviousNote(Note previousNote, Note currentNote)
         {
             if (currentNote.Positions.Length == 1)
@@ -219,7 +186,6 @@ namespace Virtual_Guitar_Teacher.Controller.Libraries
         /// <returns>Returns a series of animations.</returns>
         protected ObjectAnimator[] PrepareNoteAnimations(Sequence sequence)
         {
-            //PropertyViewAnimator[] animations = new PropertyViewAnimator[sequence.Length];
             ObjectAnimator[] animations = new ObjectAnimator[sequence.Length];
 
             for (int i = 0; i < sequence.Length; i++)
@@ -230,10 +196,29 @@ namespace Virtual_Guitar_Teacher.Controller.Libraries
                 NoteRepresentation noteRep = new NoteRepresentation(_activity, note);
                 //Create the note's animation, and add that animation to the animations array.
                 animations[i] = noteRep.CreateNoteAnimation();
+				//Sign up for sound input window events.
+				noteRep.OnNoteArraival += NotesPlayer_OnNoteArraival;
+				noteRep.OnNoteGone += NotesPlayer_OnNoteGone;
             }
 
             return animations;
         }
+
+		private void NotesPlayer_OnNoteArraival(object sender, NoteRepresentation.OnNoteArraivalArgs songNote)
+		{
+			bool isOnPoint = CompareNotes(CurrentlyPlayedFrequency.CyclesPerSecond, songNote.Frequency.CyclesPerSecond);
+
+			if (isOnPoint) 
+			{
+				//Change circle to a smiley face.
+				((NoteRepresentation)sender).ChangeToSmileyFace(true);
+			}
+		}
+
+		private void NotesPlayer_OnNoteGone(object sender, EventArgs e)
+		{
+
+		}
 
         /// <summary>
         /// Playes a series of animations.

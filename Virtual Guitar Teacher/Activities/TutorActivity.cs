@@ -21,13 +21,13 @@ namespace Virtual_Guitar_Teacher.Activities
     [Activity(Label = "TutorActivity", Theme = "@style/Theme.Light")]
     public class TutorActivity : BasicActivityInitialization
     {
-        Tutor tutor;
+		Tutor _tutor;
 
         protected override void OnCreate(Bundle savedInstanceState)
         {
             base.OnCreate(savedInstanceState);
 
-            tutor = new Tutor(this);
+            _tutor = new Tutor(this);
 
             //Set appropriate layout.
             SetContentView(Resource.Layout.Tutor);
@@ -43,16 +43,16 @@ namespace Virtual_Guitar_Teacher.Activities
             ImageView guitarBG = FindViewById<ImageView>(Resource.Id.guitarBG);
             //guitarBG.SetImageResource(Resource.Drawable.Neck_Acustic_01);
 
-            //tutor.AnimateGuitarIntro(guitarBG);
-            tutor.OnIntroAnimationFinished += Tutor_OnIntroAnimationFinished;
+            _tutor.AnimateGuitarIntro(guitarBG);
+            _tutor.OnIntroAnimationFinished += Tutor_OnIntroAnimationFinished;
 
             Log.Info("TutorActivity", "OnCreate");
-            tutor.ReadSong();
+            _tutor.ReadSong();
 
             TableLayout tableLayout = FindViewById<TableLayout>(Resource.Id.tableLayout);
             tableLayout.Touch += TableLayout_Touch;
 
-            SetTableControls(tableLayout);
+            //SetTableControls(tableLayout);
         }
 
         private void SetTableControls(TableLayout tableLayout)
@@ -77,13 +77,13 @@ namespace Virtual_Guitar_Teacher.Activities
         Dictionary<string, string> GetPropertiesOf(object obj)
         {
             var props = obj.GetType().GetProperties();
-            Dictionary<string, string> dic = new Dictionary<string, string>(props.Length);
+            Dictionary<string, string> dictionary = new Dictionary<string, string>(props.Length);
 
             for (int i = 0; i < props.Length; i++)
             {
-                dic.Add(props[i].Name, props[i].GetValue(props[i]).ToString());
+                dictionary.Add(props[i].Name, props[i].GetValue(props[i]).ToString());
             }
-            return dic;
+            return dictionary;
         }
 
         private void TableLayout_Touch(object sender, View.TouchEventArgs e)
@@ -133,14 +133,14 @@ namespace Virtual_Guitar_Teacher.Activities
             if (hasFocus && !hasSongStartedPlaying && hasIntroAnimationFinished)
             {
                 hasSongStartedPlaying = true;
-                tutor.PlaySong();
+                _tutor.PlaySong();
             }
                 //tutor.StartTutoring();
         }
 
         private void TutorActivity_OnMicrophoneFinishedSampling(object sender, FinishedSampalingEventArgs e)
         {
-            throw new NotImplementedException();
+			_tutor.CurrentlyPlayedFrequency = e.Frequency;
         }
     }
 }

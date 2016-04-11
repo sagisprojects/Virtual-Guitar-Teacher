@@ -72,43 +72,46 @@ namespace Virtual_Guitar_Teacher
 			public const int bg_tune_01 = 2130837512;
 			
 			// aapt resource value: 0x7f020009
-			public const int BorderedSquare = 2130837513;
+			public const int Icon = 2130837513;
 			
 			// aapt resource value: 0x7f02000a
-			public const int Icon = 2130837514;
+			public const int Icon_512x512 = 2130837514;
 			
 			// aapt resource value: 0x7f02000b
-			public const int Icon_512x512 = 2130837515;
+			public const int loading_screen = 2130837515;
 			
 			// aapt resource value: 0x7f02000c
-			public const int loading_screen = 2130837516;
+			public const int Neck_Acustic_01 = 2130837516;
 			
 			// aapt resource value: 0x7f02000d
-			public const int Neck_Acustic_01 = 2130837517;
+			public const int parquet_texture_dark = 2130837517;
 			
 			// aapt resource value: 0x7f02000e
-			public const int parquet_texture_dark = 2130837518;
+			public const int parquet_texture_light = 2130837518;
 			
 			// aapt resource value: 0x7f02000f
-			public const int parquet_texture_light = 2130837519;
+			public const int play = 2130837519;
 			
 			// aapt resource value: 0x7f020010
-			public const int play = 2130837520;
+			public const int recorder_cell_bg = 2130837520;
 			
 			// aapt resource value: 0x7f020011
-			public const int recorder_cell_bg = 2130837521;
+			public const int recorder_cell_bg_pressed = 2130837521;
 			
 			// aapt resource value: 0x7f020012
-			public const int recorder_cell_bg_pressed = 2130837522;
+			public const int smiley_happy = 2130837522;
 			
 			// aapt resource value: 0x7f020013
-			public const int tune = 2130837523;
+			public const int smiley_sad = 2130837523;
 			
 			// aapt resource value: 0x7f020014
-			public const int tutorial = 2130837524;
+			public const int tune = 2130837524;
 			
 			// aapt resource value: 0x7f020015
-			public const int vinyl = 2130837525;
+			public const int tutorial = 2130837525;
+			
+			// aapt resource value: 0x7f020016
+			public const int vinyl = 2130837526;
 			
 			static Drawable()
 			{
@@ -123,6 +126,9 @@ namespace Virtual_Guitar_Teacher
 		public partial class Id
 		{
 			
+			// aapt resource value: 0x7f060004
+			public const int btnNext = 2131099652;
+			
 			// aapt resource value: 0x7f060001
 			public const int btnPlayer = 2131099649;
 			
@@ -135,59 +141,62 @@ namespace Virtual_Guitar_Teacher
 			// aapt resource value: 0x7f060000
 			public const int btnTutor = 2131099648;
 			
-			// aapt resource value: 0x7f060006
-			public const int closestNote = 2131099654;
-			
-			// aapt resource value: 0x7f060005
-			public const int frequencyIndicator = 2131099653;
-			
-			// aapt resource value: 0x7f060012
-			public const int fret1 = 2131099666;
-			
-			// aapt resource value: 0x7f060011
-			public const int fret2 = 2131099665;
-			
-			// aapt resource value: 0x7f060010
-			public const int fret3 = 2131099664;
-			
-			// aapt resource value: 0x7f06000f
-			public const int fret4 = 2131099663;
-			
-			// aapt resource value: 0x7f06000e
-			public const int fret5 = 2131099662;
-			
-			// aapt resource value: 0x7f06000d
-			public const int fret6 = 2131099661;
-			
-			// aapt resource value: 0x7f060004
-			public const int gridLayout = 2131099652;
-			
 			// aapt resource value: 0x7f060008
-			public const int guitarBG = 2131099656;
-			
-			// aapt resource value: 0x7f060013
-			public const int openString = 2131099667;
-			
-			// aapt resource value: 0x7f060009
-			public const int tableLayout = 2131099657;
-			
-			// aapt resource value: 0x7f06000a
-			public const int tableRow1 = 2131099658;
-			
-			// aapt resource value: 0x7f06000c
-			public const int tableRow2 = 2131099660;
-			
-			// aapt resource value: 0x7f060014
-			public const int tableRow3 = 2131099668;
+			public const int closestNote = 2131099656;
 			
 			// aapt resource value: 0x7f060007
-			public const int tuneBar = 2131099655;
+			public const int frequencyIndicator = 2131099655;
 			
-			// aapt resource value: 0x7f06000b
-			public const int view0 = 2131099659;
+			// aapt resource value: 0x7f060014
+			public const int fret1 = 2131099668;
+			
+			// aapt resource value: 0x7f060013
+			public const int fret2 = 2131099667;
+			
+			// aapt resource value: 0x7f060012
+			public const int fret3 = 2131099666;
+			
+			// aapt resource value: 0x7f060011
+			public const int fret4 = 2131099665;
+			
+			// aapt resource value: 0x7f060010
+			public const int fret5 = 2131099664;
+			
+			// aapt resource value: 0x7f06000f
+			public const int fret6 = 2131099663;
+			
+			// aapt resource value: 0x7f060006
+			public const int gridLayout = 2131099654;
+			
+			// aapt resource value: 0x7f06000a
+			public const int guitarBG = 2131099658;
 			
 			// aapt resource value: 0x7f060015
-			public const int view7 = 2131099669;
+			public const int openString = 2131099669;
+			
+			// aapt resource value: 0x7f06000b
+			public const int tableLayout = 2131099659;
+			
+			// aapt resource value: 0x7f06000c
+			public const int tableRow1 = 2131099660;
+			
+			// aapt resource value: 0x7f06000e
+			public const int tableRow2 = 2131099662;
+			
+			// aapt resource value: 0x7f060016
+			public const int tableRow3 = 2131099670;
+			
+			// aapt resource value: 0x7f060005
+			public const int textView1 = 2131099653;
+			
+			// aapt resource value: 0x7f060009
+			public const int tuneBar = 2131099657;
+			
+			// aapt resource value: 0x7f06000d
+			public const int view0 = 2131099661;
+			
+			// aapt resource value: 0x7f060017
+			public const int view7 = 2131099671;
 			
 			static Id()
 			{
@@ -206,16 +215,19 @@ namespace Virtual_Guitar_Teacher
 			public const int Main = 2130903040;
 			
 			// aapt resource value: 0x7f030001
-			public const int Player = 2130903041;
+			public const int MainHelp = 2130903041;
 			
 			// aapt resource value: 0x7f030002
-			public const int Recorder = 2130903042;
+			public const int Player = 2130903042;
 			
 			// aapt resource value: 0x7f030003
-			public const int Tuner = 2130903043;
+			public const int Recorder = 2130903043;
 			
 			// aapt resource value: 0x7f030004
-			public const int Tutor = 2130903044;
+			public const int Tuner = 2130903044;
+			
+			// aapt resource value: 0x7f030005
+			public const int Tutor = 2130903045;
 			
 			static Layout()
 			{

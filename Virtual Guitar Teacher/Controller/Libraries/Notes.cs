@@ -75,6 +75,7 @@ namespace Virtual_Guitar_Teacher.Controller.Libraries
             _duration = duration;
         }
     }
+
     /// <summary>
     /// Defines all of the relevant notes which can be played on a guitar, as frequencies.
     /// 

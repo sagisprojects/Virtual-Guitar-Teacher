@@ -1,0 +1,14 @@
+- Continue developing Recorder class for recording a song visually from the screen (and perhaps later, from sound input), so it can be saved as a song file (.vgts).
+- Finish up MicrophoneRecorder so it will yield the fundamental frequency.
+- Perhaps MicrophoneRecorder should have a Start, Pause, and Stop methods - for capturing audio input at the correct moments.
+- Notes animations should be correctly aligned with thier corresponding visual fret.
+- Tuner should have a dial.
+
+- Add a corresponding smilie face indicator for each note sound input capture.
+
+That's v.1.0
+Next milestone:
+- Add levels to the Play game, 
+	each level gives you certian ammount of points depending on the ammount of successful string strokes.
+	If you've passed the min amount, you'll unlock the next level.
+	With points you can buy a new virtual guitar to play with.
