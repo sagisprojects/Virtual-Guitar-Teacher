@@ -12,6 +12,7 @@ namespace Virtual_Guitar_Teacher.Controller.Libraries
     public class FinishedSampalingEventArgs : EventArgs
     {
         public Hz Frequency { get; set; }
+        public double Volume { get; set; }
     }
 
     public sealed class MicrophoneManager : IDisposable
@@ -95,7 +96,8 @@ namespace Virtual_Guitar_Teacher.Controller.Libraries
             //Fire event for passing back the recorded value.
             FinishedSampling(this, new FinishedSampalingEventArgs()
             {
-                Frequency = new Hz() { CyclesPerSecond = frequency }
+                Frequency = new Hz() { CyclesPerSecond = frequency },
+                Volume = max_magnitude
             });
 
         }

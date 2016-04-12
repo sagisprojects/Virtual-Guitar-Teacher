@@ -39,6 +39,22 @@ namespace Virtual_Guitar_Teacher.Controller.Libraries
             return fileLines.ToArray();
         }
 
+        /// <summary>
+        /// Discards any commented lines (//) or empty lines.
+        /// </summary>
+        /// <param name="lines">The array of the stringed lines from which to remove commented or empty line.</param>
+        public static void DiscardCommentsOrEmptyLines(ref string[] lines)
+        {
+            List<string> linesList = new List<string>();
+            foreach (string line in lines)
+            {
+                if (line[0] == '/' && line[1] == '/'
+                    || string.IsNullOrEmpty(line) || string.IsNullOrWhiteSpace(line))
+                    continue;
+                linesList.Add(line);
+            }
+            lines = linesList.ToArray();
+        }
     }
 
     /// <summary>

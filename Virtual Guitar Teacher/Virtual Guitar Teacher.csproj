@@ -84,10 +84,9 @@
   </ItemGroup>
   <ItemGroup>
     <AndroidAsset Include="Assets\TestSong.vgts" />
+    <AndroidAsset Include="Assets\TinyJonathan.vgts" />
     <None Include="ProjectDiagram.cd" />
     <None Include="packages.config" />
-    <None Include="Resources\AboutResources.txt" />
-    <None Include="Assets\AboutAssets.txt" />
   </ItemGroup>
   <ItemGroup>
     <AndroidResource Include="Resources\layout\Main.axml" />
@@ -172,6 +171,9 @@
   </ItemGroup>
   <ItemGroup>
     <AndroidResource Include="Resources\drawable\recorder_cell_bg_pressed.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\drawable\tuner_dial.png" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\Android\Xamarin.Android.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

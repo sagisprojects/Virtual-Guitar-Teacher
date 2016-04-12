@@ -108,10 +108,13 @@ namespace Virtual_Guitar_Teacher
 			public const int tune = 2130837524;
 			
 			// aapt resource value: 0x7f020015
-			public const int tutorial = 2130837525;
+			public const int tuner_dial = 2130837525;
 			
 			// aapt resource value: 0x7f020016
-			public const int vinyl = 2130837526;
+			public const int tutorial = 2130837526;
+			
+			// aapt resource value: 0x7f020017
+			public const int vinyl = 2130837527;
 			
 			static Drawable()
 			{

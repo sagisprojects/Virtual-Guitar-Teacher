@@ -4,12 +4,11 @@
     android:layout_width="fill_parent"
     android:layout_height="fill_parent"
     style="@style/Theme.Tune">
-    <SeekBar
+    <ImageView
         android:id="@+id/frequencyIndicator"
         android:layout_width="match_parent"
-        android:layout_height="50dp"
-        android:max="400"
-        android:progress="1" />
+        android:src="@drawable/tuner_dial"
+        android:layout_height="match_parent" />
     <TextView
         android:id="@+id/closestNote"
         android:layout_width="match_parent"
@@ -20,10 +19,10 @@
         android:textSize="70pt"
         android:textStyle="normal"
         android:textColor="@android:color/holo_green_light" />
-    <SeekBar
+    <ProgressBar
         android:id="@+id/tuneBar"
-        android:layout_width="match_parent"
-        android:layout_height="35.7dp"
+        android:layout_height="match_parent"
+        android:layout_width="35.7dp"
         android:max="44100"
         android:clickable="false" />
 </LinearLayout>

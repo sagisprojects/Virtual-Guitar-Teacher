@@ -134,7 +134,7 @@ namespace Virtual_Guitar_Teacher.Controller.Libraries
                     new Hz() { CyclesPerSecond = 77.782f },
                     null),
                 new Note(NotesNames.E2,
-                    new Hz() { CyclesPerSecond = 82.407f },                          //Open string number 6 (Lowest note of guitar) E2.
+                    new Hz() { CyclesPerSecond = 82.407f },
                     new Position[] { new Position(GuitarString.E, GuitarFret.OpenString) }),
                 new Note(NotesNames.F2,
                     new Hz() { CyclesPerSecond = 87.307f },
@@ -149,7 +149,7 @@ namespace Virtual_Guitar_Teacher.Controller.Libraries
                     new Hz() { CyclesPerSecond = 103.826f },
                     new Position[] { new Position(GuitarString.E, GuitarFret.Fret4) }),
                 new Note(NotesNames.A2,
-                    new Hz() { CyclesPerSecond = 110.000f },                         //Open string number 5 - A2.
+                    new Hz() { CyclesPerSecond = 110.000f },
                     new Position[] { new Position(GuitarString.A, GuitarFret.OpenString),
                         new Position(GuitarString.E, GuitarFret.Fret5) }),
                 new Note(NotesNames.As2, NotesNames.Bb2,
@@ -166,7 +166,7 @@ namespace Virtual_Guitar_Teacher.Controller.Libraries
                     new Hz() { CyclesPerSecond = 138.591f },
                     new Position[] { new Position(GuitarString.A, GuitarFret.Fret4) }),
                 new Note(NotesNames.D3,
-                    new Hz() { CyclesPerSecond = 146.832f },                         //Open string number 4 - D3.
+                    new Hz() { CyclesPerSecond = 146.832f },
                     new Position[] { new Position(GuitarString.D, GuitarFret.OpenString),
                         new Position(GuitarString.A, GuitarFret.Fret5) }),
                 new Note(NotesNames.Ds3, NotesNames.Eb3,
@@ -183,7 +183,7 @@ namespace Virtual_Guitar_Teacher.Controller.Libraries
                     new Hz() { CyclesPerSecond = 184.997f },
                     new Position[] { new Position(GuitarString.D, GuitarFret.Fret4) }),
                 new Note(NotesNames.G3,
-                    new Hz() { CyclesPerSecond = 184.997f },                         //Open string number 3 - G3.
+                    new Hz() { CyclesPerSecond = 184.997f },
                     new Position[] { new Position(GuitarString.G, GuitarFret.OpenString),
                         new Position(GuitarString.D, GuitarFret.Fret5) }),
                 new Note(NotesNames.Gs3, NotesNames.Ab3,
@@ -197,7 +197,7 @@ namespace Virtual_Guitar_Teacher.Controller.Libraries
                     new Hz() { CyclesPerSecond = 233.082f },
                     new Position[] { new Position(GuitarString.G, GuitarFret.Fret3) }),
                 new Note(NotesNames.B3,
-                    new Hz() { CyclesPerSecond = 246.942f },                         //Open string number 2 - B3
+                    new Hz() { CyclesPerSecond = 246.942f },
                     new Position[] { new Position(GuitarString.B, GuitarFret.OpenString),
                         new Position(GuitarString.G, GuitarFret.Fret4) }),
                 new Note(NotesNames.C4,
@@ -215,7 +215,7 @@ namespace Virtual_Guitar_Teacher.Controller.Libraries
                     new Hz() { CyclesPerSecond = 311.127f },
                     new Position[] { new Position(GuitarString.B, GuitarFret.Fret4) }),
                 new Note(NotesNames.E4,
-                    new Hz() { CyclesPerSecond = 329.628f },                         //Open string number 1 - E4.
+                    new Hz() { CyclesPerSecond = 329.628f },
                     new Position[] { new Position(GuitarString.e, GuitarFret.OpenString),
                         new Position(GuitarString.B, GuitarFret.Fret5) }),
                 new Note(NotesNames.F4,

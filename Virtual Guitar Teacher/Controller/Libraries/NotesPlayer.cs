@@ -11,6 +11,7 @@ using Android.Graphics;
 using Android.Content.Res;
 using System.Reflection;
 using Runnable = Java.Lang.Runnable;
+using System.Collections.Generic;
 
 namespace Virtual_Guitar_Teacher.Controller.Libraries
 {
@@ -101,8 +102,9 @@ namespace Virtual_Guitar_Teacher.Controller.Libraries
             string songsFolderPath = _activity.Resources.GetString(Resource.String.SongsFolderPath);
 
             string[] sequenceLines = Generic.GetFileLinesFromAssets(fileName + SONG_FILE_EXTENSION, _activity.Assets);
-            
-            //string[] sequenceLines = File.ReadAllLines(songsFolderPath + fileName);
+
+            Generic.DiscardCommentsOrEmptyLines(ref sequenceLines);
+
             Sequence sequence = new Sequence(sequenceLines.Length);
             string[] lineSegments;
             Notes notesReference = new Notes();
