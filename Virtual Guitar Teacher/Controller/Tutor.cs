@@ -29,11 +29,6 @@ namespace Virtual_Guitar_Teacher.Controller
 
         public void ReadSong()
         {
-            /*NoteRepresentation noteRep = new NoteRepresentation(_activity, 
-                BallColor.Blue, GuitarString.G, new Note(NotesNames.G3));
-            Log.Info("Tutor", "StartTutoring");
-            noteRep.AnimateNote();*/
-            //TODO: Create the song file.
             string fileName = "TestSong"; //"TinyJonathan";
             _sequence = SequenceReader(fileName);
         }
@@ -49,11 +44,5 @@ namespace Virtual_Guitar_Teacher.Controller
             if (animations != null)
                 PlayAnimations(animations);
         }
-
-        //base.SendNote
-
-        //base.CompareNotes
-
-        //FFT
     }
 }

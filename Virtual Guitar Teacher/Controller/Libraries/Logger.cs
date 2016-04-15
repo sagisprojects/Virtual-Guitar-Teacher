@@ -19,7 +19,7 @@ namespace Virtual_Guitar_Teacher.Controller.Libraries
         static readonly object loggerLock = new object();
         const string fileName = "events.log";
         static string dataDirectoryAbsPath = Environment.DataDirectory.AbsolutePath;
-        static string filePath = dataDirectoryAbsPath.ToString() + "\\" + fileName;
+        static string filePath = dataDirectoryAbsPath.ToString() + "\\VGT\\" + fileName;
 
         /// <summary>
         /// Logs an exception message with the date and time to a file.
@@ -41,10 +41,11 @@ namespace Virtual_Guitar_Teacher.Controller.Libraries
                             File.Delete(filePath);
 
                     //Create a new file or append to it.
-                    StreamWriter sw = new StreamWriter(filePath, true, Encoding.UTF8);
-
-                    //Append the new entery.
-                    sw.WriteLine(strMsg);
+                    using (StreamWriter sw = new StreamWriter(filePath, true, Encoding.UTF8))
+                    {
+                        //Append the new entery.
+                        sw.WriteLine(strMsg);
+                    }
                 }
             }
             catch (Exception)

@@ -52,11 +52,6 @@ namespace Virtual_Guitar_Teacher.Activities
             {
                 StartActivity(typeof(RecorderActivity));
             };
-
-
-            //Display a Toast Message on Clicking the btn_Hello  
-            //Toast.MakeText(this, "Hello World", ToastLength.Short).Show();
-            //Android.Widget.
         }
     }   
 }

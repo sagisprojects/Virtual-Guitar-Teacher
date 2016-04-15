@@ -1,13 +1,14 @@
 using System;
 using System.Numerics;
 using System.Security;
+using static System.Math;
 
 namespace Virtual_Guitar_Teacher.Controller.Libraries
 {
     /// <summary>
     /// The purpose of this task is to calculate the FFT (Fast Fourier Transform) of an input sequence. 
     /// The most general case allows for complex numbers at the input and results in a sequence of equal length, 
-    /// again of complex numbers.If you need to restrict yourself to real numbers, 
+    /// again of complex numbers. If you need to restrict yourself to real numbers, 
     /// the output should be the magnitude (i.e.sqrt(re²+im²)) of the complex result.
     /// The classic version is the recursive Cooley–Tukey FFT. Wikipedia has pseudocode for that.
     /// Further optimizations are possible but not required.
@@ -43,9 +44,9 @@ namespace Virtual_Guitar_Teacher.Controller.Libraries
         /// </summary>
         /// <param name="buffer"></param>
         [SecurityCritical]
-        public static void FFT(Complex[] buffer)
+        public static void Transform(ref Complex[] buffer)
         {
-            int bits = (int)Math.Log(buffer.Length, 2);
+            int bits = (int)Log(buffer.Length, 2);
             for (int j = 1; j < buffer.Length / 2; j++)
             {
                 int swapPos = BitReverse(j, bits);
@@ -65,8 +66,8 @@ namespace Virtual_Guitar_Teacher.Controller.Libraries
                         var even = buffer[evenIndex];
                         var odd = buffer[oddIndex];
 
-                        double term = -2 * Math.PI * k / (double)N;
-                        Complex exp = new Complex(Math.Cos(term), Math.Sin(term)) * odd;
+                        double term = -2 * PI * k / N;
+                        Complex exp = new Complex(Cos(term), Sin(term)) * odd;
 
                         buffer[evenIndex] = even + exp;
                         buffer[oddIndex] = even - exp;

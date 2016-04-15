@@ -1,6 +1,4 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="ApplicationName">Virtual Guitar Teacher</string>
-    <string name="SharePicture">Share Guitar</string>
-    <string name="SongsFolderPath">\\VGT\\Documents\\Songs\\</string>
 </resources>

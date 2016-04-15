@@ -1,20 +1,9 @@
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-
 using Android.App;
-using Android.Content;
-using Android.OS;
-using Android.Runtime;
 using Android.Views;
 using Android.Widget;
 using Android.Util;
-using Android.Graphics;
-using Android.Graphics.Drawables;
-using Android.Views.Animations;
 using Android.Animation;
-using Java.Lang;
 
 namespace Virtual_Guitar_Teacher.Controller.Libraries
 {
@@ -78,19 +67,23 @@ namespace Virtual_Guitar_Teacher.Controller.Libraries
                 case BallColor.Red:
                     _noteCircle.SetBackgroundResource(Resource.Drawable.ball_red);
                     break;
+                case BallColor.Purple:
+                    _noteCircle.SetBackgroundResource(Resource.Drawable.ball_purple);
+                    break;
                 case BallColor.Blue:
-                case BallColor.Blue2:
                     _noteCircle.SetBackgroundResource(Resource.Drawable.ball_blue);
                     break;
                 case BallColor.Green:
-                case BallColor.Green2:
                     _noteCircle.SetBackgroundResource(Resource.Drawable.ball_green);
                     break;
                 case BallColor.Orange:
                     _noteCircle.SetBackgroundResource(Resource.Drawable.ball_orange);
                     break;
-                case BallColor.Purple:
-                    _noteCircle.SetBackgroundResource(Resource.Drawable.ball_purple);
+                case BallColor.Aqua:
+                    _noteCircle.SetBackgroundResource(Resource.Drawable.ball_aqua);
+                    break;
+                case BallColor.Yellow:
+                    _noteCircle.SetBackgroundResource(Resource.Drawable.ball_yellow);
                     break;
             }
 

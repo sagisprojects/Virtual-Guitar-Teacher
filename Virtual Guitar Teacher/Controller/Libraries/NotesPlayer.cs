@@ -12,13 +12,14 @@ using Android.Content.Res;
 using System.Reflection;
 using Runnable = Java.Lang.Runnable;
 using System.Collections.Generic;
+using static Virtual_Guitar_Teacher.Controller.Libraries.Generic;
 
 namespace Virtual_Guitar_Teacher.Controller.Libraries
 {
     /// <summary>
-    /// Allows the following:
-    /// * Sending the notes to its destination on the screen.
-    /// * Copmering between notes.
+    /// This class is responsible for playing the guitar intro animation,
+    /// reading a song from a *.vgts file, animating a sequence of notes, 
+    /// and comparing each note to the CurrentlyPlayedFrequency.
     /// </summary>
     public class NotesPlayer
     {
@@ -91,7 +92,27 @@ namespace Virtual_Guitar_Teacher.Controller.Libraries
                 }))
                 .Start();
         }
-        
+
+        public void ShowStringsColors(TableLayout stringsColorsLegend)
+        {
+            const float FULL_ALPHA = 1;
+            int msDuration = 1000;
+
+            stringsColorsLegend.Animate()
+                .SetDuration(msDuration)
+                .Alpha(FULL_ALPHA);
+        }
+
+        public void HideStringsColors(TableLayout stringsColorsLegend)
+        {
+            const float TRANSPARENT = 0;
+            int msDuration = 1000;
+
+            stringsColorsLegend.Animate()
+                .SetDuration(msDuration)
+                .Alpha(TRANSPARENT);
+        }
+
         /// <summary>
         /// Reads a sequence from a *.vgts file.
         /// </summary>
@@ -99,11 +120,11 @@ namespace Virtual_Guitar_Teacher.Controller.Libraries
         /// <returns>Returns the sequence of that file.</returns>
         protected Sequence SequenceReader(string fileName)
         {
-            string songsFolderPath = _activity.Resources.GetString(Resource.String.SongsFolderPath);
+            //string songsFolderPath = _activity.Resources.GetString(Resource.String.SongsFolderPath);
 
-            string[] sequenceLines = Generic.GetFileLinesFromAssets(fileName + SONG_FILE_EXTENSION, _activity.Assets);
+            string[] sequenceLines = GetFileLinesFromAssets(fileName + SONG_FILE_EXTENSION, _activity.Assets);
 
-            Generic.DiscardCommentsOrEmptyLines(ref sequenceLines);
+            DiscardCommentsOrEmptyLines(ref sequenceLines);
 
             Sequence sequence = new Sequence(sequenceLines.Length);
             string[] lineSegments;
@@ -208,7 +229,7 @@ namespace Virtual_Guitar_Teacher.Controller.Libraries
 
 		private void NotesPlayer_OnNoteArraival(object sender, NoteRepresentation.OnNoteArraivalArgs songNote)
 		{
-			bool isOnPoint = CompareNotes(CurrentlyPlayedFrequency.CyclesPerSecond, songNote.Frequency.CyclesPerSecond);
+			bool isOnPoint = CompareNotes(CurrentlyPlayedFrequency, songNote.Frequency);
 
 			if (isOnPoint) 
 			{
@@ -219,7 +240,7 @@ namespace Virtual_Guitar_Teacher.Controller.Libraries
 
 		private void NotesPlayer_OnNoteGone(object sender, EventArgs e)
 		{
-
+            throw new NotImplementedException();
 		}
 
         /// <summary>

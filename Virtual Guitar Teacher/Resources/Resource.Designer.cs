@@ -45,76 +45,85 @@ namespace Virtual_Guitar_Teacher
 		{
 			
 			// aapt resource value: 0x7f020000
-			public const int ball_blue = 2130837504;
+			public const int ball_aqua = 2130837504;
 			
 			// aapt resource value: 0x7f020001
-			public const int ball_green = 2130837505;
+			public const int ball_blue = 2130837505;
 			
 			// aapt resource value: 0x7f020002
-			public const int ball_orange = 2130837506;
+			public const int ball_green = 2130837506;
 			
 			// aapt resource value: 0x7f020003
-			public const int ball_purple = 2130837507;
+			public const int ball_orange = 2130837507;
 			
 			// aapt resource value: 0x7f020004
-			public const int ball_red = 2130837508;
+			public const int ball_purple = 2130837508;
 			
 			// aapt resource value: 0x7f020005
-			public const int bg_musical = 2130837509;
+			public const int ball_red = 2130837509;
 			
 			// aapt resource value: 0x7f020006
-			public const int bg_play_01 = 2130837510;
+			public const int ball_yellow = 2130837510;
 			
 			// aapt resource value: 0x7f020007
-			public const int bg_record_01 = 2130837511;
+			public const int bg_musical = 2130837511;
 			
 			// aapt resource value: 0x7f020008
-			public const int bg_tune_01 = 2130837512;
+			public const int bg_play_01 = 2130837512;
 			
 			// aapt resource value: 0x7f020009
-			public const int Icon = 2130837513;
+			public const int bg_record_01 = 2130837513;
 			
 			// aapt resource value: 0x7f02000a
-			public const int Icon_512x512 = 2130837514;
+			public const int bg_tune_01 = 2130837514;
 			
 			// aapt resource value: 0x7f02000b
-			public const int loading_screen = 2130837515;
+			public const int Icon = 2130837515;
 			
 			// aapt resource value: 0x7f02000c
-			public const int Neck_Acustic_01 = 2130837516;
+			public const int Icon_512x512 = 2130837516;
 			
 			// aapt resource value: 0x7f02000d
-			public const int parquet_texture_dark = 2130837517;
+			public const int loading_screen = 2130837517;
 			
 			// aapt resource value: 0x7f02000e
-			public const int parquet_texture_light = 2130837518;
+			public const int Neck_Acustic_01 = 2130837518;
 			
 			// aapt resource value: 0x7f02000f
-			public const int play = 2130837519;
+			public const int parquet_texture_dark = 2130837519;
 			
 			// aapt resource value: 0x7f020010
-			public const int recorder_cell_bg = 2130837520;
+			public const int parquet_texture_light = 2130837520;
 			
 			// aapt resource value: 0x7f020011
-			public const int recorder_cell_bg_pressed = 2130837521;
+			public const int play = 2130837521;
 			
 			// aapt resource value: 0x7f020012
-			public const int smiley_happy = 2130837522;
+			public const int recorder_cell_bg = 2130837522;
 			
 			// aapt resource value: 0x7f020013
-			public const int smiley_sad = 2130837523;
+			public const int recorder_cell_bg_pressed = 2130837523;
 			
 			// aapt resource value: 0x7f020014
-			public const int tune = 2130837524;
+			public const int smiley_happy = 2130837524;
 			
 			// aapt resource value: 0x7f020015
-			public const int tuner_dial = 2130837525;
+			public const int smiley_sad = 2130837525;
 			
 			// aapt resource value: 0x7f020016
-			public const int tutorial = 2130837526;
+			public const int tune = 2130837526;
 			
 			// aapt resource value: 0x7f020017
-			public const int vinyl = 2130837527;
+			public const int tuner_dial = 2130837527;
+			
+			// aapt resource value: 0x7f020018
+			public const int tuner_gauge = 2130837528;
+			
+			// aapt resource value: 0x7f020019
+			public const int tutorial = 2130837529;
+			
+			// aapt resource value: 0x7f02001a
+			public const int vinyl = 2130837530;
 			
 			static Drawable()
 			{
@@ -144,62 +153,104 @@ namespace Virtual_Guitar_Teacher
 			// aapt resource value: 0x7f060000
 			public const int btnTutor = 2131099648;
 			
+			// aapt resource value: 0x7f060009
+			public const int closestNote = 2131099657;
+			
 			// aapt resource value: 0x7f060008
-			public const int closestNote = 2131099656;
+			public const int frequencyGauge = 2131099656;
 			
 			// aapt resource value: 0x7f060007
 			public const int frequencyIndicator = 2131099655;
 			
+			// aapt resource value: 0x7f060015
+			public const int fret1 = 2131099669;
+			
 			// aapt resource value: 0x7f060014
-			public const int fret1 = 2131099668;
+			public const int fret2 = 2131099668;
 			
 			// aapt resource value: 0x7f060013
-			public const int fret2 = 2131099667;
+			public const int fret3 = 2131099667;
 			
 			// aapt resource value: 0x7f060012
-			public const int fret3 = 2131099666;
+			public const int fret4 = 2131099666;
 			
 			// aapt resource value: 0x7f060011
-			public const int fret4 = 2131099665;
+			public const int fret5 = 2131099665;
 			
 			// aapt resource value: 0x7f060010
-			public const int fret5 = 2131099664;
-			
-			// aapt resource value: 0x7f06000f
-			public const int fret6 = 2131099663;
+			public const int fret6 = 2131099664;
 			
 			// aapt resource value: 0x7f060006
 			public const int gridLayout = 2131099654;
 			
-			// aapt resource value: 0x7f06000a
-			public const int guitarBG = 2131099658;
-			
-			// aapt resource value: 0x7f060015
-			public const int openString = 2131099669;
-			
 			// aapt resource value: 0x7f06000b
-			public const int tableLayout = 2131099659;
-			
-			// aapt resource value: 0x7f06000c
-			public const int tableRow1 = 2131099660;
-			
-			// aapt resource value: 0x7f06000e
-			public const int tableRow2 = 2131099662;
+			public const int guitarBG = 2131099659;
 			
 			// aapt resource value: 0x7f060016
-			public const int tableRow3 = 2131099670;
+			public const int openString = 2131099670;
+			
+			// aapt resource value: 0x7f060017
+			public const int stingsColors = 2131099671;
+			
+			// aapt resource value: 0x7f06001b
+			public const int string_A = 2131099675;
+			
+			// aapt resource value: 0x7f060021
+			public const int string_B = 2131099681;
+			
+			// aapt resource value: 0x7f06001d
+			public const int string_D = 2131099677;
+			
+			// aapt resource value: 0x7f060019
+			public const int string_E = 2131099673;
+			
+			// aapt resource value: 0x7f06001f
+			public const int string_G = 2131099679;
+			
+			// aapt resource value: 0x7f060023
+			public const int string_e = 2131099683;
+			
+			// aapt resource value: 0x7f06000c
+			public const int tableLayout = 2131099660;
+			
+			// aapt resource value: 0x7f06000d
+			public const int tableRow1 = 2131099661;
+			
+			// aapt resource value: 0x7f06000f
+			public const int tableRow2 = 2131099663;
+			
+			// aapt resource value: 0x7f060024
+			public const int tableRow3 = 2131099684;
+			
+			// aapt resource value: 0x7f06001a
+			public const int tableRow_string_A = 2131099674;
+			
+			// aapt resource value: 0x7f060020
+			public const int tableRow_string_B = 2131099680;
+			
+			// aapt resource value: 0x7f06001c
+			public const int tableRow_string_D = 2131099676;
+			
+			// aapt resource value: 0x7f060018
+			public const int tableRow_string_E = 2131099672;
+			
+			// aapt resource value: 0x7f06001e
+			public const int tableRow_string_G = 2131099678;
+			
+			// aapt resource value: 0x7f060022
+			public const int tableRow_string_e = 2131099682;
 			
 			// aapt resource value: 0x7f060005
 			public const int textView1 = 2131099653;
 			
-			// aapt resource value: 0x7f060009
-			public const int tuneBar = 2131099657;
+			// aapt resource value: 0x7f06000e
+			public const int view0 = 2131099662;
 			
-			// aapt resource value: 0x7f06000d
-			public const int view0 = 2131099661;
+			// aapt resource value: 0x7f060025
+			public const int view7 = 2131099685;
 			
-			// aapt resource value: 0x7f060017
-			public const int view7 = 2131099671;
+			// aapt resource value: 0x7f06000a
+			public const int volumeBar = 2131099658;
 			
 			static Id()
 			{
@@ -247,12 +298,6 @@ namespace Virtual_Guitar_Teacher
 			
 			// aapt resource value: 0x7f040000
 			public const int ApplicationName = 2130968576;
-			
-			// aapt resource value: 0x7f040001
-			public const int SharePicture = 2130968577;
-			
-			// aapt resource value: 0x7f040002
-			public const int SongsFolderPath = 2130968578;
 			
 			static String()
 			{

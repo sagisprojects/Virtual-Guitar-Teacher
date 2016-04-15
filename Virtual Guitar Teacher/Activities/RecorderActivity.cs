@@ -14,9 +14,10 @@ using Android.Util;
 
 namespace Virtual_Guitar_Teacher.Activities
 {
-    [Activity(Label = "RecorderActivity")]
+    [Activity(Label = "RecorderActivity", Theme = "@style/Theme.Record")]
     public class RecorderActivity : BasicActivityInitialization
     {
+        Recorder _recorder;
         protected override void OnCreate(Bundle savedInstanceState)
         {
             base.OnCreate(savedInstanceState);
@@ -24,7 +25,7 @@ namespace Virtual_Guitar_Teacher.Activities
             //Set appropriate layout.
             SetContentView(Resource.Layout.Recorder);
 
-            Recorder record = new Recorder();
+            _recorder = new Recorder();
 
             GridLayout gridLayout = FindViewById< GridLayout>(Resource.Id.gridLayout);
             gridLayout.Touch += GridLayout_Touch;

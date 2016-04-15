@@ -65,7 +65,7 @@ namespace Virtual_Guitar_Teacher.Controller.Libraries
         private Note[] _notesArray;
         private int _length;
 
-        public int Length { get { return _length; } }
+        public int Length => _length;
 
         public Sequence(int arraySize)
         {
@@ -96,11 +96,11 @@ namespace Virtual_Guitar_Teacher.Controller.Libraries
     }
 
     /// <summary>
-    /// Defines the absolote names for each of the notes from Eb2 to B5.
+    /// Defines the absolote names for each of the notes from Eb2 to Bb4.
     /// </summary>
     public static class NotesNames
     {
-        public static string
+        public static readonly string
             Ds2 = "Ds2", Eb2 = "Eb2",
             E2 = "E2",
             F2 = "F2",
@@ -163,25 +163,13 @@ namespace Virtual_Guitar_Teacher.Controller.Libraries
             _height = height;
         }
 
-        public int GetHorizontalCenter()
-        {
-            return _x + (_width / 2);
-        }
+        public int GetHorizontalCenter()    => _x + (_width / 2);
 
-        public int GetVerticalCenter()
-        {
-            return _y + (_height / 2);
-        }
+        public int GetVerticalCenter()      => _y + (_height / 2);
 
-        public int GetTop()
-        {
-            return _y;
-        }
+        public int GetTop()                 => _y;
 
-        public int GetBottom()
-        {
-            return _y + _height;
-        }
+        public int GetBottom()              => _y + _height;
     }
 
     /// <summary>
@@ -244,18 +232,29 @@ namespace Virtual_Guitar_Teacher.Controller.Libraries
     /// </summary>
     public struct Hz
     {
-        public const short TIME_IN_SECONDS = 1;
+        public const int TIME_IN_SECONDS = 1;
         private float _cyclesPerSecond;
-        public float CyclesPerSecond
+
+        public Hz(float value) : this()
+        {
+            Value = value;
+        }
+        
+        public float Value
         {
             get { return _cyclesPerSecond; }
             set { _cyclesPerSecond = value; }
         }
-        /*public short TimeInSeconds
+
+        static public implicit operator Hz(float value)
         {
-            get { return _timeInSeconds; }
-            set { _timeInSeconds = value; }
-        }*/
+            return new Hz(value);
+        }
+
+        static public implicit operator float(Hz value)
+        {
+            return value.Value;
+        }
     }
 
     /// <summary>
@@ -291,11 +290,37 @@ namespace Virtual_Guitar_Teacher.Controller.Libraries
     public enum BallColor
     {
         Red = 0,
-        Blue = 1,
-        Blue2 = 2,
+        Purple = 1,
+        Blue = 2,
         Green = 3,
-        Green2 = 4,
-        Orange = 5,
-        Purple = 6
+        Orange = 4,
+        Aqua = 5,
+        Yellow = 6,
     }
+
+    /// <summary>
+    /// Defines the six guitar open strings' frequencies.
+    /// </summary>
+    public static class OpenStringNotes
+    {
+        static Notes notes = new Notes();
+        public static Note E4 => notes["E4"];
+        public static Note B3 => notes["B3"];
+        public static Note G3 => notes["G3"];
+        public static Note D3 => notes["D3"];
+        public static Note A2 => notes["A2"];
+        public static Note E2 => notes["E2"];
+    }
+
+    /*public struct OpenStrings
+    {
+        Notes notes;
+        public const float
+            E4 = 329.628f,      //Nylon
+            B3 = 246.942f,      //Nylon
+            G3 = 195.998f,      //Nylon
+            D3 = 146.832f,      //Bass
+            A2 = 110.000f,      //Bass
+            E2 = 82.407f;       //Bass
+    }*/
 }

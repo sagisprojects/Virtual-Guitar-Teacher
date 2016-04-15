@@ -22,15 +22,17 @@ namespace Virtual_Guitar_Teacher.Activities
     public class TutorActivity : BasicActivityInitialization
     {
 		Tutor _tutor;
+        bool hasSongStartedPlaying = false;
+        bool hasIntroAnimationFinished = false;
 
         protected override void OnCreate(Bundle savedInstanceState)
         {
             base.OnCreate(savedInstanceState);
 
-            _tutor = new Tutor(this);
-
             //Set appropriate layout.
             SetContentView(Resource.Layout.Tutor);
+
+            _tutor = new Tutor(this);
 
             //Initialize activity and get the microphone listener thread.
             Thread micThread = CreateMicrophoneRecorder();
@@ -95,6 +97,9 @@ namespace Virtual_Guitar_Teacher.Activities
         private void Tutor_OnIntroAnimationFinished(object sender, EventArgs e)
         {
             hasIntroAnimationFinished = true;
+            //Display all strings colors in the view.
+            _tutor.ShowStringsColors(FindViewById<TableLayout>(Resource.Id.stingsColors));
+            //Play song.
             OnWindowFocusChanged(true);
         }
 
@@ -125,8 +130,6 @@ namespace Virtual_Guitar_Teacher.Activities
             return base.OnCreateView(name, context, attrs);
         }*/
 
-        bool hasSongStartedPlaying = false;
-        bool hasIntroAnimationFinished = false;
         public override void OnWindowFocusChanged(bool hasFocus)
         {
             base.OnWindowFocusChanged(hasFocus);
@@ -135,7 +138,6 @@ namespace Virtual_Guitar_Teacher.Activities
                 hasSongStartedPlaying = true;
                 _tutor.PlaySong();
             }
-                //tutor.StartTutoring();
         }
 
         private void TutorActivity_OnMicrophoneFinishedSampling(object sender, FinishedSampalingEventArgs e)

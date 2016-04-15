@@ -57,7 +57,8 @@ namespace Virtual_Guitar_Teacher.Activities
             micManager.FinishedSampling += OnMicrophoneFinishedSamplingEvent;
 
             //Crate new thread for constantly listening to the microphone input.
-            Thread thread = new Thread(new ThreadStart(() => {
+            Thread thread = new Thread(new ThreadStart(() => 
+            {
                 //Initialize microphone recorder.
                 micManager.RecorderInit();
                 //Listen constantly, untill a further notice.
@@ -87,12 +88,22 @@ namespace Virtual_Guitar_Teacher.Activities
 
         /// <summary>
         /// Order the microphone listener thread to stop listening, and exit naturally,
-        /// once the object is no longer needed by the application.
+        /// once this activity is destroyed.
         /// </summary>
         protected override void OnDestroy()
         {
             shouldListen = false;
             base.OnDestroy();
+        }
+
+        /// <summary>
+        /// Order the microphone listener thread to stop listening, and exit naturally,
+        /// once this activity is no longer needed by the application.
+        /// </summary>
+        protected override void Dispose(bool disposing)
+        {
+            shouldListen = false;
+            base.Dispose(disposing);
         }
     }
 }

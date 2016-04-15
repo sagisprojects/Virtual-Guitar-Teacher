@@ -6,6 +6,61 @@ namespace Virtual_Guitar_Teacher.Controller
     class Tuner
     {
         /// <summary>
+        /// Defines the difference (by precentage and opacity) of the played note 
+        /// from the desired note (closest), and a representaion of the closest note.
+        /// </summary>
+        public struct NoteDifference
+        {
+            //Constants:
+            //public const double FULL_ALPHA = 1; //A full opacity.
+            //public const int SEEKBAR_OFFSET = 128; //Middle of seek bar.
+
+            //Properties:
+            /// <summary>
+            ///Represents the opacity of the difference (a number between 0 and 1).
+            /// </summary>
+            //public double ClosnessAlpha { get; set; }
+            /// <summary>
+            /// Represents the precentage of closness by base 90.
+            /// </summary>
+            public float ClosnessByPercentage_Base90 { get; set; }
+            /// <summary>
+            /// Represents the closest open string note as a string.
+            /// </summary>
+            public string ClosestNote { get; set; }
+        }
+
+        /// <summary>
+        /// Defines an upper and a lower note pair.
+        /// </summary>
+        private struct UpperAndLowerNotes
+        {
+            Note _upper, _lower;
+            public Note Upper
+            {
+                get { return _upper; }
+                set
+                {
+                    if (value.Hertz < _lower.Hertz)
+                        throw new Exception("Upper value cannot be less than lower value.");
+                    else
+                        _upper = value;
+                }
+            }
+            public Note Lower
+            {
+                get { return _lower; }
+                set
+                {
+                    if (value.Hertz > _upper.Hertz)
+                        throw new Exception("Lower value cannot be greater than upper value.");
+                    else
+                        _lower = value;
+                }
+            }
+        }
+
+        /// <summary>
         /// Open string notes:
         /// String	    Frequency	    Scientific pitch notation
         ///  1 (E)	    329.63 Hz       E4
@@ -24,146 +79,136 @@ namespace Virtual_Guitar_Teacher.Controller
         /// </summary>
         /// <param name="frequency">The note's frequency represented by a number.</param>
         /// <returns></returns>
-        public NoteDifference NoteFrequencyFilter(float frequency)
+        public NoteDifference NoteFrequencyFilter(Hz frequency)
         {
             //Determine frequency range. (Get 2 closest open notes that the frequency is between them).
-            float[] twoClosestOpenNotes = GetTwoClosestOpenNotes(frequency);
+            UpperAndLowerNotes twoClosestOpenNotes = GetTwoClosestOpenNotes(frequency);
 
-            //Find out to which of the two closest notes the played frequency is closer to.
-            float closestNote = FindClosestNote(twoClosestOpenNotes, frequency); 
+            //Assume a closest note.
+            Note closestNote = twoClosestOpenNotes.Upper;
+
+            //If the two closest notes are actually diffrent ones, then...
+            if (twoClosestOpenNotes.Upper != twoClosestOpenNotes.Lower)
+                //Find which out of the two closest notes the played frequency is closer to.
+                closestNote = FindClosestNote(twoClosestOpenNotes, frequency); 
 
             //Find out how close the played frequency is from its closest note by percetage.
-            NoteDifference noteIndication = CalculateRatioOfCloseness(twoClosestOpenNotes, closestNote, frequency);
+            //NoteDifference noteDifference = 
+            return CalculateRatioOfCloseness(twoClosestOpenNotes, closestNote, frequency);
 
             //Get the closest note for presentation.
-            string noteNameRepresentation = string.Empty;
-         //   Frequencies.OpenStrings.notes.TryGetValue(closestNote, out notePresentation);
+            //string noteNameRepresentation = string.Empty;
 
-            noteIndication.ClosestNote = noteNameRepresentation;
+            //noteDifference.ClosestNote = closestNote.Name; //noteNameRepresentation;
 
-            return noteIndication;
+            //return noteDifference;
         }
 
-        /*private const float E2 = 82.407f;
-        private const float A2 = 110.000f;
-        private const float D3 = 146.832f;
-        private const float G3 = 184.997f;
-        private const float B3 = 246.942f;
-        private const float E4 = 329.628f;*/
-
         /// <summary>
-        /// Finds the two closest open chord notes (as showen at NoteFrequencyFilter description) 
+        /// Finds the two closest open chord notes (as shown at NoteFrequencyFilter description) 
         /// of the played frequency.
         /// </summary>
         /// <param name="playedFrequency">The frequency the user played.</param>
-        /// <returns>Returns the two closest open chord notes.</returns>
-        private float[] GetTwoClosestOpenNotes(float playedFrequency)
+        /// <returns>Returns the two closest open chord notes, 
+        /// unless the playedFrequency is above the highest open string frequency, 
+        /// or below the lowest open string frequency,
+        /// in that case it will return the same value for both.</returns>
+        private UpperAndLowerNotes GetTwoClosestOpenNotes(Hz playedFrequency)
         {
-            float[] twoClosestOpenNotes = new float[2];  //Create a 2 units array of type NoteFrequencies.
-            float[] differences = new float[6];          //Creat an array of differences between the playedFrequency to each of the open notes.
+            UpperAndLowerNotes twoClosestOpenNotes = new UpperAndLowerNotes();  //Create a 2 units array of type NoteFrequencies.
+            //float[] differences = new float[6];          //Creat an array of differences between the playedFrequency to each of the open notes.
 
-            if (playedFrequency <= OpenStrings.E2)
+            if (playedFrequency <= OpenStringNotes.E2.Hertz)
             {
-                twoClosestOpenNotes[0] = OpenStrings.E2;
-                twoClosestOpenNotes[1] = 0;
+                twoClosestOpenNotes.Lower =
+                twoClosestOpenNotes.Upper = OpenStringNotes.E2;
             }
-            else if (playedFrequency > OpenStrings.E2 && playedFrequency <= OpenStrings.A2)
+            else if (playedFrequency > OpenStringNotes.E2.Hertz && playedFrequency <= OpenStringNotes.A2.Hertz)
             {
-                twoClosestOpenNotes[0] = OpenStrings.E2;
-                twoClosestOpenNotes[1] = OpenStrings.A2;
+                twoClosestOpenNotes.Lower = OpenStringNotes.E2;
+                twoClosestOpenNotes.Upper = OpenStringNotes.A2;
             }
-            else if (playedFrequency > OpenStrings.A2 && playedFrequency <= OpenStrings.D3)
+            else if (playedFrequency > OpenStringNotes.A2.Hertz && playedFrequency <= OpenStringNotes.D3.Hertz)
             {
-                twoClosestOpenNotes[0] = OpenStrings.A2;
-                twoClosestOpenNotes[1] = OpenStrings.D3;
+                twoClosestOpenNotes.Lower = OpenStringNotes.A2;
+                twoClosestOpenNotes.Upper = OpenStringNotes.D3;
             }
-            else if (playedFrequency > OpenStrings.D3 && playedFrequency <= OpenStrings.G3)
+            else if (playedFrequency > OpenStringNotes.D3.Hertz && playedFrequency <= OpenStringNotes.G3.Hertz)
             {
-                twoClosestOpenNotes[0] = OpenStrings.D3;
-                twoClosestOpenNotes[1] = OpenStrings.G3;
+                twoClosestOpenNotes.Lower = OpenStringNotes.D3;
+                twoClosestOpenNotes.Upper = OpenStringNotes.G3;
             }
-            else if (playedFrequency > OpenStrings.G3 && playedFrequency <= OpenStrings.B3)
+            else if (playedFrequency > OpenStringNotes.G3.Hertz && playedFrequency <= OpenStringNotes.B3.Hertz)
             {
-                twoClosestOpenNotes[0] = OpenStrings.G3;
-                twoClosestOpenNotes[1] = OpenStrings.B3;
+                twoClosestOpenNotes.Lower = OpenStringNotes.G3;
+                twoClosestOpenNotes.Upper = OpenStringNotes.B3;
             }
-            else if (playedFrequency > OpenStrings.B3 && playedFrequency <= OpenStrings.E4)
+            else if (playedFrequency > OpenStringNotes.B3.Hertz && playedFrequency <= OpenStringNotes.E4.Hertz)
             {
-                twoClosestOpenNotes[0] = OpenStrings.B3;
-                twoClosestOpenNotes[1] = OpenStrings.E4;
+                twoClosestOpenNotes.Lower = OpenStringNotes.B3;
+                twoClosestOpenNotes.Upper = OpenStringNotes.E4;
             }
-            else if (playedFrequency > OpenStrings.E4)
+            else if (playedFrequency > OpenStringNotes.E4.Hertz)
             {
-                twoClosestOpenNotes[0] = OpenStrings.E4;
-                twoClosestOpenNotes[1] = 0;
+                twoClosestOpenNotes.Lower = 
+                twoClosestOpenNotes.Upper = OpenStringNotes.E4;
             }
         
             return twoClosestOpenNotes;
         }
 
         /// <summary>
-        /// Finds the main note that is being tuned to.
+        /// Find the single note which is closest to the frequency.
         /// </summary>
-        /// <param name="twoClosestOpenNotes">The two open notes that the frequency id between them.</param>
+        /// <param name="twoClosestOpenNotes">The two open notes that the frequency is between them.</param>
         /// <param name="frequency">The given frequency.</param>
         /// <returns>Retruns the main note that is being tuned to.</returns>
-        private float FindClosestNote(float[] twoClosestOpenNotes, float frequency)
+        private Note FindClosestNote(UpperAndLowerNotes twoClosestOpenNotes, Hz frequency)
         {
-            if ((twoClosestOpenNotes[0] - frequency) < (frequency - twoClosestOpenNotes[1]))
-                return twoClosestOpenNotes[0];
+            if ((twoClosestOpenNotes.Upper.Hertz - frequency) < (frequency - twoClosestOpenNotes.Lower.Hertz))
+                return twoClosestOpenNotes.Upper;
             else
-                return twoClosestOpenNotes[1];
+                return twoClosestOpenNotes.Lower;
         }
 
         /// <summary>
         ///  Gets the distance between the played frequency to the open note by percentage.
         /// </summary>
-        /// <param name="closestNote">The two closest notes that will be used as a reference to calculate the difference between both notes.</param>
+        /// <param name="twoClosestOpenNotes">The two closest open notes to the frequency.</param> 
+        /// <param name="closestNote">The most closest note, out of the two closest notes, 
+        /// which will be used as a reference to calculate the difference between this and the playedFrequency.</param>
         /// <param name="playedFrequency">The note that the user hits translated to frequency [Hz].</param>
         /// <returns>How close the users' frequency is from the desired note.</returns>
-        private NoteDifference CalculateRatioOfCloseness(float[] twoClosestOpenNotes, float closestNote, float playedFrequency)
+        private NoteDifference CalculateRatioOfCloseness(UpperAndLowerNotes twoClosestOpenNotes, Note closestNote, Hz playedFrequency)
         {
-            float closenessToMark = 0; //Closeness to the exact note mark. Number between 0 and 1.
+            float closenessToMark; //Closeness to the exact note mark. Number between 0 and 1.
             NoteDifference noteDiff = new NoteDifference();
 
             //Represents how close the frequency is from the closestNote.
-            float difference = Math.Abs(playedFrequency - closestNote); 
+            float difference = Math.Abs(playedFrequency - closestNote.Hertz); 
             
-            float middleOfTwoOpenNotes = Math.Abs(twoClosestOpenNotes[1] - twoClosestOpenNotes[0]) / 2;
+            float middleOfTwoOpenNotes = Math.Abs(twoClosestOpenNotes.Upper.Hertz - twoClosestOpenNotes.Lower.Hertz) / 2;
 
-            //Calculate the closness to the closestNote.
-            closenessToMark = difference / middleOfTwoOpenNotes;
+            if (middleOfTwoOpenNotes != 0)
+                //Calculate the closness to the closestNote.
+                closenessToMark = difference / middleOfTwoOpenNotes; //FIX: Why is that?
+            else
+                closenessToMark = difference;
             //Calculate the alpha (opacity) of the note indicator.
-            noteDiff.ClosnessAlpha = NoteDifference.FULL_ALPHA - closenessToMark;
-            //Calculate the precentage of closnessToMark and add the offset of 100. Between 0 and 256.
-            noteDiff.TuneBarProgress = (int)(closenessToMark * 100) + NoteDifference.SEEKBAR_OFFSET;
-            
+            //noteDiff.ClosnessAlpha = NoteDifference.FULL_ALPHA - closenessToMark;
+            //Calculate the closness by a precentage of base 90.
+            noteDiff.ClosnessByPercentage_Base90 = closenessToMark * 90; //FIX: This is not a precentage!
+            noteDiff.ClosestNote = closestNote.Name;
+
+            if (playedFrequency < closestNote.Hertz)
+            {
+                //from -90 to 0 degrees.
+                noteDiff.ClosnessByPercentage_Base90 *= (-1);
+                //if (closestNote.Alias != null)
+                //    noteDiff.ClosestNote = closestNote.Alias;
+            }
+
             return noteDiff;
-        }
-
-        /// <summary>
-        /// Defines the difference (By precentage and opacity) of the played note 
-        /// from the desired note (closest), and a representaion of the closest note.
-        /// </summary>
-        public struct NoteDifference
-        {
-            //Constants:
-            public const double FULL_ALPHA = 1; //A full opacity.
-            public const int SEEKBAR_OFFSET = 128; //Middle of seek bar.
-
-            //Properties:
-            /// <summary>
-            ///Represents the opacity of the difference (a number between 0 and 1).
-            /// </summary>
-            public double ClosnessAlpha { get; set; }
-            /// <summary>
-            /// Represents the bar progresses by a number.
-            /// </summary>
-            public int TuneBarProgress { get; set; }
-            /// <summary>
-            /// Represents the closest open string note as a string.
-            /// </summary>
-            public string ClosestNote { get; set; }
         }
     }
 }

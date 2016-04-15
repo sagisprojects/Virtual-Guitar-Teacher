@@ -4,6 +4,7 @@ using Android.Media;
 using Android.Util;
 using System.Numerics;
 using System.Security;
+using Java.Nio;
 
 namespace Virtual_Guitar_Teacher.Controller.Libraries
 {
@@ -18,14 +19,11 @@ namespace Virtual_Guitar_Teacher.Controller.Libraries
     public sealed class MicrophoneManager : IDisposable
     {
         public event FinishedSamplingEventHandler FinishedSampling;
-
-        private string _defaultRecordingFilePath = @"\VGT\Documents\Recordings\"; //This should be in strings.xml, not here.
-            ///new Android.Content.Res.Resources(null, null, null).GetString(Resource.String.SongsFolderPath);
-
+        
         private const ChannelIn RECORDER_CHANNELS = ChannelIn.Mono;
         private const Encoding RECORDER_AUDIO_ENCODING = Encoding.Pcm16bit;
         private const int RECORDER_SAMPLERATE = 44100;
-        private const byte RECORDER_BPP = 16;
+        //private const byte RECORDER_BPP = 16;
         private int _bufferSizeInBytes;
 
         private AudioRecord _recorder;
@@ -42,6 +40,8 @@ namespace Virtual_Guitar_Teacher.Controller.Libraries
             // Initialize Audio Recorder.
             _recorder = new AudioRecord(AudioSource.Mic, RECORDER_SAMPLERATE,
                     RECORDER_CHANNELS, RECORDER_AUDIO_ENCODING, _bufferSizeInBytes);
+
+            _recorder.StartRecording();
         }
 
         [SecurityCritical]
@@ -49,57 +49,55 @@ namespace Virtual_Guitar_Teacher.Controller.Libraries
         {
             int numberOfReadBytes = 0;
             byte[] audioBuffer = new byte[_bufferSizeInBytes];              // input PCM data buffer
-            Complex[] fftBuffer = new Complex[_bufferSizeInBytes * 2];      // FFT complex buffer (interleaved real/imag)
-            double[] magnitude = new double[_bufferSizeInBytes / 2];            // power spectrum
+            Complex[] fftBuffer = new Complex[_bufferSizeInBytes];      // FFT complex buffer (interleaved real/imag)
+            double[] magnitude = new double[_bufferSizeInBytes];        // power spectrum - Does this need to be half the size?
             float frequency;
 
-            for (int i = 0; i <= RECORDER_SAMPLERATE; i++)
-            {
-                //capture audio in data[] buffer.
-                numberOfReadBytes = _recorder.Read(audioBuffer, i, _bufferSizeInBytes);
-            }
+            //for (int i = 0; i <= RECORDER_SAMPLERATE; i++)
 
-            //apply window function to audioBuffer.
-            Complex[] hamWindow = WindowFunction.Hamming(audioBuffer); //TODO: Need to apply to audioBuffer.
+            //Capture audio in audioBuffer.
+            numberOfReadBytes = _recorder.Read(audioBuffer, 0, _bufferSizeInBytes);
 
-            //copy real input data to complex FFT buffer
-            for (int i = 0; i < _bufferSizeInBytes - 1; i += 2)
+            //Apply window function to audioBuffer.
+            fftBuffer = WindowFunction.Hann(audioBuffer);
+
+            //Copy real input data to complex fftBuffer.
+            /*for (int i = 0; i < _bufferSizeInBytes - 1; i += 2)
             {
-                fftBuffer[2 * i] = audioBuffer[i];
+                fftBuffer[2 * i] = hannWindow[i];
                 fftBuffer[2 * i + 1] = 0;
-            }
+            }*/
 
-            //perform in-place complex - to - complex FFT on fft[] buffer
-            CT_FFT.FFT(fftBuffer);
+            //Perform in-place complex - to - complex FFT on fftBuffer.
+            CT_FFT.Transform(ref fftBuffer); //Does this use complex numbers correctly? (arr[x].Real arr[x].Imaginary)
 
-            //calculate power spectrum (magnitude) values from fft[]
-            for (int i = 0; i < audioBuffer.Length / 2 - 1; i += 2)
+            //Calculate power spectrum (magnitude) values from fftBuffer.
+            for (int i = 0; i < fftBuffer.Length; i++)
             {
-                double real = fftBuffer[2 * i].Real;
-                double imaginary = fftBuffer[2 * i + 1].Imaginary;
+                double real = fftBuffer[i].Real;
+                double imaginary = fftBuffer[i].Imaginary;
                 magnitude[i] = Math.Sqrt(real * real + imaginary * imaginary);
             }
 
-            // find largest peak in power spectrum
+            //Find largest peak in power spectrum.
             double max_magnitude = double.NegativeInfinity;
             double max_index = -1;
-            for (int i = 0; i < audioBuffer.Length / 2 - 1; i++)
+            for (int i = 0; i < magnitude.Length; i++)
                 if (magnitude[i] > max_magnitude)
                 {
                     max_magnitude = magnitude[i];
                     max_index = i;
                 }
             
-            // convert index of largest peak to frequency
-            frequency = (float)max_index * RECORDER_SAMPLERATE / audioBuffer.Length;
+            //Convert index of largest peak to frequency.
+            frequency = (float)max_index * RECORDER_SAMPLERATE / _bufferSizeInBytes;
 
             //Fire event for passing back the recorded value.
             FinishedSampling(this, new FinishedSampalingEventArgs()
             {
-                Frequency = new Hz() { CyclesPerSecond = frequency },
+                Frequency = new Hz(frequency),
                 Volume = max_magnitude
             });
-
         }
         
         public void Dispose()
