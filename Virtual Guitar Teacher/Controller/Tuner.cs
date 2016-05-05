@@ -36,6 +36,14 @@ namespace Virtual_Guitar_Teacher.Controller
         private struct UpperAndLowerNotes
         {
             Note _upper, _lower;
+
+            public UpperAndLowerNotes(Note lower, Note upper)
+            {
+                //Initial values.
+                _upper = upper;
+                _lower = lower;
+            }
+
             public Note Upper
             {
                 get { return _upper; }
@@ -115,12 +123,11 @@ namespace Virtual_Guitar_Teacher.Controller
         /// in that case it will return the same value for both.</returns>
         private UpperAndLowerNotes GetTwoClosestOpenNotes(Hz playedFrequency)
         {
-            UpperAndLowerNotes twoClosestOpenNotes = new UpperAndLowerNotes();  //Create a 2 units array of type NoteFrequencies.
-            //float[] differences = new float[6];          //Creat an array of differences between the playedFrequency to each of the open notes.
+            UpperAndLowerNotes twoClosestOpenNotes = new UpperAndLowerNotes(Notes.LowerLimit, Notes.UpperLimit);  
 
             if (playedFrequency <= OpenStringNotes.E2.Hertz)
             {
-                twoClosestOpenNotes.Lower =
+                twoClosestOpenNotes.Lower = Notes.LowerLimit;
                 twoClosestOpenNotes.Upper = OpenStringNotes.E2;
             }
             else if (playedFrequency > OpenStringNotes.E2.Hertz && playedFrequency <= OpenStringNotes.A2.Hertz)
@@ -150,8 +157,8 @@ namespace Virtual_Guitar_Teacher.Controller
             }
             else if (playedFrequency > OpenStringNotes.E4.Hertz)
             {
-                twoClosestOpenNotes.Lower = 
-                twoClosestOpenNotes.Upper = OpenStringNotes.E4;
+                twoClosestOpenNotes.Lower = OpenStringNotes.E4;
+                twoClosestOpenNotes.Upper = Notes.UpperLimit;
             }
         
             return twoClosestOpenNotes;

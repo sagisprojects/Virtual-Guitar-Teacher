@@ -22,6 +22,7 @@ namespace Virtual_Guitar_Teacher.Activities
     {
         protected volatile bool shouldListen = true;
         private MicrophoneManager micManager;
+        private Thread microphoneThread;
         /// <summary>
         /// Fires once a sample of the microphone input is ready for use.
         /// </summary>
@@ -76,6 +77,40 @@ namespace Virtual_Guitar_Teacher.Activities
             OnMicrophoneFinishedSampling(sender, e);
         }
 
+        protected override void OnStart()
+        {
+            base.OnStart();
+            shouldListen = true;
+
+            //Initialize activity and get the microphone listener thread.
+            microphoneThread = CreateMicrophoneRecorder();
+
+            /*if (microphoneThread.ThreadState != ThreadState.Running
+                && OnMicrophoneFinishedSampling != null)
+                microphoneThread.Start();*/
+        }
+
+        protected override void OnPause()
+        {
+            base.OnPause();
+            shouldListen = false;
+            //microphoneThread.Suspend(); //Abort?
+        }
+
+        protected override void OnStop()
+        {
+            base.OnStop();
+            shouldListen = false;
+        }
+
+        protected override void OnResume()
+        {
+            base.OnResume();
+            shouldListen = true;
+            /*if (microphoneThread.ThreadState != ThreadState.Running
+                && OnMicrophoneFinishedSampling != null)
+                microphoneThread.Start();*/
+        }
         /// <summary>
         /// Order the microphone listener thread to stop listening, and exit naturally,
         /// upon a back button press.

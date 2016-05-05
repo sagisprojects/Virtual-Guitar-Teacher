@@ -4,13 +4,13 @@
 - Finish up MicrophoneRecorder so it will yield the fundamental frequency.
 - Perhaps MicrophoneRecorder should have a Start, Pause, and Stop methods - for capturing audio input at the correct moments.
 - Test fret and note alignment on at least 3 different screen sizes.
-V - Notes animations should be correctly aligned with thier corresponding visual fret.
+V - Notes animations should be correctly aligned with their corresponding visual fret.
 V - Tuner should have a dial.
-V - Add a corresponding smilie face indicator for each note sound input capture.
+V - Add a corresponding smiley face indicator for each note sound input capture.
 
 That's v.1.0
 Next milestone:
 - Add levels to the Play game, 
-	each level gives you certian ammount of points depending on the ammount of successful string strokes.
+	each level gives you certain amount of points depending on the amount of successful string strokes.
 	If you've passed the min amount, you'll unlock the next level.
 	With points you can buy a new virtual guitar to play with.

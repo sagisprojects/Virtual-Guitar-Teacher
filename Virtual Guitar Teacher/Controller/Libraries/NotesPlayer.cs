@@ -124,7 +124,7 @@ namespace Virtual_Guitar_Teacher.Controller.Libraries
 
             string[] sequenceLines = GetFileLinesFromAssets(fileName + SONG_FILE_EXTENSION, _activity.Assets);
 
-            DiscardCommentsOrEmptyLines(ref sequenceLines);
+            DiscardCommentsAndEmptyLines(ref sequenceLines);
 
             Sequence sequence = new Sequence(sequenceLines.Length);
             string[] lineSegments;
@@ -190,9 +190,8 @@ namespace Virtual_Guitar_Teacher.Controller.Libraries
                 {
                     if (stringsDistances[i] == 0 && currentNote.Positions[i].Fret == GuitarFret.OpenString)
                         closestPosition = currentNote.Positions[i];
-                    else if (stringsDistances[i - 1] == 0 && currentNote.Positions[i - 1].Fret == GuitarFret.OpenString)
-                        closestPosition = currentNote.Positions[i - 1];
-                    else if (fretsDistances[i - 1] < fretsDistances[i])
+                    else if ((stringsDistances[i - 1] == 0 && currentNote.Positions[i - 1].Fret == GuitarFret.OpenString)
+                        || fretsDistances[i - 1] < fretsDistances[i])
                         closestPosition = currentNote.Positions[i - 1];
                     else
                         closestPosition = currentNote.Positions[i];
@@ -252,6 +251,9 @@ namespace Virtual_Guitar_Teacher.Controller.Libraries
             AnimatorSet animatorSet = new AnimatorSet();
             animatorSet.PlaySequentially(animations);
             animatorSet.Start();
+
+            //animatorSet.AnimationEnd
+            //animatorSet.Pause
         }
     }
 }

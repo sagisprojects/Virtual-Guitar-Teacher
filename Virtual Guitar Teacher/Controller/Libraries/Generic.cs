@@ -25,6 +25,12 @@ namespace Virtual_Guitar_Teacher.Controller.Libraries
             return displayMetrics;
         }
 
+        /// <summary>
+        /// Reads a file from the related AssetManager.
+        /// </summary>
+        /// <param name="fileName">The full name of the file.</param>
+        /// <param name="assets">The related AssetsManager instance.</param>
+        /// <returns>Returns the data of the file as an array of stringed lines.</returns>
         public static string[] GetFileLinesFromAssets(string fileName, AssetManager assets)
         {
             Stream stream = assets.Open(fileName);
@@ -40,10 +46,10 @@ namespace Virtual_Guitar_Teacher.Controller.Libraries
         }
 
         /// <summary>
-        /// Discards any commented lines (//) or empty lines.
+        /// Discards any commented lines (//) and/or empty lines.
         /// </summary>
         /// <param name="lines">The array of the stringed lines from which to remove commented or empty line.</param>
-        public static void DiscardCommentsOrEmptyLines(ref string[] lines)
+        public static void DiscardCommentsAndEmptyLines(ref string[] lines)
         {
             List<string> linesList = new List<string>();
             foreach (string line in lines)
@@ -101,6 +107,7 @@ namespace Virtual_Guitar_Teacher.Controller.Libraries
     public static class NotesNames
     {
         public static readonly string
+            C0 = "C0",
             Ds2 = "Ds2", Eb2 = "Eb2",
             E2 = "E2",
             F2 = "F2",
@@ -134,7 +141,7 @@ namespace Virtual_Guitar_Teacher.Controller.Libraries
             G4 = "G4",
             Gs4 = "Gs4", Ab4 = "Ab4",
             A4 = "A4",
-            As4 = "As4", Bb4 = "Bb4";
+            As4 = "As4", Bb4 = "Bb4",
             /*B4 = "B4",
 
             C5 = "C5",
@@ -145,9 +152,9 @@ namespace Virtual_Guitar_Teacher.Controller.Libraries
             F5 = "F5",
             Fs5 = "Fs5",
             G5 = "G5",
-            Ab5 = "Ab5",
-            A5 = "A5",
-            Bb5 = "Bb5",
+            Ab5 = "Ab5",*/
+            A5 = "A5";
+            /*Bb5 = "Bb5",
             B5 = "B5";*/
     }
 
@@ -254,6 +261,11 @@ namespace Virtual_Guitar_Teacher.Controller.Libraries
         static public implicit operator float(Hz value)
         {
             return value.Value;
+        }
+
+        public override string ToString()
+        {
+            return Value + " Hz";
         }
     }
 

@@ -30,5 +30,18 @@
         android:max="100"
         android:clickable="false"
         android:progress="50"
-        android:rotation="-90" />
+        android:rotation="-90"
+        android:visibility="gone" />
+    <TextView
+        android:text="Text"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:id="@+id/txtFrequency"
+        android:textColor="@android:color/holo_green_light" />
+    <GridLayout
+        android:id="@+id/tuner_gridLayout"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:rowCount="1"
+        android:columnCount="1" />
 </FrameLayout>

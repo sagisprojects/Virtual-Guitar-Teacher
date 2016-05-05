@@ -32,15 +32,25 @@ namespace Virtual_Guitar_Teacher.Activities
             //Set appropriate layout.
             SetContentView(Resource.Layout.Tutor);
 
-            _tutor = new Tutor(this);
 
-            //Initialize activity and get the microphone listener thread.
-            Thread micThread = CreateMicrophoneRecorder();
 
             OnMicrophoneFinishedSampling += TutorActivity_OnMicrophoneFinishedSampling;
 
             //Start the microphone listening thread.
             //micThread.Start();
+
+            //TableLayout tableLayout = FindViewById<TableLayout>(Resource.Id.tableLayout);
+            //tableLayout.Touch += TableLayout_Touch;
+
+            //SetTableControls(tableLayout);
+        }
+
+        protected override void OnStart()
+        {
+            Log.Info("TutorActivity", "OnStart");
+            base.OnStart();
+
+            _tutor = new Tutor(this);
 
             ImageView guitarBG = FindViewById<ImageView>(Resource.Id.guitarBG);
             //guitarBG.SetImageResource(Resource.Drawable.Neck_Acustic_01);
@@ -48,16 +58,25 @@ namespace Virtual_Guitar_Teacher.Activities
             _tutor.AnimateGuitarIntro(guitarBG);
             _tutor.OnIntroAnimationFinished += Tutor_OnIntroAnimationFinished;
 
-            Log.Info("TutorActivity", "OnCreate");
             _tutor.ReadSong();
-
-            TableLayout tableLayout = FindViewById<TableLayout>(Resource.Id.tableLayout);
-            tableLayout.Touch += TableLayout_Touch;
-
-            //SetTableControls(tableLayout);
         }
 
-        private void SetTableControls(TableLayout tableLayout)
+        protected override void OnPause()
+        {
+            base.OnPause();
+        }
+
+        protected override void OnResume()
+        {
+            base.OnResume();
+        }
+
+        protected override void OnStop()
+        {
+            base.OnStop();
+        }
+
+        /*private void SetTableControls(TableLayout tableLayout)
         {
             TextView textView = new TextView(this);
             Spinner spinner = new Spinner(this);
@@ -92,7 +111,7 @@ namespace Virtual_Guitar_Teacher.Activities
         {
             Log.Info("", e.Event.GetX().ToString());
             Log.Info("", e.Event.GetY().ToString());
-        }
+        }*/
 
         private void Tutor_OnIntroAnimationFinished(object sender, EventArgs e)
         {

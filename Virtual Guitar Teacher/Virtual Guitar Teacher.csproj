@@ -50,6 +50,13 @@
     <DevInstrumentationEnabled>False</DevInstrumentationEnabled>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="MathNet.Neodym">
+      <HintPath>..\..\..\External Libraries\MathNet.Neodym-2008.2.2.364\Binaries\Release\MathNet.Neodym.dll</HintPath>
+    </Reference>
+    <Reference Include="MathNet.Numerics, Version=3.11.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\MathNet.Numerics.3.11.0\lib\portable-net45+netcore45+MonoAndroid1+MonoTouch1\MathNet.Numerics.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
     <Reference Include="Mono.Android" />
     <Reference Include="mscorlib" />
     <Reference Include="System" />
@@ -62,15 +69,15 @@
     <Compile Include="Activities\BasicActivityInitialization.cs" />
     <Compile Include="Activities\PlayerActivity.cs" />
     <Compile Include="Activities\RecorderActivity.cs" />
-    <Compile Include="Controller\Libraries\CT_FFT.cs" />
     <Compile Include="Controller\Libraries\ExtensionMethods.cs" />
+    <Compile Include="Controller\Libraries\FftGuitarTuner\ComplexNumber.cs" />
+    <Compile Include="Controller\Libraries\FftGuitarTuner\FftAlgorithm.cs" />
+    <Compile Include="Controller\Libraries\FftGuitarTuner\FrequencyUtils.cs" />
     <Compile Include="Controller\Libraries\Generic.cs" />
-    <Compile Include="Controller\Libraries\IPC_FFT.cs" />
     <Compile Include="Controller\Libraries\Notes.cs" />
     <Compile Include="Controller\Libraries\Logger.cs" />
     <Compile Include="Controller\Libraries\NoteRepresentation.cs" />
     <Compile Include="Controller\Libraries\NotesPlayer.cs" />
-    <Compile Include="Controller\Libraries\WindowFunction.cs" />
     <Compile Include="Controller\Player.cs" />
     <Compile Include="Controller\Recorder.cs" />
     <Compile Include="Controller\Libraries\MicrophoneManager.cs" />

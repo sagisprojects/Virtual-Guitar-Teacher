@@ -103,6 +103,10 @@ namespace Virtual_Guitar_Teacher.Controller.Libraries
     {
         private static Note[] _notes;
 
+        public static Note UpperLimit => new Note("A5", new Hz(880.0f), null);
+        public static Note LowerLimit => new Note("C0", new Hz(16.35f), null);
+
+
         public Note this[NoteName name]
         {
             get

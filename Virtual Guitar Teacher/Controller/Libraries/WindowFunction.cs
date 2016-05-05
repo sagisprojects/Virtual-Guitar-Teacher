@@ -22,14 +22,14 @@ namespace Virtual_Guitar_Teacher.Controller.Libraries
         /// <param name="inputWave">Raw data of the input wave.</param>
         /// <returns></returns>
         [SecurityCritical]
-        public static Complex[] Hann(byte[] inputWave)
+        public static double[] Hann(byte[] inputWave)
         {
-            Complex[] outputWave = new Complex[inputWave.Length];
+            double[] outputWave = new double[inputWave.Length];
 
             for (int i = 0; i < outputWave.Length; i++)
             {
                 double multiplier = 0.5 * (1 - Math.Cos(2 * Math.PI * i / outputWave.Length - 1));
-                outputWave[i] = new Complex(multiplier * inputWave[i], 0);
+                outputWave[i] = multiplier * inputWave[i];
             }
 
             return outputWave;
