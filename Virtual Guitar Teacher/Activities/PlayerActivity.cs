@@ -48,14 +48,9 @@ namespace Virtual_Guitar_Teacher.Activities
             //_player.ReadSong();
         }
 
-        public override void OnWindowFocusChanged(bool hasFocus)
+        private void PlayerActivity_OnMicrophoneFinishedSampling(object sender, FinishedSampalingEventArgs e)
         {
-            base.OnWindowFocusChanged(hasFocus);
-            if (hasFocus && !hasSongStartedPlaying && hasIntroAnimationFinished)
-            {
-                hasSongStartedPlaying = true;
-                //_player.PlaySong();
-            }
+            _player.CurrentlyPlayedFrequency = e.Frequency;
         }
 
         private void Player_OnIntroAnimationFinished(object sender, EventArgs e)
@@ -64,9 +59,14 @@ namespace Virtual_Guitar_Teacher.Activities
             OnWindowFocusChanged(true);
         }
 
-        private void PlayerActivity_OnMicrophoneFinishedSampling(object sender, FinishedSampalingEventArgs e)
+        public override void OnWindowFocusChanged(bool hasFocus)
         {
-            _player.CurrentlyPlayedFrequency = e.Frequency;
+            base.OnWindowFocusChanged(hasFocus);
+            if (hasFocus && !hasSongStartedPlaying && hasIntroAnimationFinished)
+            {
+                hasSongStartedPlaying = true;
+                //_player.PlaySong();
+            }
         }
     }
 }

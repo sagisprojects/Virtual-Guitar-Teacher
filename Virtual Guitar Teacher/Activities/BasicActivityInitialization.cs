@@ -21,7 +21,7 @@ namespace Virtual_Guitar_Teacher.Activities
     public class BasicActivityInitialization : Activity
     {
         protected volatile bool shouldListen = true;
-        private MicrophoneManager micManager;
+        protected MicrophoneManager micManager;
         private Thread microphoneThread;
         /// <summary>
         /// Fires once a sample of the microphone input is ready for use.

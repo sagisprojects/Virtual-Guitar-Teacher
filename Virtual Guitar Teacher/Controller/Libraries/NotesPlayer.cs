@@ -206,7 +206,7 @@ namespace Virtual_Guitar_Teacher.Controller.Libraries
         /// </summary>
         /// <param name="sequence">The sequence from which to gather animations information.</param>
         /// <returns>Returns a series of animations.</returns>
-        protected ObjectAnimator[] PrepareNoteAnimations(Sequence sequence)
+        protected ObjectAnimator[] PrepareNotesAnimations(Sequence sequence)
         {
             ObjectAnimator[] animations = new ObjectAnimator[sequence.Length];
 
@@ -225,8 +225,23 @@ namespace Virtual_Guitar_Teacher.Controller.Libraries
 
             return animations;
         }
+        
+        public void SpotAnimateAllPositionsOfANote(Note note)
+        {
+            List<ObjectAnimator> animationsList = new List<ObjectAnimator>();
+            foreach (Position position in note.Positions)
+            {
+                //Create a new visual representation of that note.
+                NoteRepresentation noteRep = new NoteRepresentation(_activity, note);
+                //Create the note's animation, and add that animation to the animations array.
+                animationsList.Add(noteRep.CreateNoteAnimation_FadeOnly(position));
+            }
+            AnimatorSet animatorSet = new AnimatorSet();
+            animatorSet.PlayTogether(animationsList.ToArray());
+            animatorSet.Start();
+        }
 
-		private void NotesPlayer_OnNoteArraival(object sender, NoteRepresentation.OnNoteArraivalArgs songNote)
+        private void NotesPlayer_OnNoteArraival(object sender, NoteRepresentation.OnNoteArraivalArgs songNote)
 		{
 			bool isOnPoint = CompareNotes(CurrentlyPlayedFrequency, songNote.Frequency);
 
@@ -239,7 +254,7 @@ namespace Virtual_Guitar_Teacher.Controller.Libraries
 
 		private void NotesPlayer_OnNoteGone(object sender, EventArgs e)
 		{
-            throw new NotImplementedException();
+            //throw new NotImplementedException();
 		}
 
         /// <summary>

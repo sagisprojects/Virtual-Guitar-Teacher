@@ -1,3 +1,6 @@
+- Write more songs.
+- Decide what happens when notes animations end.
+
 - Make showcases (help layer) for each screen.
 - Make sure the app is always in horizontal scape, with no hiccups.
 - Continue developing Recorder class for recording a song visually from the screen (and perhaps later, from sound input), so it can be saved as a song file (.vgts).

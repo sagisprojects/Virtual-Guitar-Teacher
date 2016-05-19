@@ -26,10 +26,81 @@ namespace Virtual_Guitar_Teacher
 		
 		public static void UpdateIdValues()
 		{
+			global::SharpShowcaseView.Resource.Attribute.showcaseViewStyle = global::Virtual_Guitar_Teacher.Resource.Attribute.showcaseViewStyle;
+			global::SharpShowcaseView.Resource.Attribute.sv_backgroundColor = global::Virtual_Guitar_Teacher.Resource.Attribute.sv_backgroundColor;
+			global::SharpShowcaseView.Resource.Attribute.sv_buttonBackgroundColor = global::Virtual_Guitar_Teacher.Resource.Attribute.sv_buttonBackgroundColor;
+			global::SharpShowcaseView.Resource.Attribute.sv_buttonForegroundColor = global::Virtual_Guitar_Teacher.Resource.Attribute.sv_buttonForegroundColor;
+			global::SharpShowcaseView.Resource.Attribute.sv_buttonText = global::Virtual_Guitar_Teacher.Resource.Attribute.sv_buttonText;
+			global::SharpShowcaseView.Resource.Attribute.sv_detailTextAppearance = global::Virtual_Guitar_Teacher.Resource.Attribute.sv_detailTextAppearance;
+			global::SharpShowcaseView.Resource.Attribute.sv_detailTextColor = global::Virtual_Guitar_Teacher.Resource.Attribute.sv_detailTextColor;
+			global::SharpShowcaseView.Resource.Attribute.sv_showcaseColor = global::Virtual_Guitar_Teacher.Resource.Attribute.sv_showcaseColor;
+			global::SharpShowcaseView.Resource.Attribute.sv_titleTextAppearance = global::Virtual_Guitar_Teacher.Resource.Attribute.sv_titleTextAppearance;
+			global::SharpShowcaseView.Resource.Attribute.sv_titleTextColor = global::Virtual_Guitar_Teacher.Resource.Attribute.sv_titleTextColor;
+			global::SharpShowcaseView.Resource.Drawable.btn_cling_normal = global::Virtual_Guitar_Teacher.Resource.Drawable.btn_cling_normal;
+			global::SharpShowcaseView.Resource.Drawable.btn_cling_pressed = global::Virtual_Guitar_Teacher.Resource.Drawable.btn_cling_pressed;
+			global::SharpShowcaseView.Resource.Drawable.cling = global::Virtual_Guitar_Teacher.Resource.Drawable.cling;
+			global::SharpShowcaseView.Resource.Drawable.cling_bleached = global::Virtual_Guitar_Teacher.Resource.Drawable.cling_bleached;
+			global::SharpShowcaseView.Resource.Drawable.cling_button_bg = global::Virtual_Guitar_Teacher.Resource.Drawable.cling_button_bg;
+			global::SharpShowcaseView.Resource.Drawable.hand = global::Virtual_Guitar_Teacher.Resource.Drawable.hand;
+			global::SharpShowcaseView.Resource.Id.showcase_button = global::Virtual_Guitar_Teacher.Resource.Id.showcase_button;
+			global::SharpShowcaseView.Resource.Id.showcase_sub_text = global::Virtual_Guitar_Teacher.Resource.Id.showcase_sub_text;
+			global::SharpShowcaseView.Resource.Id.showcase_title_text = global::Virtual_Guitar_Teacher.Resource.Id.showcase_title_text;
+			global::SharpShowcaseView.Resource.Layout.handy = global::Virtual_Guitar_Teacher.Resource.Layout.handy;
+			global::SharpShowcaseView.Resource.Layout.showcase_button = global::Virtual_Guitar_Teacher.Resource.Layout.showcase_button;
+			global::SharpShowcaseView.Resource.String.ok = global::Virtual_Guitar_Teacher.Resource.String.ok;
+			global::SharpShowcaseView.Resource.Style.ShowcaseButton = global::Virtual_Guitar_Teacher.Resource.Style.ShowcaseButton;
+			global::SharpShowcaseView.Resource.Style.ShowcaseView = global::Virtual_Guitar_Teacher.Resource.Style.ShowcaseView;
+			global::SharpShowcaseView.Resource.Style.ShowcaseView_Light = global::Virtual_Guitar_Teacher.Resource.Style.ShowcaseView_Light;
+			global::SharpShowcaseView.Resource.Style.TextAppearance_ShowcaseView_Detail = global::Virtual_Guitar_Teacher.Resource.Style.TextAppearance_ShowcaseView_Detail;
+			global::SharpShowcaseView.Resource.Style.TextAppearance_ShowcaseView_Detail_Light = global::Virtual_Guitar_Teacher.Resource.Style.TextAppearance_ShowcaseView_Detail_Light;
+			global::SharpShowcaseView.Resource.Style.TextAppearance_ShowcaseView_Title = global::Virtual_Guitar_Teacher.Resource.Style.TextAppearance_ShowcaseView_Title;
+			global::SharpShowcaseView.Resource.Style.TextAppearance_ShowcaseView_Title_Light = global::Virtual_Guitar_Teacher.Resource.Style.TextAppearance_ShowcaseView_Title_Light;
+			global::SharpShowcaseView.Resource.Styleable.CustomTheme = global::Virtual_Guitar_Teacher.Resource.Styleable.CustomTheme;
+			global::SharpShowcaseView.Resource.Styleable.CustomTheme_showcaseViewStyle = global::Virtual_Guitar_Teacher.Resource.Styleable.CustomTheme_showcaseViewStyle;
+			global::SharpShowcaseView.Resource.Styleable.ShowcaseView = global::Virtual_Guitar_Teacher.Resource.Styleable.ShowcaseView;
+			global::SharpShowcaseView.Resource.Styleable.ShowcaseView_sv_backgroundColor = global::Virtual_Guitar_Teacher.Resource.Styleable.ShowcaseView_sv_backgroundColor;
+			global::SharpShowcaseView.Resource.Styleable.ShowcaseView_sv_buttonBackgroundColor = global::Virtual_Guitar_Teacher.Resource.Styleable.ShowcaseView_sv_buttonBackgroundColor;
+			global::SharpShowcaseView.Resource.Styleable.ShowcaseView_sv_buttonForegroundColor = global::Virtual_Guitar_Teacher.Resource.Styleable.ShowcaseView_sv_buttonForegroundColor;
+			global::SharpShowcaseView.Resource.Styleable.ShowcaseView_sv_buttonText = global::Virtual_Guitar_Teacher.Resource.Styleable.ShowcaseView_sv_buttonText;
+			global::SharpShowcaseView.Resource.Styleable.ShowcaseView_sv_detailTextAppearance = global::Virtual_Guitar_Teacher.Resource.Styleable.ShowcaseView_sv_detailTextAppearance;
+			global::SharpShowcaseView.Resource.Styleable.ShowcaseView_sv_detailTextColor = global::Virtual_Guitar_Teacher.Resource.Styleable.ShowcaseView_sv_detailTextColor;
+			global::SharpShowcaseView.Resource.Styleable.ShowcaseView_sv_showcaseColor = global::Virtual_Guitar_Teacher.Resource.Styleable.ShowcaseView_sv_showcaseColor;
+			global::SharpShowcaseView.Resource.Styleable.ShowcaseView_sv_titleTextAppearance = global::Virtual_Guitar_Teacher.Resource.Styleable.ShowcaseView_sv_titleTextAppearance;
+			global::SharpShowcaseView.Resource.Styleable.ShowcaseView_sv_titleTextColor = global::Virtual_Guitar_Teacher.Resource.Styleable.ShowcaseView_sv_titleTextColor;
 		}
 		
 		public partial class Attribute
 		{
+			
+			// aapt resource value: 0x7f010009
+			public const int showcaseViewStyle = 2130771977;
+			
+			// aapt resource value: 0x7f010000
+			public const int sv_backgroundColor = 2130771968;
+			
+			// aapt resource value: 0x7f010003
+			public const int sv_buttonBackgroundColor = 2130771971;
+			
+			// aapt resource value: 0x7f010004
+			public const int sv_buttonForegroundColor = 2130771972;
+			
+			// aapt resource value: 0x7f010005
+			public const int sv_buttonText = 2130771973;
+			
+			// aapt resource value: 0x7f010006
+			public const int sv_detailTextAppearance = 2130771974;
+			
+			// aapt resource value: 0x7f010001
+			public const int sv_detailTextColor = 2130771969;
+			
+			// aapt resource value: 0x7f010008
+			public const int sv_showcaseColor = 2130771976;
+			
+			// aapt resource value: 0x7f010007
+			public const int sv_titleTextAppearance = 2130771975;
+			
+			// aapt resource value: 0x7f010002
+			public const int sv_titleTextColor = 2130771970;
 			
 			static Attribute()
 			{
@@ -78,52 +149,76 @@ namespace Virtual_Guitar_Teacher
 			public const int bg_tune_01 = 2130837514;
 			
 			// aapt resource value: 0x7f02000b
-			public const int Icon = 2130837515;
+			public const int btn_cling_normal = 2130837515;
 			
 			// aapt resource value: 0x7f02000c
-			public const int Icon_512x512 = 2130837516;
+			public const int btn_cling_pressed = 2130837516;
 			
 			// aapt resource value: 0x7f02000d
-			public const int loading_screen = 2130837517;
+			public const int cling = 2130837517;
 			
 			// aapt resource value: 0x7f02000e
-			public const int Neck_Acustic_01 = 2130837518;
+			public const int cling_bleached = 2130837518;
 			
 			// aapt resource value: 0x7f02000f
-			public const int parquet_texture_dark = 2130837519;
+			public const int cling_button_bg = 2130837519;
 			
 			// aapt resource value: 0x7f020010
-			public const int parquet_texture_light = 2130837520;
+			public const int hand = 2130837520;
 			
 			// aapt resource value: 0x7f020011
-			public const int play = 2130837521;
+			public const int Icon = 2130837521;
 			
 			// aapt resource value: 0x7f020012
-			public const int recorder_cell_bg = 2130837522;
+			public const int Icon_512x512 = 2130837522;
 			
 			// aapt resource value: 0x7f020013
-			public const int recorder_cell_bg_pressed = 2130837523;
+			public const int loading_screen = 2130837523;
 			
 			// aapt resource value: 0x7f020014
-			public const int smiley_happy = 2130837524;
+			public const int Neck_Acustic_01 = 2130837524;
 			
 			// aapt resource value: 0x7f020015
-			public const int smiley_sad = 2130837525;
+			public const int parquet_texture_dark = 2130837525;
 			
 			// aapt resource value: 0x7f020016
-			public const int tune = 2130837526;
+			public const int parquet_texture_light = 2130837526;
 			
 			// aapt resource value: 0x7f020017
-			public const int tuner_dial = 2130837527;
+			public const int play = 2130837527;
 			
 			// aapt resource value: 0x7f020018
-			public const int tuner_gauge = 2130837528;
+			public const int record = 2130837528;
 			
 			// aapt resource value: 0x7f020019
-			public const int tutorial = 2130837529;
+			public const int recorder_cell_bg = 2130837529;
 			
 			// aapt resource value: 0x7f02001a
-			public const int vinyl = 2130837530;
+			public const int recorder_cell_bg_pressed = 2130837530;
+			
+			// aapt resource value: 0x7f02001b
+			public const int smiley_happy = 2130837531;
+			
+			// aapt resource value: 0x7f02001c
+			public const int smiley_sad = 2130837532;
+			
+			// aapt resource value: 0x7f02001d
+			public const int stop = 2130837533;
+			
+			// aapt resource value: 0x7f02001e
+			public const int tune = 2130837534;
+			
+			// aapt resource value: 0x7f02001f
+			public const int tuner_dial = 2130837535;
+			
+			// aapt resource value: 0x7f020020
+			public const int tuner_gauge = 2130837536;
+			
+			// aapt resource value: 0x7f020021
+			public const int tutorial = 2130837537;
+			
+			// aapt resource value: 0x7f020022
+			public const int vinyl = 2130837538;
 			
 			static Drawable()
 			{
@@ -138,125 +233,146 @@ namespace Virtual_Guitar_Teacher
 		public partial class Id
 		{
 			
-			// aapt resource value: 0x7f060004
-			public const int btnNext = 2131099652;
+			// aapt resource value: 0x7f040007
+			public const int btnNext = 2130968583;
 			
-			// aapt resource value: 0x7f060001
-			public const int btnPlayer = 2131099649;
+			// aapt resource value: 0x7f040004
+			public const int btnPlayer = 2130968580;
 			
-			// aapt resource value: 0x7f060003
-			public const int btnRecorder = 2131099651;
+			// aapt resource value: 0x7f040024
+			public const int btnRecord = 2130968612;
 			
-			// aapt resource value: 0x7f060002
-			public const int btnTuner = 2131099650;
+			// aapt resource value: 0x7f040006
+			public const int btnRecorder = 2130968582;
 			
-			// aapt resource value: 0x7f060000
-			public const int btnTutor = 2131099648;
+			// aapt resource value: 0x7f040005
+			public const int btnTuner = 2130968581;
 			
-			// aapt resource value: 0x7f060009
-			public const int closestNote = 2131099657;
+			// aapt resource value: 0x7f040003
+			public const int btnTutor = 2130968579;
 			
-			// aapt resource value: 0x7f060008
-			public const int frequencyGauge = 2131099656;
+			// aapt resource value: 0x7f040025
+			public const int closestNote = 2130968613;
 			
-			// aapt resource value: 0x7f060007
-			public const int frequencyIndicator = 2131099655;
+			// aapt resource value: 0x7f040026
+			public const int content = 2130968614;
 			
-			// aapt resource value: 0x7f060017
-			public const int fret1 = 2131099671;
+			// aapt resource value: 0x7f04002c
+			public const int frequencyGauge = 2130968620;
 			
-			// aapt resource value: 0x7f060016
-			public const int fret2 = 2131099670;
+			// aapt resource value: 0x7f04002b
+			public const int frequencyIndicator = 2130968619;
 			
-			// aapt resource value: 0x7f060015
-			public const int fret3 = 2131099669;
+			// aapt resource value: 0x7f040013
+			public const int fret1 = 2130968595;
 			
-			// aapt resource value: 0x7f060014
-			public const int fret4 = 2131099668;
+			// aapt resource value: 0x7f040012
+			public const int fret2 = 2130968594;
 			
-			// aapt resource value: 0x7f060013
-			public const int fret5 = 2131099667;
+			// aapt resource value: 0x7f040011
+			public const int fret3 = 2130968593;
 			
-			// aapt resource value: 0x7f060012
-			public const int fret6 = 2131099666;
+			// aapt resource value: 0x7f040010
+			public const int fret4 = 2130968592;
 			
-			// aapt resource value: 0x7f060006
-			public const int gridLayout = 2131099654;
+			// aapt resource value: 0x7f04000f
+			public const int fret5 = 2130968591;
 			
-			// aapt resource value: 0x7f06000d
-			public const int guitarBG = 2131099661;
+			// aapt resource value: 0x7f04000e
+			public const int fret6 = 2130968590;
 			
-			// aapt resource value: 0x7f060018
-			public const int openString = 2131099672;
+			// aapt resource value: 0x7f04002a
+			public const int gridLayout = 2130968618;
 			
-			// aapt resource value: 0x7f060019
-			public const int stingsColors = 2131099673;
+			// aapt resource value: 0x7f040009
+			public const int guitarBG = 2130968585;
 			
-			// aapt resource value: 0x7f06001d
-			public const int string_A = 2131099677;
+			// aapt resource value: 0x7f040027
+			public const int handle = 2130968615;
 			
-			// aapt resource value: 0x7f060023
-			public const int string_B = 2131099683;
+			// aapt resource value: 0x7f040029
+			public const int lstRecordings = 2130968617;
 			
-			// aapt resource value: 0x7f06001f
-			public const int string_D = 2131099679;
+			// aapt resource value: 0x7f040014
+			public const int openString = 2130968596;
 			
-			// aapt resource value: 0x7f06001b
-			public const int string_E = 2131099675;
+			// aapt resource value: 0x7f040000
+			public const int showcase_button = 2130968576;
 			
-			// aapt resource value: 0x7f060021
-			public const int string_G = 2131099681;
+			// aapt resource value: 0x7f040002
+			public const int showcase_sub_text = 2130968578;
 			
-			// aapt resource value: 0x7f060025
-			public const int string_e = 2131099685;
+			// aapt resource value: 0x7f040001
+			public const int showcase_title_text = 2130968577;
 			
-			// aapt resource value: 0x7f06000e
-			public const int tableLayout = 2131099662;
+			// aapt resource value: 0x7f040028
+			public const int slidingDrawer = 2130968616;
 			
-			// aapt resource value: 0x7f06000f
-			public const int tableRow1 = 2131099663;
+			// aapt resource value: 0x7f040015
+			public const int stingsColors = 2130968597;
 			
-			// aapt resource value: 0x7f060011
-			public const int tableRow2 = 2131099665;
+			// aapt resource value: 0x7f040019
+			public const int string_A = 2130968601;
 			
-			// aapt resource value: 0x7f060026
-			public const int tableRow3 = 2131099686;
+			// aapt resource value: 0x7f04001f
+			public const int string_B = 2130968607;
 			
-			// aapt resource value: 0x7f06001c
-			public const int tableRow_string_A = 2131099676;
+			// aapt resource value: 0x7f04001b
+			public const int string_D = 2130968603;
 			
-			// aapt resource value: 0x7f060022
-			public const int tableRow_string_B = 2131099682;
+			// aapt resource value: 0x7f040017
+			public const int string_E = 2130968599;
 			
-			// aapt resource value: 0x7f06001e
-			public const int tableRow_string_D = 2131099678;
+			// aapt resource value: 0x7f04001d
+			public const int string_G = 2130968605;
 			
-			// aapt resource value: 0x7f06001a
-			public const int tableRow_string_E = 2131099674;
+			// aapt resource value: 0x7f040021
+			public const int string_e = 2130968609;
 			
-			// aapt resource value: 0x7f060020
-			public const int tableRow_string_G = 2131099680;
+			// aapt resource value: 0x7f04000a
+			public const int tableLayout = 2130968586;
 			
-			// aapt resource value: 0x7f060024
-			public const int tableRow_string_e = 2131099684;
+			// aapt resource value: 0x7f04000b
+			public const int tableRow1 = 2130968587;
 			
-			// aapt resource value: 0x7f060005
-			public const int textView1 = 2131099653;
+			// aapt resource value: 0x7f04000d
+			public const int tableRow2 = 2130968589;
 			
-			// aapt resource value: 0x7f06000c
-			public const int tuner_gridLayout = 2131099660;
+			// aapt resource value: 0x7f040022
+			public const int tableRow3 = 2130968610;
 			
-			// aapt resource value: 0x7f06000b
-			public const int txtFrequency = 2131099659;
+			// aapt resource value: 0x7f040018
+			public const int tableRow_string_A = 2130968600;
 			
-			// aapt resource value: 0x7f060010
-			public const int view0 = 2131099664;
+			// aapt resource value: 0x7f04001e
+			public const int tableRow_string_B = 2130968606;
 			
-			// aapt resource value: 0x7f060027
-			public const int view7 = 2131099687;
+			// aapt resource value: 0x7f04001a
+			public const int tableRow_string_D = 2130968602;
 			
-			// aapt resource value: 0x7f06000a
-			public const int volumeBar = 2131099658;
+			// aapt resource value: 0x7f040016
+			public const int tableRow_string_E = 2130968598;
+			
+			// aapt resource value: 0x7f04001c
+			public const int tableRow_string_G = 2130968604;
+			
+			// aapt resource value: 0x7f040020
+			public const int tableRow_string_e = 2130968608;
+			
+			// aapt resource value: 0x7f040008
+			public const int textView1 = 2130968584;
+			
+			// aapt resource value: 0x7f04002e
+			public const int txtFrequency = 2130968622;
+			
+			// aapt resource value: 0x7f04000c
+			public const int view0 = 2130968588;
+			
+			// aapt resource value: 0x7f040023
+			public const int view7 = 2130968611;
+			
+			// aapt resource value: 0x7f04002d
+			public const int volumeBar = 2130968621;
 			
 			static Id()
 			{
@@ -272,22 +388,28 @@ namespace Virtual_Guitar_Teacher
 		{
 			
 			// aapt resource value: 0x7f030000
-			public const int Main = 2130903040;
+			public const int handy = 2130903040;
 			
 			// aapt resource value: 0x7f030001
-			public const int MainHelp = 2130903041;
+			public const int Main = 2130903041;
 			
 			// aapt resource value: 0x7f030002
-			public const int Player = 2130903042;
+			public const int MainHelp = 2130903042;
 			
 			// aapt resource value: 0x7f030003
-			public const int Recorder = 2130903043;
+			public const int Player = 2130903043;
 			
 			// aapt resource value: 0x7f030004
-			public const int Tuner = 2130903044;
+			public const int Recorder = 2130903044;
 			
 			// aapt resource value: 0x7f030005
-			public const int Tutor = 2130903045;
+			public const int showcase_button = 2130903045;
+			
+			// aapt resource value: 0x7f030006
+			public const int Tuner = 2130903046;
+			
+			// aapt resource value: 0x7f030007
+			public const int Tutor = 2130903047;
 			
 			static Layout()
 			{
@@ -302,8 +424,17 @@ namespace Virtual_Guitar_Teacher
 		public partial class String
 		{
 			
-			// aapt resource value: 0x7f040000
-			public const int ApplicationName = 2130968576;
+			// aapt resource value: 0x7f050001
+			public const int ApplicationName = 2131034113;
+			
+			// aapt resource value: 0x7f050003
+			public const int AudioRecordPermissionAlertMsg = 2131034115;
+			
+			// aapt resource value: 0x7f050002
+			public const int AudioRecordPermissionAlertTitle = 2131034114;
+			
+			// aapt resource value: 0x7f050000
+			public const int ok = 2131034112;
 			
 			static String()
 			{
@@ -318,26 +449,47 @@ namespace Virtual_Guitar_Teacher
 		public partial class Style
 		{
 			
-			// aapt resource value: 0x7f050002
-			public const int Theme_Dark = 2131034114;
+			// aapt resource value: 0x7f060000
+			public const int ShowcaseButton = 2131099648;
 			
-			// aapt resource value: 0x7f050001
-			public const int Theme_Light = 2131034113;
+			// aapt resource value: 0x7f060002
+			public const int ShowcaseView = 2131099650;
 			
-			// aapt resource value: 0x7f050003
-			public const int Theme_Musical = 2131034115;
+			// aapt resource value: 0x7f060001
+			public const int ShowcaseView_Light = 2131099649;
 			
-			// aapt resource value: 0x7f050006
-			public const int Theme_Play = 2131034118;
+			// aapt resource value: 0x7f060004
+			public const int TextAppearance_ShowcaseView_Detail = 2131099652;
 			
-			// aapt resource value: 0x7f050005
-			public const int Theme_Record = 2131034117;
+			// aapt resource value: 0x7f060005
+			public const int TextAppearance_ShowcaseView_Detail_Light = 2131099653;
 			
-			// aapt resource value: 0x7f050000
-			public const int Theme_Splash = 2131034112;
+			// aapt resource value: 0x7f060003
+			public const int TextAppearance_ShowcaseView_Title = 2131099651;
 			
-			// aapt resource value: 0x7f050004
-			public const int Theme_Tune = 2131034116;
+			// aapt resource value: 0x7f060006
+			public const int TextAppearance_ShowcaseView_Title_Light = 2131099654;
+			
+			// aapt resource value: 0x7f060009
+			public const int Theme_Dark = 2131099657;
+			
+			// aapt resource value: 0x7f060008
+			public const int Theme_Light = 2131099656;
+			
+			// aapt resource value: 0x7f06000a
+			public const int Theme_Musical = 2131099658;
+			
+			// aapt resource value: 0x7f06000d
+			public const int Theme_Play = 2131099661;
+			
+			// aapt resource value: 0x7f06000c
+			public const int Theme_Record = 2131099660;
+			
+			// aapt resource value: 0x7f060007
+			public const int Theme_Splash = 2131099655;
+			
+			// aapt resource value: 0x7f06000b
+			public const int Theme_Tune = 2131099659;
 			
 			static Style()
 			{
@@ -345,6 +497,63 @@ namespace Virtual_Guitar_Teacher
 			}
 			
 			private Style()
+			{
+			}
+		}
+		
+		public partial class Styleable
+		{
+			
+			public static int[] CustomTheme = new int[] {
+					2130771977};
+			
+			// aapt resource value: 0
+			public const int CustomTheme_showcaseViewStyle = 0;
+			
+			public static int[] ShowcaseView = new int[] {
+					2130771968,
+					2130771969,
+					2130771970,
+					2130771971,
+					2130771972,
+					2130771973,
+					2130771974,
+					2130771975,
+					2130771976};
+			
+			// aapt resource value: 0
+			public const int ShowcaseView_sv_backgroundColor = 0;
+			
+			// aapt resource value: 3
+			public const int ShowcaseView_sv_buttonBackgroundColor = 3;
+			
+			// aapt resource value: 4
+			public const int ShowcaseView_sv_buttonForegroundColor = 4;
+			
+			// aapt resource value: 5
+			public const int ShowcaseView_sv_buttonText = 5;
+			
+			// aapt resource value: 6
+			public const int ShowcaseView_sv_detailTextAppearance = 6;
+			
+			// aapt resource value: 1
+			public const int ShowcaseView_sv_detailTextColor = 1;
+			
+			// aapt resource value: 8
+			public const int ShowcaseView_sv_showcaseColor = 8;
+			
+			// aapt resource value: 7
+			public const int ShowcaseView_sv_titleTextAppearance = 7;
+			
+			// aapt resource value: 2
+			public const int ShowcaseView_sv_titleTextColor = 2;
+			
+			static Styleable()
+			{
+				global::Android.Runtime.ResourceIdManager.UpdateIdValues();
+			}
+			
+			private Styleable()
 			{
 			}
 		}

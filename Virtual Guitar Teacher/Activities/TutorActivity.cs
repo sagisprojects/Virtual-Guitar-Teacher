@@ -32,7 +32,8 @@ namespace Virtual_Guitar_Teacher.Activities
             //Set appropriate layout.
             SetContentView(Resource.Layout.Tutor);
 
-
+            //Initialize activity and get the microphone listener thread.
+            Thread micThread = CreateMicrophoneRecorder();
 
             OnMicrophoneFinishedSampling += TutorActivity_OnMicrophoneFinishedSampling;
 

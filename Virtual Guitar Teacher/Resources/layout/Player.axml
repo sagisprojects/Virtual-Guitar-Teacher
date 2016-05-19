@@ -1,5 +1,215 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:orientation="horizontal"
     android:layout_width="match_parent"
-    android:layout_height="match_parent" />
+    android:layout_height="match_parent">
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:id="@+id/guitarBG"
+        android:scaleType="fitCenter"
+        android:src="@drawable/neck_acustic_01" />
+    <TableLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:stretchColumns="*"
+        android:shrinkColumns="*"
+        android:id="@+id/tableLayout"
+        android:weightSum="3"
+        android:visibility="visible">
+        <TableRow
+            android:id="@+id/tableRow1"
+            android:layout_weight="1"
+            android:gravity="center">
+            <View
+                android:id="@+id/view0"
+                android:scaleType="fitCenter"
+                android:layout_width="fill_parent"
+                android:layout_height="fill_parent"
+                android:layout_margin="1dp"
+                android:layout_span="8" />
+        </TableRow>
+        <TableRow
+            android:id="@+id/tableRow2"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:weightSum="12">
+            <View
+                android:id="@+id/fret6"
+                android:scaleType="fitCenter"
+                android:layout_width="fill_parent"
+                android:layout_height="fill_parent"
+                android:background="@drawable/recorder_cell_bg"
+                android:tag="fret6"
+                android:layout_margin="2dp"
+                android:layout_weight="19"
+                android:visibility="invisible" />
+            <View
+                android:id="@+id/fret5"
+                android:scaleType="fitCenter"
+                android:layout_width="fill_parent"
+                android:layout_height="fill_parent"
+                android:background="@drawable/recorder_cell_bg"
+                android:tag="fret5"
+                android:layout_margin="2dp"
+                android:layout_weight="6"
+                android:visibility="invisible" />
+            <View
+                android:id="@+id/fret4"
+                android:scaleType="fitCenter"
+                android:layout_width="fill_parent"
+                android:layout_height="fill_parent"
+                android:background="@drawable/recorder_cell_bg"
+                android:tag="fret4"
+                android:layout_margin="2dp"
+                android:layout_weight="3"
+                android:visibility="invisible" />
+            <View
+                android:id="@+id/fret3"
+                android:scaleType="fitCenter"
+                android:layout_width="fill_parent"
+                android:layout_height="fill_parent"
+                android:background="@drawable/recorder_cell_bg"
+                android:tag="fret3"
+                android:layout_margin="2dp"
+                android:layout_weight="3"
+                android:visibility="invisible" />
+            <View
+                android:id="@+id/fret2"
+                android:layout_width="fill_parent"
+                android:scaleType="fitCenter"
+                android:layout_height="fill_parent"
+                android:background="@drawable/recorder_cell_bg"
+                android:tag="fret2"
+                android:layout_margin="2dp"
+                android:layout_weight="1"
+                android:visibility="invisible" />
+            <View
+                android:id="@+id/fret1"
+                android:scaleType="fitCenter"
+                android:layout_width="fill_parent"
+                android:layout_height="fill_parent"
+                android:background="@drawable/recorder_cell_bg"
+                android:tag="fret1"
+                android:layout_margin="2dp"
+                android:layout_weight="1"
+                android:visibility="invisible" />
+            <View
+                android:id="@+id/openString"
+                android:scaleType="fitCenter"
+                android:layout_width="fill_parent"
+                android:layout_height="fill_parent"
+                android:background="@drawable/recorder_cell_bg"
+                android:tag="openString"
+                android:layout_margin="2dp"
+                android:layout_weight="99"
+                android:visibility="invisible" />
+            <TableLayout
+                android:id="@+id/stingsColors"
+                android:scaleType="fitCenter"
+                android:layout_width="50dip"
+                android:layout_height="fill_parent"
+                android:background="@drawable/recorder_cell_bg"
+                android:tag="stingsColors"
+                android:layout_margin="2dp"
+                android:layout_weight="99">
+                <TableRow
+                    android:id="@+id/tableRow_string_E"
+                    android:layout_weight="1"
+                    android:gravity="center">
+                    <View
+                        android:id="@+id/string_E"
+                        android:scaleType="fitCenter"
+                        android:layout_width="fill_parent"
+                        android:layout_height="fill_parent"
+                        android:background="@drawable/ball_purple"
+                        android:tag="string_E"
+                        android:layout_margin="2dp"
+                        android:layout_weight="15" />
+                </TableRow>
+                <TableRow
+                    android:id="@+id/tableRow_string_A"
+                    android:layout_weight="1"
+                    android:gravity="center">
+                    <View
+                        android:id="@+id/string_A"
+                        android:scaleType="fitCenter"
+                        android:layout_width="fill_parent"
+                        android:layout_height="fill_parent"
+                        android:background="@drawable/ball_blue"
+                        android:tag="string_A"
+                        android:layout_margin="2dp"
+                        android:layout_weight="15" />
+                </TableRow>
+                <TableRow
+                    android:id="@+id/tableRow_string_D"
+                    android:layout_weight="1"
+                    android:gravity="center">
+                    <View
+                        android:id="@+id/string_D"
+                        android:scaleType="fitCenter"
+                        android:layout_width="fill_parent"
+                        android:layout_height="fill_parent"
+                        android:background="@drawable/ball_green"
+                        android:tag="string_D"
+                        android:layout_margin="2dp"
+                        android:layout_weight="15" />
+                </TableRow>
+                <TableRow
+                    android:id="@+id/tableRow_string_G"
+                    android:layout_weight="1"
+                    android:gravity="center">
+                    <View
+                        android:id="@+id/string_G"
+                        android:scaleType="fitCenter"
+                        android:layout_width="fill_parent"
+                        android:layout_height="fill_parent"
+                        android:background="@drawable/ball_orange"
+                        android:tag="string_G"
+                        android:layout_margin="2dp"
+                        android:layout_weight="15" />
+                </TableRow>
+                <TableRow
+                    android:id="@+id/tableRow_string_B"
+                    android:layout_weight="1"
+                    android:gravity="center">
+                    <View
+                        android:id="@+id/string_B"
+                        android:scaleType="fitCenter"
+                        android:layout_width="fill_parent"
+                        android:layout_height="fill_parent"
+                        android:background="@drawable/ball_aqua"
+                        android:tag="string_B"
+                        android:layout_margin="2dp"
+                        android:layout_weight="15" />
+                </TableRow>
+                <TableRow
+                    android:id="@+id/tableRow_string_e"
+                    android:layout_weight="1"
+                    android:gravity="center">
+                    <View
+                        android:id="@+id/string_e"
+                        android:scaleType="fitCenter"
+                        android:layout_width="fill_parent"
+                        android:layout_height="fill_parent"
+                        android:background="@drawable/ball_yellow"
+                        android:tag="string_e"
+                        android:layout_margin="2dp"
+                        android:layout_weight="15" />
+                </TableRow>
+            </TableLayout>
+        </TableRow>
+        <TableRow
+            android:id="@+id/tableRow3"
+            android:layout_weight="1"
+            android:gravity="center">
+            <View
+                android:id="@+id/view7"
+                android:scaleType="fitCenter"
+                android:layout_width="fill_parent"
+                android:layout_height="fill_parent"
+                android:layout_margin="1dp"
+                android:layout_span="8" />
+        </TableRow>
+    </TableLayout>
+</FrameLayout>

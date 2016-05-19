@@ -20,7 +20,7 @@ namespace Virtual_Guitar_Teacher.Activities
     public class TunerActivity : BasicActivityInitialization
     {
         private Tuner tuner;
-        ProgressBar _volumeBar;
+        //ProgressBar _volumeBar;
         TextView _closestNote;
         TextView _txtFrequency;
         ImageView _frequencyIndicator;
@@ -53,37 +53,9 @@ namespace Virtual_Guitar_Teacher.Activities
             _frequencyGauge.SetY(haflTheHeightOfTheScreen);
 
             //Start the microphone listening thread. 
-            micThread.Start();
-
-            /*GridLayout gridLayout = FindViewById<GridLayout>(Resource.Id.tuner_gridLayout);
-            gridLayout.Touch += GridLayout_Touch;
-
-            Thread thread = new Thread(new ThreadStart(() =>
-            {
-                //Listen constantly, untill a further notice.
-                while (shouldListen)
-                {
-                    DisplayFrequency(_x, _y);
-                }
-            }));
-            thread.Start();*/
+            micThread.Start();            
         }
-
-        /*float _x, _y;
-
-        private void DisplayFrequency(float x, float y)
-        {
-            TunerActivity_OnMicrophoneFinishedSampling(this, 
-                new FinishedSampalingEventArgs() { Frequency = x + y });
-        }
-
-        private void GridLayout_Touch(object sender, View.TouchEventArgs e)
-        {
-            //long duration = e.Event.DownTime;
-            //long delay = e.Event.EventTime;
-            _x = e.Event.GetX();
-            _y = e.Event.GetY();
-        }*/
+        
 
         private void TunerActivity_OnMicrophoneFinishedSampling(object sender, FinishedSampalingEventArgs e)
         {

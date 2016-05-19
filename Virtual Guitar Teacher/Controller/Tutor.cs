@@ -40,7 +40,7 @@ namespace Virtual_Guitar_Teacher.Controller
         {
             ObjectAnimator[] animations = null;
             if (_sequence != null)
-                animations = PrepareNoteAnimations(_sequence);
+                animations = PrepareNotesAnimations(_sequence);
             if (animations != null)
                 PlayAnimations(animations);
         }

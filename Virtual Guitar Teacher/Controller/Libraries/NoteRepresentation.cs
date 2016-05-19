@@ -162,6 +162,30 @@ namespace Virtual_Guitar_Teacher.Controller.Libraries
             return pva;*/
         }
 
+        public ObjectAnimator CreateNoteAnimation_FadeOnly(Position position)
+        {
+            const float TRANSPARENT = 0;
+            const long DEFAULT_DURATION = 1000;
+            DisplayMetrics screenDimensions = Generic.GetScreenDimentions(_currentActivity);
+            //TODO: Add string positions as well.
+
+            FretMetrics fretMetrics = GetFretMetrics(position.Fret);
+            int Y_dest = fretMetrics.GetVerticalCenter() - _noteCircle.Height / 2;
+            int X_dest = fretMetrics.GetHorizontalCenter() - _noteCircle.Width / 2;
+            //Set initial location.
+            _noteCircle.SetX(X_dest);
+            _noteCircle.SetY(Y_dest);
+
+            ObjectAnimator objAnimFadeOut = ObjectAnimator.OfFloat(_noteCircle, "Alpha", TRANSPARENT);
+            objAnimFadeOut.SetDuration(DEFAULT_DURATION);
+
+            objAnimFadeOut.AnimationEnd += (object sender, EventArgs e) =>
+            {
+                OnNoteGone(this, new EventArgs());
+            };
+
+            return objAnimFadeOut;
+        }
         /// <summary>
         /// Gets the X, Y, Width, and Height of the fret which is represented on the screen by a view.
         /// </summary>
@@ -173,28 +197,34 @@ namespace Virtual_Guitar_Teacher.Controller.Libraries
             View fret = new View(_currentActivity);
 
             //Get the correct fret number.
+            /*if (_currentActivity.Title == "TutorActivity")
+
+            else if (_currentActivity.Title == "PlayerActivity")
+
+            else if (_currentActivity.Title == "RecorderActivity")*/
+
             switch (fretNum)
             {
                 case GuitarFret.OpenString:
-                    fret = _currentActivity.FindViewById(Resource.Id.openString);
+                        fret = _currentActivity.FindViewById(Resource.Id.openString);
                     break;
                 case GuitarFret.Fret1:
-                    fret = _currentActivity.FindViewById(Resource.Id.fret1);
+                        fret = _currentActivity.FindViewById(Resource.Id.fret1);
                     break;
                 case GuitarFret.Fret2:
-                    fret = _currentActivity.FindViewById(Resource.Id.fret2);
+                        fret = _currentActivity.FindViewById(Resource.Id.fret2);
                     break;
                 case GuitarFret.Fret3:
-                    fret = _currentActivity.FindViewById(Resource.Id.fret3);
+                        fret = _currentActivity.FindViewById(Resource.Id.fret3);
                     break;
                 case GuitarFret.Fret4:
-                    fret = _currentActivity.FindViewById(Resource.Id.fret4);
+                        fret = _currentActivity.FindViewById(Resource.Id.fret4);
                     break;
                 case GuitarFret.Fret5:
-                    fret = _currentActivity.FindViewById(Resource.Id.fret5);
+                        fret = _currentActivity.FindViewById(Resource.Id.fret5);
                     break;
                 case GuitarFret.Fret6:
-                    fret = _currentActivity.FindViewById(Resource.Id.fret6);
+                        fret = _currentActivity.FindViewById(Resource.Id.fret6);
                     break;
             }
 

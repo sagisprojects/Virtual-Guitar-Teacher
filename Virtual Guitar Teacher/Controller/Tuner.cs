@@ -31,44 +31,6 @@ namespace Virtual_Guitar_Teacher.Controller
         }
 
         /// <summary>
-        /// Defines an upper and a lower note pair.
-        /// </summary>
-        private struct UpperAndLowerNotes
-        {
-            Note _upper, _lower;
-
-            public UpperAndLowerNotes(Note lower, Note upper)
-            {
-                //Initial values.
-                _upper = upper;
-                _lower = lower;
-            }
-
-            public Note Upper
-            {
-                get { return _upper; }
-                set
-                {
-                    if (value.Hertz < _lower.Hertz)
-                        throw new Exception("Upper value cannot be less than lower value.");
-                    else
-                        _upper = value;
-                }
-            }
-            public Note Lower
-            {
-                get { return _lower; }
-                set
-                {
-                    if (value.Hertz > _upper.Hertz)
-                        throw new Exception("Lower value cannot be greater than upper value.");
-                    else
-                        _lower = value;
-                }
-            }
-        }
-
-        /// <summary>
         /// Open string notes:
         /// String	    Frequency	    Scientific pitch notation
         ///  1 (E)	    329.63 Hz       E4
@@ -93,12 +55,12 @@ namespace Virtual_Guitar_Teacher.Controller
             UpperAndLowerNotes twoClosestOpenNotes = GetTwoClosestOpenNotes(frequency);
 
             //Assume a closest note.
-            Note closestNote = twoClosestOpenNotes.Upper;
+             //Note closestNote = twoClosestOpenNotes.Upper;
 
             //If the two closest notes are actually diffrent ones, then...
-            if (twoClosestOpenNotes.Upper != twoClosestOpenNotes.Lower)
+            //if (twoClosestOpenNotes.Upper != twoClosestOpenNotes.Lower)
                 //Find which out of the two closest notes the played frequency is closer to.
-                closestNote = FindClosestNote(twoClosestOpenNotes, frequency); 
+            Note closestNote = FindClosestOpenNote(twoClosestOpenNotes, frequency); 
 
             //Find out how close the played frequency is from its closest note by percetage.
             //NoteDifference noteDifference = 
@@ -165,12 +127,12 @@ namespace Virtual_Guitar_Teacher.Controller
         }
 
         /// <summary>
-        /// Find the single note which is closest to the frequency.
+        /// Find the single open note which is closest to the frequency.
         /// </summary>
         /// <param name="twoClosestOpenNotes">The two open notes that the frequency is between them.</param>
         /// <param name="frequency">The given frequency.</param>
         /// <returns>Retruns the main note that is being tuned to.</returns>
-        private Note FindClosestNote(UpperAndLowerNotes twoClosestOpenNotes, Hz frequency)
+        private Note FindClosestOpenNote(UpperAndLowerNotes twoClosestOpenNotes, Hz frequency)
         {
             if ((twoClosestOpenNotes.Upper.Hertz - frequency) < (frequency - twoClosestOpenNotes.Lower.Hertz))
                 return twoClosestOpenNotes.Upper;

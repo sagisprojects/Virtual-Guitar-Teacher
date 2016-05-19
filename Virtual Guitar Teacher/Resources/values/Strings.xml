@@ -1,4 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="ApplicationName">Virtual Guitar Teacher</string>
+    <string name="AudioRecordPermissionAlertTitle">Granting Permission For Audio Recording</string>
+    <string name="AudioRecordPermissionAlertMsg">The application will now ask for the audio recording permission, please allow it so the application may function properly, if denied or if there\'s a permission complication then the application will exit.</string>
 </resources>

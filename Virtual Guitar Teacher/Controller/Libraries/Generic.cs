@@ -5,6 +5,11 @@ using System.Reflection;
 using Android.Content.Res;
 using System.IO;
 using System.Collections.Generic;
+using Android.OS;
+using Android.Content;
+using Android.Text.Format;
+using Java.Text;
+using Java.Util;
 
 namespace Virtual_Guitar_Teacher.Controller.Libraries
 {
@@ -60,6 +65,29 @@ namespace Virtual_Guitar_Teacher.Controller.Libraries
                 linesList.Add(line);
             }
             lines = linesList.ToArray();
+        }
+
+        public static bool CanMakeSmores() => Build.VERSION.SdkInt >= BuildVersionCodes.M;
+
+        public static void ShowMsgBox_OK(Activity currentActivity, string title, string msg)
+        {
+            AlertDialog alertDialog = new AlertDialog.Builder(currentActivity).Create();
+
+            alertDialog.SetTitle(title);
+            alertDialog.SetMessage(msg);
+
+            alertDialog.SetButton((int)DialogButtonType.Neutral, "OK",
+                (object sender, DialogClickEventArgs e) => {
+                    alertDialog.Dismiss();
+                });
+            alertDialog.Show();
+        }
+
+        public static string GetDateTimeNow(string format)
+        {
+            Calendar currentDefaultCalendar = Calendar.GetInstance(Locale.Default);
+            SimpleDateFormat enviromentFormat = new SimpleDateFormat(format);
+            return enviromentFormat.Format(currentDefaultCalendar);
         }
     }
 
@@ -322,6 +350,44 @@ namespace Virtual_Guitar_Teacher.Controller.Libraries
         public static Note D3 => notes["D3"];
         public static Note A2 => notes["A2"];
         public static Note E2 => notes["E2"];
+    }
+
+    /// <summary>
+    /// Defines an upper and a lower note pair.
+    /// </summary>
+    struct UpperAndLowerNotes
+    {
+        Note _upper, _lower;
+
+        public UpperAndLowerNotes(Note lower, Note upper)
+        {
+            //Initial values.
+            _upper = upper;
+            _lower = lower;
+        }
+
+        public Note Upper
+        {
+            get { return _upper; }
+            set
+            {
+                if (value.Hertz < _lower.Hertz)
+                    throw new Exception("Upper value cannot be less than lower value.");
+                else
+                    _upper = value;
+            }
+        }
+        public Note Lower
+        {
+            get { return _lower; }
+            set
+            {
+                if (value.Hertz > _upper.Hertz)
+                    throw new Exception("Lower value cannot be greater than upper value.");
+                else
+                    _lower = value;
+            }
+        }
     }
 
     /*public struct OpenStrings

@@ -1,4 +1,6 @@
 ﻿using System;
+using System.Collections;
+using System.Collections.Generic;
 
 namespace Virtual_Guitar_Teacher.Controller.Libraries
 {
@@ -105,6 +107,7 @@ namespace Virtual_Guitar_Teacher.Controller.Libraries
 
         public static Note UpperLimit => new Note("A5", new Hz(880.0f), null);
         public static Note LowerLimit => new Note("C0", new Hz(16.35f), null);
+        public Note[] ToArray() => _notes;
 
 
         public Note this[NoteName name]
@@ -146,6 +149,34 @@ namespace Virtual_Guitar_Teacher.Controller.Libraries
                 return null;
             }
         }
+
+        //static int _totalNumOfNotes = (12 * 6) + 6; //(frets * strings) + open strings.
+
+        /*static Notes()
+        {
+            List<Note> arrList = new List<Note>();
+
+            string[] notesNames = new string[12] { "C", "Cs", "D", "Ds", "E", "F", "Fs", "G", "Gs", "A", "As", "B" };
+            int stringsNum = 6, fretsNum = 12;
+            const double E2 = 82.4069;
+            const int CENT = 100;
+            const int TWELVE_CENTS = 12 * CENT;
+            double x = 0;
+
+            //Formula: x = E2 * 2 ^ (n/1200)
+            for (int stringPos = 0; stringPos < stringsNum; stringPos++)
+            {
+                for (int n = 0; n < fretsNum * CENT; n += CENT)
+                {
+                    x = E2 * Math.Pow(2, n / TWELVE_CENTS);
+                    arrList.Add(new Note(notesNames[n / CENT], //mod?
+                        new Hz((float)x), 
+                        new Position[] { new Position((GuitarString)stringPos, (GuitarFret)n )}));
+                }
+            }
+
+            _notes = arrList.ToArray();
+        }*/
 
         static Notes()
         {

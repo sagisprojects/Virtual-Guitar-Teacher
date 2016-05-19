@@ -6,6 +6,7 @@ using System.Numerics;
 using System.Security;
 using MathNet.Numerics.IntegralTransforms;
 using FftGuitarTuner;
+using Android.Text.Format;
 
 namespace Virtual_Guitar_Teacher.Controller.Libraries
 {
@@ -25,12 +26,16 @@ namespace Virtual_Guitar_Teacher.Controller.Libraries
         private const Encoding RECORDER_AUDIO_ENCODING = Encoding.Pcm16bit;
         private const int RECORDER_SAMPLERATE = 44100;
         //private const byte RECORDER_BPP = 16;
+        private const string DEFAULT_RECORDING_DIRECTORY = "/VGT/";
+        private const string DEFAULT_RECORDING_FORMAT = ".mp3";
+        private string musicDirAbsPath = Environment.GetExternalStoragePublicDirectory(Environment.DirectoryMusic).AbsolutePath;
         private int _bufferSizeInBytes;
 
-        const double MinFreq = 16.35;
-        const double MaxFreq = 880.0;
+        const double MinFreq = 60; //16.35;
+        const double MaxFreq = 1300; //880.0;
 
-        private AudioRecord _recorder;
+        private MediaRecorder _mediaRecorder;
+        private AudioRecord _audioRecorder;
 
         /// <summary>
         /// Initializes all recording parameters.
@@ -42,16 +47,16 @@ namespace Virtual_Guitar_Teacher.Controller.Libraries
                     RECORDER_AUDIO_ENCODING);
 
             // Initialize Audio Recorder.
-            _recorder = new AudioRecord(AudioSource.Mic, RECORDER_SAMPLERATE,
+            _audioRecorder = new AudioRecord(AudioSource.Mic, RECORDER_SAMPLERATE,
                     RECORDER_CHANNELS, RECORDER_AUDIO_ENCODING, _bufferSizeInBytes);
 
-            _recorder.StartRecording();
+            _audioRecorder.StartRecording();
         }
 
         public void Listen()
         {
             byte[] audioBuffer = new byte[_bufferSizeInBytes];
-            int numberOfReadBytes = _recorder.Read(audioBuffer, 0, _bufferSizeInBytes);
+            int numberOfReadBytes = _audioRecorder.Read(audioBuffer, 0, _bufferSizeInBytes);
 
             double[] x = new double[audioBuffer.Length];
 
@@ -70,12 +75,34 @@ namespace Virtual_Guitar_Teacher.Controller.Libraries
             });
         }
 
+        /// <summary>
+        /// Records the audio input to a file (into the specefied folder(s)) 
+        /// using a date time format as its name 
+        /// and in an mp3 file format.
+        /// </summary>
+        public void Record()
+        {
+            string fileName = Generic.GetDateTimeNow("DD-MM-YY_HH-mm-ss");
+            _mediaRecorder = new MediaRecorder();
+            _mediaRecorder.SetAudioSource(AudioSource.Mic);
+            _mediaRecorder.SetOutputFormat(OutputFormat.Mpeg4);
+            _mediaRecorder.SetOutputFile(musicDirAbsPath + DEFAULT_RECORDING_DIRECTORY + fileName + DEFAULT_RECORDING_FORMAT);
+            _mediaRecorder.SetAudioEncoder(AudioEncoder.Aac);
+            _mediaRecorder.Prepare();
+            _mediaRecorder.Start();
+        }
+
+        public void StopRecording()
+        {
+            _mediaRecorder.Stop();
+        }
+
         [SecurityCritical]
         public void Listen2()
         {
             int numberOfReadBytes = 0;
             byte[] audioBuffer = new byte[_bufferSizeInBytes];              // input PCM data buffer
-            double[] hannWindow;
+            //double[] hannWindow;
             Complex[] fftBuffer = new Complex[_bufferSizeInBytes];      // FFT complex buffer (interleaved real/imag)
             double[] magnitude = new double[_bufferSizeInBytes];        // power spectrum - Does this need to be half the size?
             float frequency;
@@ -83,7 +110,7 @@ namespace Virtual_Guitar_Teacher.Controller.Libraries
             //for (int i = 0; i <= RECORDER_SAMPLERATE; i++)
 
             //Capture audio in audioBuffer.
-            numberOfReadBytes = _recorder.Read(audioBuffer, 0, _bufferSizeInBytes);
+            numberOfReadBytes = _audioRecorder.Read(audioBuffer, 0, _bufferSizeInBytes);
 
             //Apply window function to audioBuffer.
             /*hannWindow = WindowFunction.Hann(audioBuffer);
@@ -130,8 +157,8 @@ namespace Virtual_Guitar_Teacher.Controller.Libraries
         
         public void Dispose()
         {
-            _recorder.Stop();
-            _recorder.Dispose();
+            _audioRecorder.Stop();
+            _audioRecorder.Dispose();
             GC.SuppressFinalize(this);
         }
     }
