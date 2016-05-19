@@ -31,7 +31,7 @@ namespace Virtual_Guitar_Teacher.Activities
             //Set appropriate layout.
             SetContentView(Resource.Layout.Recorder);
 
-            _recorder = new Recorder();
+            _recorder = new Recorder(this);
 
             /*GridLayout gridLayout = FindViewById< GridLayout>(Resource.Id.gridLayout);
             gridLayout.Touch += GridLayout_Touch;
@@ -81,14 +81,14 @@ namespace Virtual_Guitar_Teacher.Activities
 
         private void RecorderActivity_OnMicrophoneFinishedSampling(object sender, FinishedSampalingEventArgs e)
         {
-            //Get closest note and closness as an angle.
+            //Get closest note.
             Note closestNote = _recorder.FindClosestNote(e.Frequency);//it's constantly recording, how will it know that there's a legit note detected?
             
             RunOnUiThread(new Action(() =>
                 {
                     //_txtFrequency.Text = e.Frequency.ToString();
                     //Set note text.
-                    _closestNote.Text = closestNote.Name;
+                    //_closestNote.Text = closestNote.Name;
 
                     _recorder.SpotAnimateAllPositionsOfANote(closestNote);
                 }

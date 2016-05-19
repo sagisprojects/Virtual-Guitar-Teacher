@@ -18,18 +18,19 @@ namespace Virtual_Guitar_Teacher.Controller
         //Record input from microphone.
         //Record a sequence from screen to file.
 
-        Note[] notesArray;
+        Note[] _notesArray;
 
-        public Recorder()
+        public Recorder(Activity activity)
+            : base(activity)
         {
-            notesArray = new Notes().ToArray();
+            _notesArray = new Notes().ToArray();
         }
 
         public Note FindClosestNote(Hz frequency)
         {
             float currentDifference, prevDifference = Notes.UpperLimit.Hertz;
             Note tempNote = null;
-            foreach (Note note in notesArray)
+            foreach (Note note in _notesArray)
             {
                 currentDifference = Math.Abs(note.Hertz - frequency);
                 if (currentDifference < prevDifference)

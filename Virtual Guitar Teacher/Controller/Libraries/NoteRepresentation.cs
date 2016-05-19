@@ -186,6 +186,12 @@ namespace Virtual_Guitar_Teacher.Controller.Libraries
 
             return objAnimFadeOut;
         }
+
+        public void SetText(string text)
+        {
+            _noteCircle.Text = text;
+        }
+
         /// <summary>
         /// Gets the X, Y, Width, and Height of the fret which is represented on the screen by a view.
         /// </summary>

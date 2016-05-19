@@ -146,79 +146,82 @@ namespace Virtual_Guitar_Teacher
 			public const int bg_record_01 = 2130837513;
 			
 			// aapt resource value: 0x7f02000a
-			public const int bg_tune_01 = 2130837514;
+			public const int bg_record_02 = 2130837514;
 			
 			// aapt resource value: 0x7f02000b
-			public const int btn_cling_normal = 2130837515;
+			public const int bg_tune_01 = 2130837515;
 			
 			// aapt resource value: 0x7f02000c
-			public const int btn_cling_pressed = 2130837516;
+			public const int btn_cling_normal = 2130837516;
 			
 			// aapt resource value: 0x7f02000d
-			public const int cling = 2130837517;
+			public const int btn_cling_pressed = 2130837517;
 			
 			// aapt resource value: 0x7f02000e
-			public const int cling_bleached = 2130837518;
+			public const int cling = 2130837518;
 			
 			// aapt resource value: 0x7f02000f
-			public const int cling_button_bg = 2130837519;
+			public const int cling_bleached = 2130837519;
 			
 			// aapt resource value: 0x7f020010
-			public const int hand = 2130837520;
+			public const int cling_button_bg = 2130837520;
 			
 			// aapt resource value: 0x7f020011
-			public const int Icon = 2130837521;
+			public const int hand = 2130837521;
 			
 			// aapt resource value: 0x7f020012
-			public const int Icon_512x512 = 2130837522;
+			public const int Icon = 2130837522;
 			
 			// aapt resource value: 0x7f020013
-			public const int loading_screen = 2130837523;
+			public const int Icon_512x512 = 2130837523;
 			
 			// aapt resource value: 0x7f020014
-			public const int Neck_Acustic_01 = 2130837524;
+			public const int loading_screen = 2130837524;
 			
 			// aapt resource value: 0x7f020015
-			public const int parquet_texture_dark = 2130837525;
+			public const int Neck_Acustic_01 = 2130837525;
 			
 			// aapt resource value: 0x7f020016
-			public const int parquet_texture_light = 2130837526;
+			public const int parquet_texture_dark = 2130837526;
 			
 			// aapt resource value: 0x7f020017
-			public const int play = 2130837527;
+			public const int parquet_texture_light = 2130837527;
 			
 			// aapt resource value: 0x7f020018
-			public const int record = 2130837528;
+			public const int play = 2130837528;
 			
 			// aapt resource value: 0x7f020019
-			public const int recorder_cell_bg = 2130837529;
+			public const int record = 2130837529;
 			
 			// aapt resource value: 0x7f02001a
-			public const int recorder_cell_bg_pressed = 2130837530;
+			public const int recorder_cell_bg = 2130837530;
 			
 			// aapt resource value: 0x7f02001b
-			public const int smiley_happy = 2130837531;
+			public const int recorder_cell_bg_pressed = 2130837531;
 			
 			// aapt resource value: 0x7f02001c
-			public const int smiley_sad = 2130837532;
+			public const int smiley_happy = 2130837532;
 			
 			// aapt resource value: 0x7f02001d
-			public const int stop = 2130837533;
+			public const int smiley_sad = 2130837533;
 			
 			// aapt resource value: 0x7f02001e
-			public const int tune = 2130837534;
+			public const int stop = 2130837534;
 			
 			// aapt resource value: 0x7f02001f
-			public const int tuner_dial = 2130837535;
+			public const int tune = 2130837535;
 			
 			// aapt resource value: 0x7f020020
-			public const int tuner_gauge = 2130837536;
+			public const int tuner_dial = 2130837536;
 			
 			// aapt resource value: 0x7f020021
-			public const int tutorial = 2130837537;
+			public const int tuner_gauge = 2130837537;
 			
 			// aapt resource value: 0x7f020022
-			public const int vinyl = 2130837538;
+			public const int tutorial = 2130837538;
+			
+			// aapt resource value: 0x7f020023
+			public const int vinyl = 2130837539;
 			
 			static Drawable()
 			{
@@ -266,20 +269,128 @@ namespace Virtual_Guitar_Teacher
 			// aapt resource value: 0x7f040013
 			public const int fret1 = 2130968595;
 			
+			// aapt resource value: 0x7f04006e
+			public const int fret1_string_A = 2130968686;
+			
+			// aapt resource value: 0x7f040074
+			public const int fret1_string_B = 2130968692;
+			
+			// aapt resource value: 0x7f040070
+			public const int fret1_string_D = 2130968688;
+			
+			// aapt resource value: 0x7f04006c
+			public const int fret1_string_E = 2130968684;
+			
+			// aapt resource value: 0x7f040072
+			public const int fret1_string_G = 2130968690;
+			
+			// aapt resource value: 0x7f040076
+			public const int fret1_string_e = 2130968694;
+			
 			// aapt resource value: 0x7f040012
 			public const int fret2 = 2130968594;
+			
+			// aapt resource value: 0x7f040062
+			public const int fret2_string_A = 2130968674;
+			
+			// aapt resource value: 0x7f040068
+			public const int fret2_string_B = 2130968680;
+			
+			// aapt resource value: 0x7f040064
+			public const int fret2_string_D = 2130968676;
+			
+			// aapt resource value: 0x7f040060
+			public const int fret2_string_E = 2130968672;
+			
+			// aapt resource value: 0x7f040066
+			public const int fret2_string_G = 2130968678;
+			
+			// aapt resource value: 0x7f04006a
+			public const int fret2_string_e = 2130968682;
 			
 			// aapt resource value: 0x7f040011
 			public const int fret3 = 2130968593;
 			
+			// aapt resource value: 0x7f040056
+			public const int fret3_string_A = 2130968662;
+			
+			// aapt resource value: 0x7f04005c
+			public const int fret3_string_B = 2130968668;
+			
+			// aapt resource value: 0x7f040058
+			public const int fret3_string_D = 2130968664;
+			
+			// aapt resource value: 0x7f040054
+			public const int fret3_string_E = 2130968660;
+			
+			// aapt resource value: 0x7f04005a
+			public const int fret3_string_G = 2130968666;
+			
+			// aapt resource value: 0x7f04005e
+			public const int fret3_string_e = 2130968670;
+			
 			// aapt resource value: 0x7f040010
 			public const int fret4 = 2130968592;
+			
+			// aapt resource value: 0x7f04004a
+			public const int fret4_string_A = 2130968650;
+			
+			// aapt resource value: 0x7f040050
+			public const int fret4_string_B = 2130968656;
+			
+			// aapt resource value: 0x7f04004c
+			public const int fret4_string_D = 2130968652;
+			
+			// aapt resource value: 0x7f040048
+			public const int fret4_string_E = 2130968648;
+			
+			// aapt resource value: 0x7f04004e
+			public const int fret4_string_G = 2130968654;
+			
+			// aapt resource value: 0x7f040052
+			public const int fret4_string_e = 2130968658;
 			
 			// aapt resource value: 0x7f04000f
 			public const int fret5 = 2130968591;
 			
+			// aapt resource value: 0x7f04003e
+			public const int fret5_string_A = 2130968638;
+			
+			// aapt resource value: 0x7f040044
+			public const int fret5_string_B = 2130968644;
+			
+			// aapt resource value: 0x7f040040
+			public const int fret5_string_D = 2130968640;
+			
+			// aapt resource value: 0x7f04003c
+			public const int fret5_string_E = 2130968636;
+			
+			// aapt resource value: 0x7f040042
+			public const int fret5_string_G = 2130968642;
+			
+			// aapt resource value: 0x7f040046
+			public const int fret5_string_e = 2130968646;
+			
 			// aapt resource value: 0x7f04000e
 			public const int fret6 = 2130968590;
+			
+			// aapt resource value: 0x7f040032
+			public const int fret6_string_A = 2130968626;
+			
+			// aapt resource value: 0x7f040038
+			public const int fret6_string_B = 2130968632;
+			
+			// aapt resource value: 0x7f040034
+			public const int fret6_string_D = 2130968628;
+			
+			// aapt resource value: 0x7f040030
+			public const int fret6_string_E = 2130968624;
+			
+			// aapt resource value: 0x7f040036
+			public const int fret6_string_G = 2130968630;
+			
+			// aapt resource value: 0x7f04003a
+			public const int fret6_string_e = 2130968634;
 			
 			// aapt resource value: 0x7f04002a
 			public const int gridLayout = 2130968618;
@@ -295,6 +406,24 @@ namespace Virtual_Guitar_Teacher
 			
 			// aapt resource value: 0x7f040014
 			public const int openString = 2130968596;
+			
+			// aapt resource value: 0x7f04007a
+			public const int openString_string_A = 2130968698;
+			
+			// aapt resource value: 0x7f040080
+			public const int openString_string_B = 2130968704;
+			
+			// aapt resource value: 0x7f04007c
+			public const int openString_string_D = 2130968700;
+			
+			// aapt resource value: 0x7f040078
+			public const int openString_string_E = 2130968696;
+			
+			// aapt resource value: 0x7f04007e
+			public const int openString_string_G = 2130968702;
+			
+			// aapt resource value: 0x7f040082
+			public const int openString_string_e = 2130968706;
 			
 			// aapt resource value: 0x7f040000
 			public const int showcase_button = 2130968576;
@@ -340,6 +469,132 @@ namespace Virtual_Guitar_Teacher
 			
 			// aapt resource value: 0x7f040022
 			public const int tableRow3 = 2130968610;
+			
+			// aapt resource value: 0x7f04006d
+			public const int tableRow_fret1_string_A = 2130968685;
+			
+			// aapt resource value: 0x7f040073
+			public const int tableRow_fret1_string_B = 2130968691;
+			
+			// aapt resource value: 0x7f04006f
+			public const int tableRow_fret1_string_D = 2130968687;
+			
+			// aapt resource value: 0x7f04006b
+			public const int tableRow_fret1_string_E = 2130968683;
+			
+			// aapt resource value: 0x7f040071
+			public const int tableRow_fret1_string_G = 2130968689;
+			
+			// aapt resource value: 0x7f040075
+			public const int tableRow_fret1_string_e = 2130968693;
+			
+			// aapt resource value: 0x7f040061
+			public const int tableRow_fret2_string_A = 2130968673;
+			
+			// aapt resource value: 0x7f040067
+			public const int tableRow_fret2_string_B = 2130968679;
+			
+			// aapt resource value: 0x7f040063
+			public const int tableRow_fret2_string_D = 2130968675;
+			
+			// aapt resource value: 0x7f04005f
+			public const int tableRow_fret2_string_E = 2130968671;
+			
+			// aapt resource value: 0x7f040065
+			public const int tableRow_fret2_string_G = 2130968677;
+			
+			// aapt resource value: 0x7f040069
+			public const int tableRow_fret2_string_e = 2130968681;
+			
+			// aapt resource value: 0x7f040055
+			public const int tableRow_fret3_string_A = 2130968661;
+			
+			// aapt resource value: 0x7f04005b
+			public const int tableRow_fret3_string_B = 2130968667;
+			
+			// aapt resource value: 0x7f040057
+			public const int tableRow_fret3_string_D = 2130968663;
+			
+			// aapt resource value: 0x7f040053
+			public const int tableRow_fret3_string_E = 2130968659;
+			
+			// aapt resource value: 0x7f040059
+			public const int tableRow_fret3_string_G = 2130968665;
+			
+			// aapt resource value: 0x7f04005d
+			public const int tableRow_fret3_string_e = 2130968669;
+			
+			// aapt resource value: 0x7f040049
+			public const int tableRow_fret4_string_A = 2130968649;
+			
+			// aapt resource value: 0x7f04004f
+			public const int tableRow_fret4_string_B = 2130968655;
+			
+			// aapt resource value: 0x7f04004b
+			public const int tableRow_fret4_string_D = 2130968651;
+			
+			// aapt resource value: 0x7f040047
+			public const int tableRow_fret4_string_E = 2130968647;
+			
+			// aapt resource value: 0x7f04004d
+			public const int tableRow_fret4_string_G = 2130968653;
+			
+			// aapt resource value: 0x7f040051
+			public const int tableRow_fret4_string_e = 2130968657;
+			
+			// aapt resource value: 0x7f04003d
+			public const int tableRow_fret5_string_A = 2130968637;
+			
+			// aapt resource value: 0x7f040043
+			public const int tableRow_fret5_string_B = 2130968643;
+			
+			// aapt resource value: 0x7f04003f
+			public const int tableRow_fret5_string_D = 2130968639;
+			
+			// aapt resource value: 0x7f04003b
+			public const int tableRow_fret5_string_E = 2130968635;
+			
+			// aapt resource value: 0x7f040041
+			public const int tableRow_fret5_string_G = 2130968641;
+			
+			// aapt resource value: 0x7f040045
+			public const int tableRow_fret5_string_e = 2130968645;
+			
+			// aapt resource value: 0x7f040031
+			public const int tableRow_fret6_string_A = 2130968625;
+			
+			// aapt resource value: 0x7f040037
+			public const int tableRow_fret6_string_B = 2130968631;
+			
+			// aapt resource value: 0x7f040033
+			public const int tableRow_fret6_string_D = 2130968627;
+			
+			// aapt resource value: 0x7f04002f
+			public const int tableRow_fret6_string_E = 2130968623;
+			
+			// aapt resource value: 0x7f040035
+			public const int tableRow_fret6_string_G = 2130968629;
+			
+			// aapt resource value: 0x7f040039
+			public const int tableRow_fret6_string_e = 2130968633;
+			
+			// aapt resource value: 0x7f040079
+			public const int tableRow_openString_string_A = 2130968697;
+			
+			// aapt resource value: 0x7f04007f
+			public const int tableRow_openString_string_B = 2130968703;
+			
+			// aapt resource value: 0x7f04007b
+			public const int tableRow_openString_string_D = 2130968699;
+			
+			// aapt resource value: 0x7f040077
+			public const int tableRow_openString_string_E = 2130968695;
+			
+			// aapt resource value: 0x7f04007d
+			public const int tableRow_openString_string_G = 2130968701;
+			
+			// aapt resource value: 0x7f040081
+			public const int tableRow_openString_string_e = 2130968705;
 			
 			// aapt resource value: 0x7f040018
 			public const int tableRow_string_A = 2130968600;

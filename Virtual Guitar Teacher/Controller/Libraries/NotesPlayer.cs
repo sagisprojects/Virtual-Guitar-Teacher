@@ -233,6 +233,8 @@ namespace Virtual_Guitar_Teacher.Controller.Libraries
             {
                 //Create a new visual representation of that note.
                 NoteRepresentation noteRep = new NoteRepresentation(_activity, note);
+                //Set name on note.
+                noteRep.SetText(note.Name);
                 //Create the note's animation, and add that animation to the animations array.
                 animationsList.Add(noteRep.CreateNoteAnimation_FadeOnly(position));
             }

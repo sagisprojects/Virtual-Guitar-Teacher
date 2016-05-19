@@ -1,12 +1,11 @@
 - Write more songs.
 - Decide what happens when notes animations end.
-
 - Make showcases (help layer) for each screen.
-- Make sure the app is always in horizontal scape, with no hiccups.
-- Continue developing Recorder class for recording a song visually from the screen (and perhaps later, from sound input), so it can be saved as a song file (.vgts).
-- Finish up MicrophoneRecorder so it will yield the fundamental frequency.
 - Perhaps MicrophoneRecorder should have a Start, Pause, and Stop methods - for capturing audio input at the correct moments.
+- Finish up MicrophoneRecorder so it will yield the fundamental frequency.
 - Test fret and note alignment on at least 3 different screen sizes.
+- Make sure the app is always in horizontal scape, with no hiccups.
+VX - Continue developing Recorder class for recording a song visually from the screen (and perhaps later, from sound input), so it can be saved as a song file (.vgts).
 V - Notes animations should be correctly aligned with their corresponding visual fret.
 V - Tuner should have a dial.
 V - Add a corresponding smiley face indicator for each note sound input capture.
